@@ -67,8 +67,7 @@
       "key": "{#39}│ {#31}  {#39}Pkgs   {#39}│",
       "keyColor": "31;1",
       "outputColor": "31;1",
-      "type": "packages",
-      "format": "{1}"
+      "type": "packages"
     },
     {
       "key": "{#39}│ {#32}󰇄  {#39}DE     {#39}│",

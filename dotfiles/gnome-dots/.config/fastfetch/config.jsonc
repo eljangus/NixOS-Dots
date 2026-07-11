@@ -52,7 +52,7 @@
       "keyColor": "36;1",
       "outputColor": "36;1",
       "type": "kernel",
-      "format": "{2}"
+      "format": "{1} {2}"
     },
     {
       "key": "  {#39}│ {#34}󰅐  {#39}uptime {#39}│",
@@ -72,8 +72,7 @@
       "key": "  {#39}│ {#31}󰏖  {#39}pkgs   {#39}│",
       "keyColor": "31;1",
       "outputColor": "31;1",
-      "type": "packages",
-      "format": "{1}"
+      "type": "packages"
     },
     {
       "key": "  {#39}│ {#33}󰍛  {#39}memory {#39}│",
@@ -98,6 +97,5 @@
       "keyColor": "1;1",
       "type": "custom"
     },
-    "break"
   ]
 }

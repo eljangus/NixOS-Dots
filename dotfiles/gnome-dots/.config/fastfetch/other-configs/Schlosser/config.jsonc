@@ -56,8 +56,7 @@
       "key": " Packages",
       "keyColor": "34;1",
       "outputColor": "1;1",
-      "type": "packages",
-      "format": "{1}"
+      "type": "packages"
     },
     {
       "key": "󰇄 DE      ",
