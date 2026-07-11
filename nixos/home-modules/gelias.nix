@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/gelias";
 
   imports = [
-    ./common/common.nix
+    ./common/common-home.nix
   ];
 
   # Fish shell configuration

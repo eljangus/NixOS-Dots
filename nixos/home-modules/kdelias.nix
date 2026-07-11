@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/kdelias";
 
   imports = [
-    ./common/common.nix
+    ./common/common-home.nix
   ];
 
   # Fish shell configuration

@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/elias";
 
   imports = [
-    ./common/common.nix
+    ./common/common-home.nix
   ];
 
   # mimeApps
