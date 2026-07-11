@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   home.stateVersion = "26.05";
   home.username = "elias";
   home.homeDirectory = "/home/elias";
+
+  imports = [
+    ./common/common.nix
+  ];
 
   # mimeApps
   xdg.mimeApps.enable = true;
@@ -33,11 +37,6 @@
   "video/x-msvideo" = "mpv.desktop";
   "video/x-ms-wmv" = "mpv.desktop";
   "video/mpeg" = "mpv.desktop";
-  };
-
-  # Session variables
-  home.sessionVariables = {
-    EDITOR = "vim";
   };
 
   # Fish shell configuration
@@ -80,42 +79,4 @@
       ls = "eza -la --icons";
     };
   };
-
-  # Vim configuration
-  programs.vim = {
-    enable = true;
-    settings = {
-      expandtab = true;
-      tabstop = 2;
-      number = true;
-      relativenumber = false;
-      shiftwidth = 2;
-      ignorecase = true;
-      smartcase = true;
-      mouse = "a";
-      undofile = false;
-    };
-    extraConfig = ''
-      syntax on
-      filetype plugin indent on
-      set hlsearch
-      set incsearch
-      set noswapfile
-      if executable('wl-copy')
-      xnoremap "+y y:call system("wl-copy", @")<cr>
-      nnoremap "+p :let @+ = system("wl-paste --no-newline")<cr>"+p
-      nnoremap "*p :let @* = system("wl-paste --no-newline --primary")<cr>"*p
-      endif
-      '';
-  };
-
-  # Starship prompt
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  # User-specific packages
-  home.packages = with pkgs; [
-  ];
 }

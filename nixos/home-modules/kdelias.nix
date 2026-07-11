@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   home.stateVersion = "26.05";
   home.username = "kdelias";
   home.homeDirectory = "/home/kdelias";
+
+  imports = [
+    ./common/common.nix
+  ];
 
   # Fish shell configuration
   programs.fish = {
@@ -45,42 +49,4 @@
       ls = "eza -la --icons";
     };
   };
-
-  # Vim configuration
-  programs.vim = {
-    enable = true;
-    settings = {
-      expandtab = true;
-      tabstop = 2;
-      number = true;
-      relativenumber = false;
-      shiftwidth = 2;
-      ignorecase = true;
-      smartcase = true;
-      mouse = "a";
-      undofile = false;
-    };
-    extraConfig = ''
-      syntax on
-      filetype plugin indent on
-      set hlsearch
-      set incsearch
-      set noswapfile
-      if executable('wl-copy')
-      xnoremap "+y y:call system("wl-copy", @")<cr>
-      nnoremap "+p :let @+ = system("wl-paste --no-newline")<cr>"+p
-      nnoremap "*p :let @* = system("wl-paste --no-newline --primary")<cr>"*p
-      endif
-      '';
-  };
-
-  # Starship prompt
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  # User-specific packages
-  home.packages = with pkgs; [
-  ];
 }
