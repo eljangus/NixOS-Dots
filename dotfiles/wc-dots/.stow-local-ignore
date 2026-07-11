@@ -1,0 +1,13 @@
+InstallationScripts
+.git
+icons-noctalia.sh
+README.md
+pkglist.txt
+LaunchCommandsSteam
+misc
+.gitignore
+mimeapps.list
+.screenshots
+NixOS
+settings.toml
+icons
