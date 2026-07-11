@@ -64,7 +64,7 @@
       nrs = "nh os switch ~/NixOS-Dots/nixos#wc-btw";
       nrb = "nh os boot ~/NixOS-Dots/nixos#wc-btw";
       nfu = "nix flake update";
-      nce = "vim ~/NixOS-Dots/nixos/modules/wc.nix";
+      nce = "vim ~/NixOS-Dots/nixos/modules/hosts/wc-btw.nix";
       nhe = "vim ~/NixOS-Dots/nixos/home-modules/elias.nix";
       nfe = "vim ~/NixOS-Dots/nixos/flake.nix";
       try = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
