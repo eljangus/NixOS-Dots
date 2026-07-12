@@ -52,26 +52,10 @@
     motherboard = "amd";
   };
 
-  # Chromium
-  programs.chromium.enable = true;
-
   # Firefox
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
-  };
-
-  # OBS for screen recording
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-      obs-gstreamer
-      obs-vkcapture
-    ];
-    package = pkgs.obs-studio.override {
-      cudaSupport = true;
-    };
   };
 
   # KDE Plasma
@@ -87,6 +71,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     stow
+    obs-studio
     kdePackages.dolphin
     kdePackages.discover
     mpv
@@ -98,6 +83,7 @@
     fzf
     vesktop
     heroic
+    chromium
     kdePackages.oxygen
     easyeffects
     spotify

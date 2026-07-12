@@ -52,26 +52,10 @@
     motherboard = "amd";
   };
 
-  # Chromium
-  programs.chromium.enable = true;
-
   # Firefox
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
-  };
-
-  # OBS for screen recording
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-      obs-gstreamer
-      obs-vkcapture
-    ];
-    package = pkgs.obs-studio.override {
-      cudaSupport = true;
-    };
   };
 
   # GNOME
@@ -81,6 +65,7 @@
   # System packages (only system-level stuff)
   environment.systemPackages = with pkgs; [
     stow
+    obs-studio
     mpv
     killall
     mangohud
@@ -90,6 +75,7 @@
     fzf
     vesktop
     heroic
+    chromium
     gnome-tweaks
     gnome-extension-manager
     easyeffects

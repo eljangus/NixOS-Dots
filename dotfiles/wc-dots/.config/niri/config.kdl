@@ -247,7 +247,6 @@ environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
     NVD_BACKEND "direct"
     MOZ_DISABLE_RDD_SANDBOX "1"
-    LIBVA_DRIVER_NAME "nvidia"
     NIXOS_OZONE_WL "1"
 }
 

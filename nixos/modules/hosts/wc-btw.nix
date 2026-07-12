@@ -90,26 +90,10 @@
   # GVFS for trash support in file managers
   services.gvfs.enable = true;
 
-  # Chromium
-  programs.chromium.enable = true;
-
   # Firefox with pywalfox
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
-  };
-
-  # OBS for screen recording
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-      obs-gstreamer
-      obs-vkcapture
-    ];
-    package = pkgs.obs-studio.override {
-      cudaSupport = true;
-    };
   };
 
   # GPU screen recorder
@@ -120,6 +104,7 @@
     (sddm-astronaut.override { embeddedTheme = "purple_leaves"; })
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     kitty
+    obs-studio
     mpv
     killall
     libsForQt5.qt5ct
@@ -133,6 +118,7 @@
     fzf
     vesktop
     heroic
+    chromium
     satty
     osu-lazer-bin
     spotify
