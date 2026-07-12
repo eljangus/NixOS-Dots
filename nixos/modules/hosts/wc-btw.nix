@@ -81,7 +81,6 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      #xdg-desktop-portal-hyprland
       xdg-desktop-portal-gnome
       xdg-desktop-portal-gtk
     ];
@@ -104,6 +103,7 @@
     (sddm-astronaut.override { embeddedTheme = "purple_leaves"; })
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     kitty
+    ddcutil
     obs-studio
     mpv
     killall
@@ -150,10 +150,6 @@
     blueman
     zenity
     fastfetch
-
-    # Hyprland specific
-
-    # Niri specific
     xwayland-satellite
     gnome-keyring
   ];
