@@ -37,6 +37,10 @@
   "video/x-msvideo" = "mpv.desktop";
   "video/x-ms-wmv" = "mpv.desktop";
   "video/mpeg" = "mpv.desktop";
+  "text/x-chdr" = "codium.desktop";
+  "text/x-csrc" = "codium.desktop";
+  "text/x-c++hdr" = "codium.desktop";
+  "text/x-c++src" = "codium.desktop";
   };
 
   # Fish shell configuration
