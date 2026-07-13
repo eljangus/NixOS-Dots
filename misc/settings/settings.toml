@@ -1,4 +1,7 @@
-config_version = 1
+config_version = 2
+
+[accessibility]
+ui_scale = 1.1500000096857548
 
 [audio]
 enable_overdrive = true
@@ -33,13 +36,20 @@ order = [ "Standard" ]
 [battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
 warning_threshold = 20
 
+[brightness]
+enable_ddcutil = true
+sync_all_monitors = true
+
 [calendar]
 enabled = true
 
 [control_center]
-hidden_tabs = [ "monitor", "power" ]
+hidden_tabs = [ "power" ]
 sidebar_section = "none"
 width = 800
+
+    [control_center.calendar]
+    show_events_card = false
 
     [[control_center.shortcuts]]
     type = "wifi"
@@ -62,7 +72,7 @@ width = 800
 [desktop_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
+widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-0000000000000003", "desktop-widget-0000000000000004" ]
 
     [desktop_widgets.grid]
     cell_size = 8
@@ -79,7 +89,6 @@ widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-000000000000
     type = "audio_visualizer"
 
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
-        aspect_ratio = 6.0
         background_opacity = 0.0
         background_padding = 0.0
         background_radius = 0.0
@@ -98,7 +107,6 @@ widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-000000000000
     type = "audio_visualizer"
 
         [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
-        aspect_ratio = 6.0
         background = true
         background_opacity = 0.0
         background_padding = 0.0
@@ -106,6 +114,18 @@ widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-000000000000
         bands = 44.0
         mirrored = true
         show_when_idle = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 173.4000244140625
+    box_width = 365.5
+    cx = 207.25
+    cy = 1335.699951171875
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background_opacity = 0.0
 
 [dock]
 auto_hide = true
@@ -118,12 +138,17 @@ inactive_scale = 1.0
 launcher_icon = "noctalia"
 launcher_position = "start"
 margin_edge = 10
-monitors = [ "DP-3" ]
 pinned = [ "firefox", "org.gnome.Nautilus", "codium", "vesktop", "steam" ]
 radius = 30
 reserve_space = false
 show_dots = true
 show_instance_count = false
+
+[hot_corners]
+enabled = true
+
+    [hot_corners.top_right]
+    action = "control_center"
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -154,6 +179,8 @@ blur_intensity = 0.79999998211860657
 enabled = true
 schema_version = 2
 widget_order = [
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@HDMI-A-1",
     "lockscreen-login-box@DP-2",
     "lockscreen-login-box@DP-1",
     "lockscreen-login-box@DP-4",
@@ -239,6 +266,46 @@ widget_order = [
         show_login_button = true
         show_password_hint = true
 
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 1321.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 619.0
+    cy = 1229.0
+    output = "winit"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 320.0
     box_width = 736.0
@@ -310,6 +377,7 @@ enabled = [ "noctalia/screen_recorder" ]
 
 [shell]
 avatar_path = "/home/elias/NixOS-Dots/misc/images/DANCs48XcAIsP6j.jpg"
+button_borders = false
 clipboard_auto_paste = "off"
 clipboard_image_action_command = "satty -f -"
 corner_radius_scale = 2.0
@@ -331,28 +399,66 @@ ui_scale = 1.2000000104308128
     borders = false
     clipboard_position = "auto"
     control_center_placement = "floating"
-    floating_offset = 10
+    floating_offset = 12
     launcher_position = "auto"
     open_near_click_clipboard = true
     open_near_click_control_center = true
     open_near_click_launcher = true
     open_near_click_session = true
     open_near_click_wallpaper = true
+    polkit_position = "auto"
     session_placement = "floating"
-    transparency_mode = "soft"
+    transparency_mode = "glass"
     wallpaper_placement = "floating"
 
     [shell.screenshot]
     directory = "/home/elias/Bilder"
 
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 0.0
+    enabled = false
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
 [system.monitor]
 gpu_poll_seconds = 5
 
 [theme]
+builtin = "Tokyo-Night"
 community_palette = "Monochrome"
 custom_palette = "Everforest Alt"
 mode = "dark"
-source = "wallpaper"
+source = "community"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
@@ -360,14 +466,14 @@ source = "wallpaper"
 
 [wallpaper]
 directory = "/home/elias/Wallpapers/Walls"
-transition = [ "wipe" ]
+transition = [ "disc", "fade", "wipe" ]
 transition_duration = 1000
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Kirschblüten-blau.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Kirschblüten-blau.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.monitors.DP-1]
     path = "/home/elias/Wallpapers/Walls/Waldtreppen.png"
@@ -376,10 +482,13 @@ transition_duration = 1000
     path = "/home/elias/Wallpapers/Walls/Waldtreppen.png"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/elias/Wallpapers/Walls/Kirschblüten-blau.png"
+    path = "/home/elias/Wallpapers/Walls/Nix-Simpel.png"
 
     [wallpaper.monitors.DP-4]
-    path = "/home/elias/Wallpapers/Walls/Kirschblüten-blau.png"
+    path = "/home/elias/Wallpapers/Walls/Nix-Simpel.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
@@ -568,8 +677,8 @@ transition_duration = 1000
     wallpaper_scheme = "m3-content"
 
     [[wallpaper.favorite]]
-    custom_palette = "Everforest"
-    palette_source = "custom"
+    community_palette = "Everforest Alt"
+    palette_source = "community"
     path = "/home/elias/Wallpapers/Walls/Waldtreppen.png"
     theme_mode = "dark"
 
