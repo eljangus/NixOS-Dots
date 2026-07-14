@@ -118,6 +118,7 @@
     fzf
     vesktop
     heroic
+    easyeffects
     chromium
     satty
     osu-lazer-bin

@@ -95,6 +95,7 @@ spawn-sh-at-startup "wl-clip-persist --clipboard regular"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "openrgb"
+spawn-sh-at-startup "easyeffects --gapplication-service"
 
 hotkey-overlay {
     skip-at-startup
