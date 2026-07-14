@@ -382,6 +382,7 @@ clipboard_auto_paste = "off"
 clipboard_image_action_command = "satty -f -"
 corner_radius_scale = 2.0
 font_family = "JetBrainsMonoNL Nerd Font Propo"
+lang = "de"
 niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
@@ -476,10 +477,10 @@ transition_duration = 1000
     path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Waldtreppen.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Waldtreppen.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.monitors.DP-3]
     path = "/home/elias/Wallpapers/Walls/Nix-Simpel.png"

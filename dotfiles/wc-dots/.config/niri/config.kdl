@@ -24,14 +24,14 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "DP-3" {
+output "DP-1" {
     mode "2560x1440@239.998"
     scale 1
     transform "normal"
     position x=0 y=0
 }
 
-output "DP-4" {
+output "DP-2" {
     mode "1920x1080@239.964"
     scale 1
     transform "normal"
@@ -251,7 +251,7 @@ environment {
 }
 
 workspace "M" {
-    open-on-output "DP-4"
+    open-on-output "DP-2"
 }
 
 binds {
@@ -276,7 +276,7 @@ binds {
     Mod+Shift+N repeat=false { spawn-sh "noctalia msg screenshot-region"; }
     Mod+N repeat=false { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
     Mod+M repeat=false { spawn-sh "noctalia msg panel-toggle control-center"; }
-    Mod+Alt+C repeat=false { spawn-sh "killall .nautilus-wrapped; nautilus & systemctl --user restart xdg-desktop-portal-gnome & systemctl --user restart xdg-desktop-portal"; }
+    Mod+Alt+C repeat=false { spawn-sh "killall .nautilus-wrapped; nautilus"; }
     Mod+O repeat=false { toggle-overview; }
     Mod+C repeat=false { close-window; }
     Mod+Left  { focus-column-left; }
