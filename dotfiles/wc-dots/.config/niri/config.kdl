@@ -173,7 +173,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^com\.gabm\.satty$"#
+    match app-id=r#"^dev\.faetalize\.waytator$"#
     open-floating true
     default-column-width { fixed 1600; }
     default-window-height { fixed 1200; }

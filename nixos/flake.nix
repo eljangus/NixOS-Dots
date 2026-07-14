@@ -2,6 +2,10 @@
   description = "NixOS flake with home-manager and support for multiple users and DEs/WCs";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    waytator = {
+      url = "github:ItsLemmy/waytator";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

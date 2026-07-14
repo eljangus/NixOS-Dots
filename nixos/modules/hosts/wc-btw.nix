@@ -102,6 +102,7 @@
   environment.systemPackages = with pkgs; [
     (sddm-astronaut.override { embeddedTheme = "purple_leaves"; })
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.waytator.packages.${pkgs.stdenv.hostPlatform.system}.default
     kitty
     ddcutil
     obs-studio
@@ -120,7 +121,6 @@
     heroic
     easyeffects
     chromium
-    satty
     osu-lazer-bin
     spotify
     prismlauncher
