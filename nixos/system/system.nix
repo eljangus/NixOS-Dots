@@ -36,6 +36,9 @@
   };
   console.keyMap = "de";
 
+  # Docs
+  documentation.nixos.enable = false;
+
   # Git
   programs.git.enable = true;
 
