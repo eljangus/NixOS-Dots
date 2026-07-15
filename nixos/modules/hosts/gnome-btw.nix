@@ -1,13 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 {
-
   imports = [
     ../../system/hardware-configuration.nix
     ../../system/system.nix
   ];
 
-  # Users
   users.users.gelias = {
     isNormalUser = true;
     description = "Elias Schlosser";
@@ -16,7 +14,6 @@
     hashedPasswordFile = "/etc/nixos/secrets/gelias.txt";
   };
 
-  # Home Manager
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -24,13 +21,10 @@
     users.gelias = import ../../home-modules/gelias.nix;
   };
 
-  # Dconf
   programs.dconf.enable = true;
 
-  # Shell (required for user shell)
   programs.fish.enable = true;
 
-  # Gaming
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
@@ -42,27 +36,22 @@
     package = pkgs.gamescope;
   };
 
-  # Flatpak
   services.flatpak.enable = true;
 
-  # OpenRGB
   services.hardware.openrgb = {
     enable = true;
     package = pkgs.openrgb-with-all-plugins;
     motherboard = "amd";
   };
 
-  # Firefox
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
   };
 
-  # GNOME
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
 
-  # System packages (only system-level stuff)
   environment.systemPackages = with pkgs; [
     stow
     obs-studio
@@ -96,7 +85,6 @@
     fastfetch
   ];
 
-  # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
     adwaita-fonts

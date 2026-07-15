@@ -1,13 +1,11 @@
 { config, pkgs, ... }:
 
 {
-
   imports = [
     ../../system/hardware-configuration.nix
     ../../system/system.nix
   ];
 
-  # User
   users.users.elias = {
     isNormalUser = true;
     description = "Elias Schlosser";
@@ -16,7 +14,6 @@
     hashedPasswordFile = "/etc/nixos/secrets/elias.txt";
   };
 
-  # Home Manager
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -24,23 +21,18 @@
     users.elias = import ../../home-modules/elias.nix;
   };
 
-  # Dconf
   programs.dconf.enable = true;
 
-  # Polkit
   security.polkit = {
     enable = true;
     enablePkexecWrapper = true;
   };
 
-  # Hyprland
   programs.hyprland.enable = false;
   programs.niri.enable = true;
 
-  # Shell (required for user shell)
   programs.fish.enable = true;
 
-  # Gaming
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
@@ -52,17 +44,14 @@
     package = pkgs.gamescope;
   };
 
-  # Flatpak
   services.flatpak.enable = true;
 
-  # OpenRGB
   services.hardware.openrgb = {
     enable = true;
     package = pkgs.openrgb-with-all-plugins;
     motherboard = "amd";
   };
 
-  # Display Manager
   services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm;
@@ -77,7 +66,6 @@
   };
   services.displayManager.defaultSession = "niri";
 
-  # XDG Portal
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -86,19 +74,15 @@
     ];
   };
 
-  # GVFS for trash support in file managers
   services.gvfs.enable = true;
 
-  # Firefox with pywalfox
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
   };
 
-  # GPU screen recorder
   programs.gpu-screen-recorder.enable = true;
 
-  # System packages (only system-level stuff)
   environment.systemPackages = with pkgs; [
     noctalia
     sddm-theme
@@ -154,7 +138,6 @@
     gnome-keyring
   ];
 
-  # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
     adwaita-fonts

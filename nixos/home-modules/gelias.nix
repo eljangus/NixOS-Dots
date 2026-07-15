@@ -9,7 +9,6 @@
     ./common/common-home.nix
   ];
 
-  # Fish shell configuration
   programs.fish = {
     enable = true;
     functions = {

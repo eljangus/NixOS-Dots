@@ -1,12 +1,10 @@
 { config, ... }:
 
 {
-  # Session variables
   home.sessionVariables = {
     EDITOR = "vim";
   };
 
-  # Vim configuration
   programs.vim = {
     enable = true;
     settings = {
@@ -20,6 +18,7 @@
       mouse = "a";
       undofile = false;
     };
+
     extraConfig = ''
       syntax on
       filetype plugin indent on
@@ -34,7 +33,6 @@
       '';
   };
 
-  # Starship prompt
   programs.starship = {
     enable = true;
     enableFishIntegration = true;

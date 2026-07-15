@@ -1,20 +1,15 @@
 { config, pkgs, inputs, ... }:
 
 {
-
-  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Networking
   networking.hostName = "nix-btw";
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
 
-  # Localization
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "de_DE.UTF-8";
   i18n.extraLocaleSettings = {
@@ -29,27 +24,21 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Keyboard
   services.xserver.xkb = {
     layout = "de";
     variant = "";
   };
   console.keyMap = "de";
 
-  # Docs
   documentation.nixos.enable = false;
 
-  # Git
   programs.git.enable = true;
 
-  # System-wide settings
   nixpkgs.config.allowUnfree = true;
   zramSwap.enable = true;
 
-  # for electron
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Hardware
   hardware.bluetooth.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableAllFirmware = true;
@@ -58,10 +47,8 @@
     enable32Bit = true;
   };
 
-  # AMD GPU
   services.xserver.videoDrivers = ["amdgpu"];
 
-  # Audio
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -72,7 +59,6 @@
     audio.enable = true;
   };
 
-  # nh
   programs.nh = {
     enable = true;
     clean = {
@@ -82,31 +68,17 @@
     };
   };
 
-  # Udev Settings
   services.udev.extraRules = ''
-    # Teevolution Terra
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f523", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f522", MODE="0666", TAG+="uaccess"
-
-    # MCHOSE A7 Ultra V2
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="100b", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="4019", MODE="0666", TAG+="uaccess"
-
-    # Wooting One Legacy
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff01", MODE="0666", TAG+="uaccess"
-
-    # Wooting One update mode
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402", MODE="0666", TAG+="uaccess"
-
-    # Wooting Two Legacy
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="ff02", MODE="0666", TAG+="uaccess"
-
-    # Wooting Two update mode
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403", MODE="0666", TAG+="uaccess"
-
-    # Generic Wooting devices
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", MODE="0666", TAG+="uaccess"
   '';
@@ -135,15 +107,12 @@
     })
   ];
 
-
-  # Nix optimization
   nix.gc = {
     automatic = false;
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
 
-  # Nix settings
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];

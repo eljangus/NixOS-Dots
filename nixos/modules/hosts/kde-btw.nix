@@ -1,13 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 {
-
   imports = [
     ../../system/hardware-configuration.nix
     ../../system/system.nix
   ];
 
-  # User
   users.users.kdelias = {
     isNormalUser = true;
     description = "Elias Schlosser";
@@ -16,7 +14,6 @@
     hashedPasswordFile = "/etc/nixos/secrets/kdelias.txt";
   };
 
-  # Home Manager
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -24,13 +21,10 @@
     users.kdelias = import ../../home-modules/kdelias.nix;
   };
 
-  # Dconf
   programs.dconf.enable = true;
 
-  # Shell (required for user shell)
   programs.fish.enable = true;
 
-  # Gaming
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
@@ -42,23 +36,19 @@
     package = pkgs.gamescope;
   };
 
-  # Flatpak
   services.flatpak.enable = true;
 
-  # OpenRGB
   services.hardware.openrgb = {
     enable = true;
     package = pkgs.openrgb-with-all-plugins;
     motherboard = "amd";
   };
 
-  # Firefox
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
   };
 
-  # KDE Plasma
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
@@ -67,7 +57,6 @@
     enable = true;
   };
 
-  # System packages (only system-level stuff)
   environment.systemPackages = with pkgs; [
     kitty
     stow
@@ -104,7 +93,6 @@
     fastfetch
   ];
 
-  # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
     adwaita-fonts

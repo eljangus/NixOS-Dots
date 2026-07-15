@@ -9,7 +9,6 @@
     ./common/common-home.nix
   ];
 
-  # mimeApps
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
   "image/jpeg" = "imv.desktop";
@@ -43,7 +42,6 @@
   "text/x-c++src" = "codium.desktop";
   };
 
-  # Fish shell configuration
   programs.fish = {
     enable = true;
     functions = {
