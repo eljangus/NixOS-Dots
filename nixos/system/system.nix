@@ -98,7 +98,7 @@
      noctalia = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     })
     (final: prev: {
-      sddm-theme = prev.sddm-astronaut.override {
+      sddm-astronaut = prev.sddm-astronaut.override {
         embeddedTheme = "purple_leaves";
       };
     })

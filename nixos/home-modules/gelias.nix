@@ -32,7 +32,7 @@
     shellAliases = {
       nrs = "nh os switch ~/NixOS-Dots/nixos#gnome-btw";
       nrb = "nh os boot ~/NixOS-Dots/nixos#gnome-btw";
-      nfu = "nix flake update";
+      nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
       nce = "vim ~/NixOS-Dots/nixos/modules/hosts/gnome-btw.nix";
       nhe = "vim ~/NixOS-Dots/nixos/home-modules/gelias.nix";
       nfe = "vim ~/NixOS-Dots/nixos/flake.nix";

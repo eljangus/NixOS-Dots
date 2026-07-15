@@ -85,7 +85,7 @@
 
   environment.systemPackages = with pkgs; [
     noctalia
-    sddm-theme
+    sddm-astronaut
     waytator
     kitty
     ddcutil

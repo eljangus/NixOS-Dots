@@ -32,7 +32,7 @@
     shellAliases = {
       nrs = "nh os switch ~/NixOS-Dots/nixos#kde-btw";
       nrb = "nh os boot ~/NixOS-Dots/nixos#kde-btw";
-      nfu = "nix flake update";
+      nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
       nce = "vim ~/NixOS-Dots/nixos/modules/kde-btw.nix";
       nhe = "vim ~/NixOS-Dots/nixos/home-modules/kdelias.nix";
       nfe = "vim ~/NixOS-Dots/nixos/flake.nix";
