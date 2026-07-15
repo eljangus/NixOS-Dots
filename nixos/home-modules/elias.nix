@@ -70,7 +70,7 @@
       nhe = "vim ~/NixOS-Dots/nixos/home-modules/elias.nix";
       nfe = "vim ~/NixOS-Dots/nixos/flake.nix";
       try = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
-      ncg = "sudo nix-collect-garbage -d";
+      ncg = "nh clean all";
       cff = "reset && fastfetch";
       cff2 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/nitch-like/config.jsonc";
       cff3 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
