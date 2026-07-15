@@ -277,7 +277,7 @@ binds {
     Mod+Shift+N repeat=false { spawn-sh "noctalia msg screenshot-region"; }
     Mod+N repeat=false { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
     Mod+M repeat=false { spawn-sh "noctalia msg panel-toggle control-center"; }
-    Mod+Alt+C repeat=false { spawn-sh "killall .nautilus-wrapped; nautilus"; }
+    Mod+Alt+C repeat=false { spawn-sh "killall .nautilus-wrapped; nautilus & systemctl --user restart xdg-desktop-portal-gnome & systemctl --user restart xdg-desktop-portal"; }
     Mod+O repeat=false { toggle-overview; }
     Mod+C repeat=false { close-window; }
     Mod+Left  { focus-column-left; }
