@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -122,7 +122,19 @@
         ];
       });
     })
+    (final: prev: {
+     noctalia = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    })
+    (final: prev: {
+      sddm-theme = prev.sddm-astronaut.override {
+        embeddedTheme = "purple_leaves";
+      };
+    })
+    (final: prev: {
+      waytator = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    })
   ];
+
 
   # Nix optimization
   nix.gc = {

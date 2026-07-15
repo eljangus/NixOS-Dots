@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -100,9 +100,9 @@
 
   # System packages (only system-level stuff)
   environment.systemPackages = with pkgs; [
-    (sddm-astronaut.override { embeddedTheme = "purple_leaves"; })
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.waytator.packages.${pkgs.stdenv.hostPlatform.system}.default
+    noctalia
+    sddm-theme
+    waytator
     kitty
     ddcutil
     obs-studio
