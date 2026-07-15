@@ -3,8 +3,9 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   networking.hostName = "nix-btw";
   networking.networkmanager.enable = true;
@@ -24,21 +25,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-  console.keyMap = "de";
-
-  documentation.nixos.enable = false;
-
-  programs.git.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
-  zramSwap.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   hardware.bluetooth.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableAllFirmware = true;
@@ -47,18 +33,9 @@
     enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  zramSwap.enable = true;
 
-  services.pipewire = {
-    enable = true;
-    wireplumber.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    audio.enable = true;
-  };
-
+  programs.git.enable = true;
   programs.nh = {
     enable = true;
     clean = {
@@ -68,6 +45,16 @@
     };
   };
 
+  services.xserver.videoDrivers = ["amdgpu"];
+  services.pipewire = {
+    enable = true;
+    wireplumber.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+    audio.enable = true;
+  };
   services.udev.extraRules = ''
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f523", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f522", MODE="0666", TAG+="uaccess"
@@ -82,6 +69,12 @@
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", MODE="0666", TAG+="uaccess"
   '';
+  services.xserver.xkb = {
+    layout = "de";
+    variant = "";
+  };
+
+  console.keyMap = "de";
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -112,6 +105,10 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  nixpkgs.config.allowUnfree = true;
+
+  documentation.nixos.enable = false;
 
   nix.settings = {
     auto-optimise-store = true;

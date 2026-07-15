@@ -21,18 +21,28 @@
     users.elias = import ../../home-modules/elias.nix;
   };
 
-  programs.dconf.enable = true;
-
   security.polkit = {
     enable = true;
     enablePkexecWrapper = true;
   };
 
-  programs.hyprland.enable = false;
-  programs.niri.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   programs.fish.enable = true;
-
+  programs.dconf.enable = true;
+  programs.hyprland.enable = false;
+  programs.niri.enable = true;
+  programs.gpu-screen-recorder.enable = true;
+  programs.firefox = {
+    enable = true;
+    languagePacks= [ "de" ];
+  };
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
@@ -45,13 +55,8 @@
   };
 
   services.flatpak.enable = true;
-
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
-  };
-
+  services.displayManager.defaultSession = "niri";
+  services.gvfs.enable = true;
   services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm;
@@ -64,24 +69,11 @@
       kdePackages.qtbase
     ];
   };
-  services.displayManager.defaultSession = "niri";
-
-  xdg.portal = {
+  services.hardware.openrgb = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-      xdg-desktop-portal-gtk
-    ];
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
   };
-
-  services.gvfs.enable = true;
-
-  programs.firefox = {
-    enable = true;
-    languagePacks= [ "de" ];
-  };
-
-  programs.gpu-screen-recorder.enable = true;
 
   environment.systemPackages = with pkgs; [
     noctalia

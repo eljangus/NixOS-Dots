@@ -21,10 +21,8 @@
     users.kdelias = import ../../home-modules/kdelias.nix;
   };
 
-  programs.dconf.enable = true;
-
   programs.fish.enable = true;
-
+  programs.dconf.enable = true;
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
@@ -35,28 +33,25 @@
     enable = true;
     package = pkgs.gamescope;
   };
+  programs.firefox = {
+    enable = true;
+    languagePacks= [ "de" ];
+  };
 
   services.flatpak.enable = true;
-
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+  };
   services.hardware.openrgb = {
     enable = true;
     package = pkgs.openrgb-with-all-plugins;
     motherboard = "amd";
   };
 
-  programs.firefox = {
-    enable = true;
-    languagePacks= [ "de" ];
-  };
-
-  services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
   ];
-  services.displayManager.sddm = {
-    enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
     kitty
     stow

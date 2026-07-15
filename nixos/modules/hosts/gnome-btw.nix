@@ -21,10 +21,8 @@
     users.gelias = import ../../home-modules/gelias.nix;
   };
 
-  programs.dconf.enable = true;
-
   programs.fish.enable = true;
-
+  programs.dconf.enable = true;
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
@@ -35,15 +33,6 @@
     enable = true;
     package = pkgs.gamescope;
   };
-
-  services.flatpak.enable = true;
-
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
-  };
-
   programs.firefox = {
     enable = true;
     languagePacks= [ "de" ];
@@ -51,6 +40,12 @@
 
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
+  services.flatpak.enable = true;
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
+  };
 
   environment.systemPackages = with pkgs; [
     stow
