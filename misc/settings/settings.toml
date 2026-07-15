@@ -153,6 +153,9 @@ monitors = [ "DP-1" ]
 background_opacity = 0.79999998211860657
 monitors = [ "DP-1" ]
 
+    [osd.kinds]
+    media = false
+
 [plugins]
 enabled = [ "noctalia/screen_recorder" ]
 
