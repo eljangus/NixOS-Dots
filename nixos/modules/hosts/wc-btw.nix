@@ -148,7 +148,6 @@
     gnome-clocks
     decibels
     dconf-editor
-    blueman
     zenity
     fastfetch
     xwayland-satellite
