@@ -22,6 +22,7 @@ padding = 16
 panel_overlap = 0
 radius = 30
 scale = 1.2500000111758709
+start = [ "launcher", "wallpaper", "workspaces", "nix-monitor" ]
 thickness = 48
 widget_spacing = 9
 
@@ -39,8 +40,7 @@ cross_axis_padding = 12
 enabled = true
 inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
-launcher_custom_image = "/home/elias/NixOS-Dots/misc/images/nixos.svg"
-launcher_position = "start"
+launcher_icon = "rocket"
 margin_edge = 10
 pinned = [ "firefox", "org.gnome.Nautilus", "codium", "vesktop", "steam" ]
 radius = 30
@@ -156,8 +156,18 @@ monitors = [ "DP-1" ]
     [osd.kinds]
     media = false
 
+[plugin_settings."avivbintangaringga/nix-monitor"]
+branch = "nixos-unstable"
+clean_command = "nh clean all"
+panel_placement = "floating"
+update_command = "nix flake update --flake ~/NixOS-Dots/nixos"
+
+[plugin_settings."noctalia/wallhaven"]
+browser_open_near_click = true
+browser_placement = "floating"
+
 [plugins]
-enabled = [ "noctalia/screen_recorder" ]
+enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor" ]
 
 [shell]
 avatar_path = "/home/elias/NixOS-Dots/misc/images/DANCs48XcAIsP6j.jpg"
@@ -234,7 +244,12 @@ screen_time_enabled = true
 gpu_poll_seconds = 2
 
 [theme]
-builtin = "Rosé Pine"
+builtin = "Noctalia"
+community_palette = "Monochrome"
+custom_palette = "Everforest Alt"
+mode = "dark"
+source = "community"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "niri", "qt" ]
@@ -245,16 +260,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Sichelmond.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Sichelmond.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Sichelmond.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Sichelmond.png"
+    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
@@ -263,6 +278,9 @@ vertical_format = "\\\\n{:%H\\\\n%M\\\\n-\\\\n󰃮\\\\n%a\\\\n%d\\\\n%m\\\\n%
 [widget.launcher]
 custom_image = "~/NixOS-Dots/misc/images/nixos.svg"
 custom_image_colorize = true
+
+[widget.nix-monitor]
+type = "avivbintangaringga/nix-monitor:nix-monitor"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"

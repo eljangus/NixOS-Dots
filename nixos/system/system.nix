@@ -96,7 +96,7 @@
       };
     })
     (final: prev: {
-      waytator = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      waytator = inputs.waytator.packages.${pkgs.stdenv.hostPlatform.system}.default;
     })
   ];
 
