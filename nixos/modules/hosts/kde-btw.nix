@@ -21,72 +21,78 @@
     users.kdelias = import ../../home-modules/kdelias.nix;
   };
 
-  programs.fish.enable = true;
-  programs.dconf.enable = true;
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = false;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-  programs.gamescope = {
-    enable = true;
-    package = pkgs.gamescope;
-  };
-  programs.firefox = {
-    enable = true;
-    languagePacks= [ "de" ];
-  };
-
-  services.flatpak.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-  };
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
+  programs = {
+    fish.enable = true;
+    dconf.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = false;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamescope = {
+      enable = true;
+      package = pkgs.gamescope;
+    };
+    firefox = {
+      enable = true;
+      languagePacks= [ "de" ];
+    };
   };
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
-  ];
-  environment.systemPackages = with pkgs; [
-    kitty
-    stow
-    obs-studio
-    kdePackages.dolphin
-    kdePackages.discover
-    mpv
-    killall
-    mangohud
-    winetricks
-    wine
-    nix-search-tv
-    fzf
-    vesktop
-    heroic
-    chromium
-    kdePackages.oxygen
-    easyeffects
-    spotify
-    prismlauncher
-    vscodium
-    git
-    gimp
-    imv
-    cava
-    btop
-    hyprpicker
-    eza
-    asciiquarium-transparent
-    cbonsai
-    unimatrix
-    kdePackages.kamera
-    zenity
-    fastfetch
-  ];
+  services = {
+    flatpak.enable = true;
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm = {
+      enable = true;
+    };
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+      motherboard = "amd";
+    };
+  };
+
+  environment = {
+    plasma6.excludePackages = with pkgs.kdePackages; [
+      konsole
+    ];
+    systemPackages = with pkgs; [
+      kitty
+      stow
+      obs-studio
+      kdePackages.dolphin
+      kdePackages.discover
+      mpv
+      killall
+      mangohud
+      winetricks
+      wine
+      nix-search-tv
+      fzf
+      vesktop
+      heroic
+      chromium
+      kdePackages.oxygen
+      easyeffects
+      spotify
+      prismlauncher
+      vscodium
+      git
+      gimp
+      imv
+      cava
+      btop
+      hyprpicker
+      eza
+      asciiquarium-transparent
+      cbonsai
+      unimatrix
+      kdePackages.kamera
+      zenity
+      fastfetch
+    ];
+  };
 
   fonts.packages = with pkgs; [
     noto-fonts

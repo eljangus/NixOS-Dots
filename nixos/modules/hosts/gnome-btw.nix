@@ -21,30 +21,34 @@
     users.gelias = import ../../home-modules/gelias.nix;
   };
 
-  programs.fish.enable = true;
-  programs.dconf.enable = true;
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = false;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-  programs.gamescope = {
-    enable = true;
-    package = pkgs.gamescope;
-  };
-  programs.firefox = {
-    enable = true;
-    languagePacks= [ "de" ];
+  programs = {
+    fish.enable = true;
+    dconf.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = false;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamescope = {
+      enable = true;
+      package = pkgs.gamescope;
+    };
+    firefox = {
+      enable = true;
+      languagePacks= [ "de" ];
+    };
   };
 
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.flatpak.enable = true;
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
+  services = {
+    desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = true;
+    flatpak.enable = true;
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+      motherboard = "amd";
+    };
   };
 
   environment.systemPackages = with pkgs; [

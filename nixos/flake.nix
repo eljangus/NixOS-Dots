@@ -13,7 +13,8 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
   };
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations = let
+    nixosConfigurations =
+      let
       mkSystem = hostname:
       {
         system ? "x86_64-linux",

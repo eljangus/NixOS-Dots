@@ -34,45 +34,52 @@
     ];
   };
 
-  programs.fish.enable = true;
-  programs.dconf.enable = true;
-  programs.hyprland.enable = false;
-  programs.niri.enable = true;
-  programs.gpu-screen-recorder.enable = true;
-  programs.firefox = {
-    enable = true;
-    languagePacks= [ "de" ];
-  };
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = false;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-  programs.gamescope = {
-    enable = true;
-    package = pkgs.gamescope;
+  programs = {
+    fish.enable = true;
+    dconf.enable = true;
+    hyprland.enable = false;
+    niri.enable = true;
+    gpu-screen-recorder.enable = true;
+    firefox = {
+      enable = true;
+      languagePacks= [ "de" ];
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = false;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
+    gamescope = {
+      enable = true;
+      package = pkgs.gamescope;
+    };
   };
 
-  services.flatpak.enable = true;
-  services.displayManager.defaultSession = "niri";
-  services.gvfs.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    package = pkgs.kdePackages.sddm;
-    theme = "sddm-astronaut-theme";
-    wayland.enable = true;
-    extraPackages = with pkgs; [
-      kdePackages.qtmultimedia
-      kdePackages.qtsvg
-      kdePackages.qtvirtualkeyboard
-      kdePackages.qtbase
-    ];
-  };
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
+  services = {
+    flatpak.enable = true;
+    displayManager.defaultSession = "niri";
+    gvfs.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      package = pkgs.kdePackages.sddm;
+      theme = "sddm-astronaut-theme";
+      wayland.enable = true;
+      extraPackages = with pkgs; [
+        kdePackages.qtmultimedia
+        kdePackages.qtsvg
+        kdePackages.qtvirtualkeyboard
+        kdePackages.qtbase
+      ];
+    };
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+      motherboard = "amd";
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -93,8 +100,8 @@
     wine
     nix-search-tv
     fzf
-    vesktop
     heroic
+    vesktop
     easyeffects
     chromium
     osu-lazer-bin

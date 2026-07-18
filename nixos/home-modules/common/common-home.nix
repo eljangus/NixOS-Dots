@@ -5,36 +5,38 @@
     EDITOR = "vim";
   };
 
-  programs.vim = {
-    enable = true;
-    settings = {
-      expandtab = true;
-      tabstop = 2;
-      number = true;
-      relativenumber = false;
-      shiftwidth = 2;
-      ignorecase = true;
-      smartcase = true;
-      mouse = "a";
-      undofile = false;
+  programs = {
+    vim = {
+      enable = true;
+      settings = {
+        expandtab = true;
+        tabstop = 2;
+        number = true;
+        relativenumber = false;
+        shiftwidth = 2;
+        ignorecase = true;
+        smartcase = true;
+        mouse = "a";
+        undofile = false;
+      };
+
+      extraConfig = ''
+        syntax on
+        filetype plugin indent on
+        set hlsearch
+        set incsearch
+        set noswapfile
+        if executable('wl-copy')
+        xnoremap "+y y:call system("wl-copy", @")<cr>
+        nnoremap "+p :let @+ = system("wl-paste --no-newline")<cr>"+p
+        nnoremap "*p :let @* = system("wl-paste --no-newline --primary")<cr>"*p
+        endif
+        '';
     };
 
-    extraConfig = ''
-      syntax on
-      filetype plugin indent on
-      set hlsearch
-      set incsearch
-      set noswapfile
-      if executable('wl-copy')
-      xnoremap "+y y:call system("wl-copy", @")<cr>
-      nnoremap "+p :let @+ = system("wl-paste --no-newline")<cr>"+p
-      nnoremap "*p :let @* = system("wl-paste --no-newline --primary")<cr>"*p
-      endif
-      '';
-  };
-
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }
