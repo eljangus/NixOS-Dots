@@ -200,7 +200,6 @@ screen_time_enabled = true
     open_near_click_wallpaper = true
     polkit_placement = "attached"
     polkit_position = "auto"
-    session_placement = "floating"
 
     [shell.screenshot]
     directory = "~/Bilder/Bildschirmfotos"
