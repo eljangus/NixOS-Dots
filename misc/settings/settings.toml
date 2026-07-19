@@ -12,19 +12,21 @@ sound_volume = 0.99999997764825821
 enabled = true
 
 [bar.default]
-background_opacity = 0.79999998211860657
+capsule = true
+capsule_padding = 8.0
 end = [ "tray", "recorder", "notifications", "volume", "session" ]
 font_family = "JetBrainsMono Nerd Font Propo"
 hover_highlight = false
-margin_edge = 10
-margin_ends = 10
-padding = 16
+margin_ends = 0
+padding = 8
 panel_overlap = 0
-radius = 30
+radius = 20
+radius_top_left = 0
+radius_top_right = 0
 scale = 1.2500000111758709
 start = [ "launcher", "wallpaper", "workspaces", "nix-monitor" ]
 thickness = 48
-widget_spacing = 9
+widget_spacing = 8
 
 [brightness]
 enable_ddcutil = true
@@ -35,14 +37,14 @@ sidebar_section = "none"
 width = 800
 
 [dock]
-background_opacity = 0.79999998211860657
+background_opacity = 0.99999997764825821
 cross_axis_padding = 12
 enabled = true
 inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 launcher_icon = "rocket"
 margin_edge = 10
-pinned = [ "firefox", "org.gnome.Nautilus", "codium", "vesktop", "steam" ]
+pinned = [ "firefox", "org.gnome.Nautilus", "Vesktop", "codium", "steam" ]
 radius = 30
 reserve_space = false
 show_dots = true
@@ -79,7 +81,6 @@ auto_locate = true
 
 [lockscreen]
 blur_intensity = 0.79999998211860657
-monitors = [ "DP-1" ]
 
 [lockscreen_widgets]
 enabled = true
@@ -146,11 +147,11 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         background_opacity = 0.0
 
 [notification]
-background_opacity = 0.79999998211860657
+background_opacity = 0.99999997764825821
 monitors = [ "DP-1" ]
 
 [osd]
-background_opacity = 0.79999998211860657
+background_opacity = 0.99999997764825821
 monitors = [ "DP-1" ]
 
     [osd.kinds]
@@ -188,19 +189,19 @@ screen_time_enabled = true
 
     [shell.panel]
     borders = false
+    clipboard_placement = "attached"
     clipboard_position = "auto"
-    control_center_placement = "floating"
     floating_offset = 12
+    launcher_placement = "attached"
     launcher_position = "auto"
     open_near_click_clipboard = true
     open_near_click_control_center = true
     open_near_click_launcher = true
     open_near_click_session = true
     open_near_click_wallpaper = true
+    polkit_placement = "attached"
     polkit_position = "auto"
     session_placement = "floating"
-    transparency_mode = "soft"
-    wallpaper_placement = "floating"
 
     [shell.screenshot]
     directory = "~/Bilder/Bildschirmfotos"
@@ -244,12 +245,12 @@ screen_time_enabled = true
 gpu_poll_seconds = 2
 
 [theme]
-builtin = "Noctalia"
+builtin = "Catppuccin"
 community_palette = "Monochrome"
 custom_palette = "Everforest Alt"
 mode = "dark"
-source = "community"
-wallpaper_scheme = "m3-content"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "niri", "qt" ]
@@ -260,16 +261,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
+    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
+    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
+    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Kirschast.jpg"
+    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
@@ -280,13 +281,15 @@ custom_image = "~/NixOS-Dots/misc/images/nixos.svg"
 custom_image_colorize = true
 
 [widget.nix-monitor]
+checking_color = "hover"
 type = "avivbintangaringga/nix-monitor:nix-monitor"
+up_to_date_color = "primary"
+update_available_color = "on_error"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
 
 [widget.tray]
-detached_panel = true
 drawer = true
 
 [widget.volume]
