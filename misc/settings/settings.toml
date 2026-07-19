@@ -43,9 +43,8 @@ enabled = true
 inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 launcher_icon = "rocket"
-margin_edge = 10
 pinned = [ "firefox", "org.gnome.Nautilus", "Vesktop", "codium", "steam" ]
-radius = 30
+radius = 20
 reserve_space = false
 show_dots = true
 show_instance_count = false
@@ -160,12 +159,12 @@ monitors = [ "DP-1" ]
 [plugin_settings."avivbintangaringga/nix-monitor"]
 branch = "nixos-unstable"
 clean_command = "nh clean all"
-panel_placement = "floating"
+panel_placement = "attached"
 update_command = "nix flake update --flake ~/NixOS-Dots/nixos"
 
 [plugin_settings."noctalia/wallhaven"]
 browser_open_near_click = true
-browser_placement = "floating"
+browser_placement = "attached"
 
 [plugins]
 enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor" ]
@@ -261,16 +260,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
+    path = "/home/elias/Wallpapers/Walls/Blaue-Stadt.png"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
+    path = "/home/elias/Wallpapers/Walls/Blaue-Stadt.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
+    path = "/home/elias/Wallpapers/Walls/Blaue-Stadt.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Apokalypsenzug.png"
+    path = "/home/elias/Wallpapers/Walls/Blaue-Stadt.png"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
