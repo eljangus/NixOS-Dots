@@ -173,10 +173,10 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^dev\.faetalize\.waytator$"#
+    match app-id=r#"^dev\.faetalize\.swash$"#
     open-floating true
-    default-column-width { fixed 1600; }
-    default-window-height { fixed 1200; }
+    default-column-width { fixed 1500; }
+    default-window-height { fixed 1000; }
 
 }
 
@@ -207,14 +207,14 @@ window-rule {
 window-rule {
     match app-id="dev.noctalia.Noctalia"
     open-floating true
-    default-column-width { fixed 1600; }
-    default-window-height { fixed 1200; }
+    default-column-width { fixed 1500; }
+    default-window-height { fixed 1000; }
 }
 
 window-rule {
     match app-id=r#"^org\.gnome\.Nautilus$"#
     match app-id=r#"^codium$"#
-    opacity 1.0
+    opacity 0.8
 }
 
 layer-rule {

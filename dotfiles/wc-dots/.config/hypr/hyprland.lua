@@ -231,8 +231,8 @@ hl.config({
         repeat_rate = 35,
 
         follow_mouse = 1,
-	accel_profile = flat,
-	force_no_accel = true,
+      	accel_profile = flat,
+	      force_no_accel = true,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
@@ -337,9 +337,9 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.resize({ x = 100, y = 0, relativ
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+-- Scroll through workspaces with mainMod + scroll
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -619,7 +619,7 @@ hl.layer_rule({
 hl.layer_rule({
     name = "attached panel layer",
     blur = true,
-    ignore_alpha = 0.7,
+    ignore_alpha = 0.5,
     blur_popups = true,
     match = {
         namespace = "noctalia-bar-.*"
@@ -652,6 +652,15 @@ hl.layer_rule({
     match = {
         namespace = "^hyprpicker.*",
     }
+})
+
+hl.window_rule({
+   name = "swash float",
+   size = {1500, 1000},
+   float = true,
+   match = {
+     class = "^dev.lemmy.swash.*",
+   }
 })
 
 -- For Noctalia Color templates
