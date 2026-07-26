@@ -101,6 +101,7 @@
     nix-search-tv
     fzf
     heroic
+    hyprpicker
     vesktop
     easyeffects
     chromium
@@ -113,7 +114,6 @@
     imv
     cava
     btop
-    hyprpicker
     cliphist
     wl-clipboard
     wl-clip-persist

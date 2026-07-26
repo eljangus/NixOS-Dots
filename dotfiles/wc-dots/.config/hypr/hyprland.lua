@@ -298,7 +298,7 @@ hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
 hl.bind(" ALT + TAB ", hl.dsp.exec_cmd("noctalia msg window-switcher"))
-hl.bind(" SHIFT + CTRL + P ", hl.dsp.exec_cmd("hyprpicker -l -a"))
+hl.bind(" SHIFT + CTRL + P ", hl.dsp.exec_cmd("noctalia msg panel-toggle oldirtty/color_picker:panel"))
 hl.bind(mainMod .. " + M ", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))

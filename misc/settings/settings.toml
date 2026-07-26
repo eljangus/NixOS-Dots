@@ -1,4 +1,4 @@
-config_version = 2
+config_version = 7
 
 [accessibility]
 ui_scale = 1.1500000096857548
@@ -166,18 +166,26 @@ update_command = "nix flake update --flake ~/NixOS-Dots/nixos"
 browser_open_near_click = true
 browser_placement = "attached"
 
+[plugin_settings."oldirtty/color_picker"]
+hyprpicker-lowercase = true
+panel_open_near_click = true
+panel_placement = "attached"
+
 [plugins]
-enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor" ]
+enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor", "oldirtty/color_picker" ]
 
 [shell]
 avatar_path = "/home/elias/NixOS-Dots/misc/images/DANCs48XcAIsP6j.jpg"
 button_borders = false
+card_borders = false
 clipboard_image_action_command = "waytator"
 corner_radius_scale = 2.0
 font_family = "JetBrainsMono Nerd Font Propo"
+input_borders = false
 niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
+popup_borders = false
 screen_time_enabled = true
 
     [shell.animation]
