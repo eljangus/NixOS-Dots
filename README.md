@@ -6,8 +6,8 @@
 built on [NixOS](https://nixos.org), [Niri](https://github.com/YaLTeR/niri), and [Noctalia Shell](https://noctalia.dev).
 
 <!-- Place your screenshot at misc/images/screenshot.png in the repo (or update the filename below) -->
-![Desktop Screenshot 1](..misc/images/1.png)
-![Desktop Screenshot 2](..misc/images/2.png)
+![Desktop Screenshot 1](../misc/images/1.png)
+![Desktop Screenshot 2](../misc/images/2.png)
 
 </div>
 
