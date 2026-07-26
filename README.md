@@ -5,7 +5,8 @@
 **My personal NNN-stack dotfiles** — a declarative, reproducible Wayland desktop
 built on [NixOS](https://nixos.org), [Niri](https://github.com/YaLTeR/niri), and [Noctalia Shell](https://noctalia.dev).
 
-![Desktop Screenshot 1](./misc/images/screenshots/1.png) ![Desktop Screenshot 2](./misc/images/screenshots/2.png)
+![Desktop Screenshot 1](./misc/images/screenshots/1.png)
+![Desktop Screenshot 2](./misc/images/screenshots/2.png)
 
 </div>
 
