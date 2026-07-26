@@ -251,11 +251,11 @@ screen_time_enabled = true
 gpu_poll_seconds = 2
 
 [theme]
-builtin = "Catppuccin"
+builtin = "Gruvbox"
 community_palette = "Monochrome"
-custom_palette = "Everforest Alt"
+custom_palette = "Gruvbox Schlosser"
 mode = "dark"
-source = "wallpaper"
+source = "custom"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
@@ -267,16 +267,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Haus-am-Fluss.jpg"
+    path = "/home/elias/Wallpapers/Walls/Gasse.png"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Haus-am-Fluss.jpg"
+    path = "/home/elias/Wallpapers/Walls/Gasse.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Haus-am-Fluss.jpg"
+    path = "/home/elias/Wallpapers/Walls/Gasse.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Haus-am-Fluss.jpg"
+    path = "/home/elias/Wallpapers/Walls/Gasse.png"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"

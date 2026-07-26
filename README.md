@@ -23,7 +23,6 @@ theming, and applications — into a known, reproducible state.
 | **NixOS**        | Declarative OS, atomic upgrades, rollbacks                 |
 | **Niri**         | Scrollable-tiling Wayland compositor                       |
 | **Noctalia**     | OpenGL-based bar, launcher, notifications & lockscreen     |
-| **Home Manager** | Per-user dotfile & app configuration                       |
 
 ---
 
