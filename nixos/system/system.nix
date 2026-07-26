@@ -109,7 +109,7 @@
         };
       })
       (final: prev: {
-        waytator = inputs.waytator.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        swash = inputs.swash.packages.${pkgs.stdenv.hostPlatform.system}.default;
       })
     ];
     config = {

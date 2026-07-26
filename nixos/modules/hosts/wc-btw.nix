@@ -29,7 +29,8 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
+      # xdg-desktop-portal-gnome # only for Niri
+      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
   };
@@ -37,8 +38,8 @@
   programs = {
     fish.enable = true;
     dconf.enable = true;
-    hyprland.enable = false;
-    niri.enable = true;
+    hyprland.enable = true;
+    niri.enable = false;
     gpu-screen-recorder.enable = true;
     firefox = {
       enable = true;
@@ -61,7 +62,7 @@
 
   services = {
     flatpak.enable = true;
-    displayManager.defaultSession = "niri";
+    displayManager.defaultSession = "hyprland";
     gvfs.enable = true;
     displayManager.sddm = {
       enable = true;
@@ -85,7 +86,7 @@
   environment.systemPackages = with pkgs; [
     noctalia
     sddm-astronaut
-    waytator
+    swash
     kitty
     ddcutil
     obs-studio
@@ -133,8 +134,10 @@
     dconf-editor
     zenity
     fastfetch
-    xwayland-satellite
-    gnome-keyring
+
+    # only for Niri
+    #xwayland-satellite
+    #gnome-keyring
   ];
 
   fonts.packages = with pkgs; [

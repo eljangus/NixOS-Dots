@@ -91,7 +91,28 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
-        "waytator": "waytator"
+        "swash": "swash"
+      }
+    },
+    "swash": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785074280,
+        "narHash": "sha256-AXNUcDW6jrSqgCt61De1q0hlZIitBaZqB3EsHeJaIgc=",
+        "owner": "ItsLemmy",
+        "repo": "swash",
+        "rev": "edc5e0b825ae7c8254d1f885ad13042e75a8d891",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ItsLemmy",
+        "repo": "swash",
+        "type": "github"
       }
     },
     "systems": {
@@ -106,27 +127,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "waytator": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1785074280,
-        "narHash": "sha256-AXNUcDW6jrSqgCt61De1q0hlZIitBaZqB3EsHeJaIgc=",
-        "owner": "ItsLemmy",
-        "repo": "waytator",
-        "rev": "edc5e0b825ae7c8254d1f885ad13042e75a8d891",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ItsLemmy",
-        "repo": "waytator",
         "type": "github"
       }
     }
