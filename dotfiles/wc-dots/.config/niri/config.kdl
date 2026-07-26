@@ -173,7 +173,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^dev\.faetalize\.swash$"#
+    match app-id=r#"^dev\.lemmy\.swash$"#
     open-floating true
     default-column-width { fixed 1500; }
     default-window-height { fixed 1000; }
@@ -232,8 +232,8 @@ layer-rule {
 
 blur {
     passes 4 // (set to 1 to remove seam between attached panels and the bar for noctalia)
-    offset 1.9
-    noise 0.1
+    offset 6
+    noise 0
     saturation 1
 }
 
