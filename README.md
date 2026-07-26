@@ -15,7 +15,7 @@ built on [NixOS](https://nixos.org), [Niri](https://github.com/YaLTeR/niri), and
 ## ✨ Overview
 
 This repository is my daily-driver NixOS configuration, managed using a flake.
-One `nh os switch` gets the whole system — window manager, shell,
+One `nixos-rebuild` gets the whole system — window manager, shell,
 theming, and applications — into a known, reproducible state.
 
 | Component        | Role                                                       |
@@ -97,7 +97,7 @@ cd NixOS-Dots
 # Review and edit hardware-configuration.nix and host settings for your machine
 
 # Rebuild
-nh os switch .#<hostname>
+sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
 ---
