@@ -81,7 +81,6 @@ theming, and applications — into a known, reproducible state.
 │       ├── hardware-configuration.nix
 │       └── system.nix
 └── README.md
-
 ```
 
 ---
