@@ -1,4 +1,4 @@
-config_version = 7
+config_version = 8
 
 [accessibility]
 ui_scale = 1.1500000096857548
@@ -37,6 +37,7 @@ sidebar_section = "none"
 width = 800
 
 [dock]
+auto_hide = true
 background_opacity = 0.99999997764825821
 cross_axis_padding = 12
 enabled = true
@@ -48,7 +49,6 @@ radius = 20
 reserve_space = false
 show_dots = true
 show_instance_count = false
-smart_auto_hide = true
 
 [hot_corners]
 enabled = true
@@ -92,8 +92,8 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 229.0
+    box_width = 720.0
     cx = 1280.0
     cy = 1321.0
     output = "DP-1"
@@ -107,14 +107,17 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_password_hint = true
+        show_media = true
+        show_session_buttons = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 229.0
+    box_width = 720.0
     cx = 960.0
     cy = 961.0
     output = "DP-2"
@@ -128,10 +131,13 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_password_hint = true
+        show_media = true
+        show_session_buttons = true
+        show_weather = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 288.0
@@ -253,10 +259,10 @@ gpu_poll_seconds = 2
 [theme]
 builtin = "Gruvbox"
 community_palette = "Monochrome"
-custom_palette = "Gruvbox Schlosser"
+custom_palette = "Paradise"
 mode = "dark"
 source = "custom"
-wallpaper_scheme = "m3-tonal-spot"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "niri", "qt" ]
@@ -267,16 +273,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Gasse.png"
+    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Gasse.png"
+    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Gasse.png"
+    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Gasse.png"
+    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
@@ -290,7 +296,7 @@ custom_image_colorize = true
 checking_color = "hover"
 type = "avivbintangaringga/nix-monitor:nix-monitor"
 up_to_date_color = "primary"
-update_available_color = "on_error"
+update_available_color = "secondary"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
@@ -304,3 +310,4 @@ show_label = false
 [widget.workspaces]
 display = "name"
 labels_only_when_occupied = true
+scroll_repeat = "steps"
