@@ -101,6 +101,8 @@
     nix-search-tv
     fzf
     heroic
+    cabextract # for heroic
+    p7zip # for heroic
     hyprpicker
     vesktop
     easyeffects

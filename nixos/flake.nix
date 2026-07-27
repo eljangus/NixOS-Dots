@@ -1,7 +1,7 @@
 {
   description = "NixOS flake with home-manager and support for multiple users and DEs/WCs";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     swash = {
       url = "github:ItsLemmy/swash";
       inputs.nixpkgs.follows = "nixpkgs";
