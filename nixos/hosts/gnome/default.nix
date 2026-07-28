@@ -5,9 +5,9 @@
     ./user.nix
     ./home.nix
     ./pkgs.nix
-    ./boot.nix
-    ./networking.nix
+    ../../system/Apollo/networking.nix
     ../../system/Apollo/hardware-configuration.nix
+    ../../modules/nixos/system/boot.nix
     ../../modules/nixos/programs/fish.nix
     ../../modules/nixos/programs/dconf.nix
     ../../modules/nixos/programs/firefox.nix
