@@ -2,92 +2,24 @@
 
 {
   imports = [
-    ../../system/hardware-configuration.nix
-    ../../system/system.nix
+    ./user.nix
+    ./home.nix
+    ./pkgs.nix
+    ./boot.nix
+    ./networking.nix
+    ../../system/Apollo/hardware-configuration.nix
+    ../../modules/nixos/programs/fish.nix
+    ../../modules/nixos/programs/dconf.nix
+    ../../modules/nixos/programs/firefox.nix
+    ../../modules/nixos/programs/steam.nix
+    ../../modules/nixos/programs/gamescope.nix
+    ../../modules/nixos/system/services/flatpak.nix
+    ../../modules/nixos/system/services/hardware/openrgb.nix
+    ../../modules/nixos/system/services/displayManager/gdm.nix
+    ../../modules/nixos/system/services/desktopManager/gnome.nix
+    ../../modules/nixos/system/default.nix
+    ../../modules/nixos/system/nixpkgs/config.nix
   ];
 
-  users.users.gelias = {
-    isNormalUser = true;
-    description = "Elias Schlosser";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
-    hashedPasswordFile = "/etc/nixos/secrets/gelias.txt";
-  };
-
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    backupFileExtension = "backup";
-    users.gelias = import ../../home-modules/gelias.nix;
-  };
-
-  programs = {
-    fish.enable = true;
-    dconf.enable = true;
-    steam = {
-      enable = true;
-      gamescopeSession.enable = false;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-    gamescope = {
-      enable = true;
-      package = pkgs.gamescope;
-    };
-    firefox = {
-      enable = true;
-      languagePacks= [ "de" ];
-    };
-  };
-
-  services = {
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-    flatpak.enable = true;
-    hardware.openrgb = {
-      enable = true;
-      package = pkgs.openrgb-with-all-plugins;
-      motherboard = "amd";
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    stow
-    obs-studio
-    mpv
-    killall
-    mangohud
-    winetricks
-    wine
-    nix-search-tv
-    fzf
-    vesktop
-    heroic
-    chromium
-    gnome-tweaks
-    gnome-extension-manager
-    easyeffects
-    spotify
-    prismlauncher
-    vscodium
-    git
-    gimp
-    imv
-    cava
-    btop
-    hyprpicker
-    eza
-    asciiquarium-transparent
-    cbonsai
-    unimatrix
-    zenity
-    fastfetch
-  ];
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    adwaita-fonts
-    nerd-fonts.jetbrains-mono
-    noto-fonts-cjk-sans
-  ];
+  system.stateVersion = "26.05";
 }
