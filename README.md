@@ -84,7 +84,13 @@ theming, and applications — into a known, reproducible state.
 │   │       ├── home.nix
 │   │       ├── networking.nix
 │   │       ├── pkgs.nix
-│   │       └── user.nix
+│   │       ├── user.nix
+│   │       └── wc
+│   │           ├── hyprland.nix
+│   │           ├── niri.nix
+│   │           └── pkgs
+│   │               ├── hyprland-pkgs.nix
+│   │               └── niri-pkgs.nix
 │   ├── modules
 │   │   ├── home-manager
 │   │   │   ├── elias

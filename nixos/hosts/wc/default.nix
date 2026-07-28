@@ -7,16 +7,15 @@
     ./pkgs.nix
     ./boot.nix
     ./networking.nix
+    ./wc/niri.nix
     ../../system/Apollo/hardware-configuration.nix
     ../../modules/nixos/programs/fish.nix
     ../../modules/nixos/programs/dconf.nix
-    ../../modules/nixos/programs/niri.nix
     ../../modules/nixos/programs/gpu-screen-recorder.nix
     ../../modules/nixos/programs/firefox.nix
     ../../modules/nixos/programs/steam.nix
     ../../modules/nixos/programs/gamescope.nix
     ../../modules/nixos/system/security/polkit.nix
-    ../../modules/nixos/system/xdg/portals-niri.nix
     ../../modules/nixos/system/default.nix
     ../../modules/nixos/system/nix.nix
     ../../modules/nixos/system/environment/sessionVariables.nix
@@ -25,7 +24,6 @@
     ../../modules/nixos/system/services/pipewire.nix
     ../../modules/nixos/system/services/udev.nix
     ../../modules/nixos/system/services/displayManager/sddm-astronaut.nix
-    ../../modules/nixos/system/services/displayManager/defaultSession-niri.nix
     ../../modules/nixos/system/services/hardware/openrgb.nix
     ../../modules/nixos/system/services/xserver/amdgpu.nix
     ../../modules/nixos/system/services/xserver/xkb.nix
