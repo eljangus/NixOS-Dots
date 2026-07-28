@@ -1,10 +1,10 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ../programs/git.nix
     ../programs/nh.nix
-  ]
+  ];
 
   time.timeZone = "Europe/Berlin";
   i18n = {
@@ -32,8 +32,6 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      extra-substituters = [ "https://noctalia.cachix.org" ];
-      extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
     };
   };
 

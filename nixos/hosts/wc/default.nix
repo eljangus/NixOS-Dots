@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -24,7 +24,7 @@
     ../../modules/nixos/system/services/gvfs.nix
     ../../modules/nixos/system/services/pipewire.nix
     ../../modules/nixos/system/services/udev.nix
-    ../../modules/nixos/system/services/displayManager/sddm.nix
+    ../../modules/nixos/system/services/displayManager/sddm-astronaut.nix
     ../../modules/nixos/system/services/displayManager/defaultSession-niri.nix
     ../../modules/nixos/system/services/hardware/openrgb.nix
     ../../modules/nixos/system/services/xserver/amdgpu.nix
@@ -34,6 +34,7 @@
     ../../modules/nixos/system/hardware/enableAllFirmware.nix
     ../../modules/nixos/system/hardware/graphics.nix
     ../../modules/nixos/system/nixpkgs/overlays/default.nix
+    ../../modules/nixos/system/nixpkgs/config.nix
   ];
 
   system.stateVersion = "26.05";

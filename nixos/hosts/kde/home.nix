@@ -5,6 +5,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.elias = import ../../modules/home-manager/elias/default.nix;
+    users.kdelias = import ../../modules/home-manager/kdelias/default.nix;
   };
 }

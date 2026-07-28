@@ -23,12 +23,9 @@
         set -U fish_greeting ""
       '';
       shellAliases = {
-        nrs = "nh os switch ~/NixOS-Dots/nixos#wc-btw";
-        nrb = "nh os boot ~/NixOS-Dots/nixos#wc-btw";
+        nrs = "nh os switch ~/NixOS-Dots/nixos#wc";
+        nrb = "nh os boot ~/NixOS-Dots/nixos#wc";
         nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
-        nce = "vim ~/NixOS-Dots/nixos/modules/hosts/wc-btw.nix";
-        nhe = "vim ~/NixOS-Dots/nixos/home-modules/elias.nix";
-        nfe = "vim ~/NixOS-Dots/nixos/flake.nix";
         try = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
         ncg = "nh clean all";
         cff = "reset && fastfetch";

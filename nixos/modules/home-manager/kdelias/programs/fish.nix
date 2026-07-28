@@ -1,16 +1,6 @@
-{ config, ... }:
+{ ... }:
 
 {
-  home = {
-    stateVersion = "26.05";
-    username = "gelias";
-    homeDirectory = "/home/gelias";
-  };
-
-  imports = [
-    ./common/common-home.nix
-  ];
-
   programs = {
     fish = {
       enable = true;
@@ -33,12 +23,9 @@
         set -U fish_greeting ""
       '';
       shellAliases = {
-        nrs = "nh os switch ~/NixOS-Dots/nixos#gnome-btw";
-        nrb = "nh os boot ~/NixOS-Dots/nixos#gnome-btw";
+        nrs = "nh os switch ~/NixOS-Dots/nixos#kde";
+        nrb = "nh os boot ~/NixOS-Dots/nixos#kde";
         nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
-        nce = "vim ~/NixOS-Dots/nixos/modules/hosts/gnome-btw.nix";
-        nhe = "vim ~/NixOS-Dots/nixos/home-modules/gelias.nix";
-        nfe = "vim ~/NixOS-Dots/nixos/flake.nix";
         try = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
         ncg = "nh clean all";
         cff = "reset && fastfetch";
