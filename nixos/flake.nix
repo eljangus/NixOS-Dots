@@ -23,14 +23,14 @@
         system = system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./modules/hosts/${hostname}.nix
+          ./hosts/${hostname}/default.nix
           home-manager.nixosModules.home-manager
         ];
       };
       in {
-        wc-btw = mkSystem "wc-btw" { };
-        gnome-btw = mkSystem "gnome-btw" { };
-        kde-btw = mkSystem "kde-btw" { };
+        wc = mkSystem "wc" { };
+        gnome = mkSystem "gnome" { };
+        kde = mkSystem "kde" { };
       };
   };
 }

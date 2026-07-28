@@ -1,10 +1,6 @@
-{ config, ... }:
+{ ... }:
 
 {
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
   programs = {
     vim = {
       enable = true;
@@ -32,11 +28,6 @@
         nnoremap "*p :let @* = system("wl-paste --no-newline --primary")<cr>"*p
         endif
         '';
-    };
-
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
     };
   };
 }

@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  services.displayManager.defaultSession = "hyprland";
+}
