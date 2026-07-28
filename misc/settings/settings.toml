@@ -24,7 +24,7 @@ radius = 20
 radius_top_left = 0
 radius_top_right = 0
 scale = 1.2500000111758709
-start = [ "launcher", "wallpaper", "workspaces", "nix-monitor" ]
+start = [ "launcher", "wallpaper", "nix-monitor", "workspaces" ]
 thickness = 48
 widget_spacing = 8
 
@@ -93,7 +93,7 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
     box_height = 229.0
-    box_width = 720.0
+    box_width = 810.0
     cx = 1280.0
     cy = 1321.0
     output = "DP-1"
@@ -102,11 +102,11 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
         background_color = "surface_variant"
-        background_opacity = 0.88
+        background_opacity = 1.0
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
-        input_radius = 6.0
+        input_radius = 8.0
         layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
@@ -117,16 +117,17 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
     box_height = 229.0
-    box_width = 720.0
+    box_width = 810.0
     cx = 960.0
-    cy = 961.0
+    cy = 958.5
+    enabled = false
     output = "DP-2"
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
         background_color = "surface_variant"
-        background_opacity = 0.88
+        background_opacity = 1.0
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
@@ -258,10 +259,10 @@ gpu_poll_seconds = 2
 
 [theme]
 builtin = "Gruvbox"
-community_palette = "Monochrome"
+community_palette = "Paradise"
 custom_palette = "Paradise"
 mode = "dark"
-source = "custom"
+source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -294,6 +295,7 @@ custom_image_colorize = true
 
 [widget.nix-monitor]
 checking_color = "hover"
+show_text = false
 type = "avivbintangaringga/nix-monitor:nix-monitor"
 up_to_date_color = "primary"
 update_available_color = "secondary"
