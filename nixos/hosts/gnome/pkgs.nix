@@ -2,35 +2,45 @@
 
 {
   environment.systemPackages = with pkgs; [
-    stow
-    obs-studio
-    mpv
-    killall
-    mangohud
+    # core 
+    stow    
     winetricks
     wine
     nix-search-tv
     fzf
+    killall
+    imv
+    eza
+    zenity
+    fastfetch
+    
+    # media
+    obs-studio
     vesktop
-    heroic
-    chromium
-    gnome-tweaks
-    gnome-extension-manager
     easyeffects
     spotify
+    
+    # desktop applications
+    mpv
+    gnome-tweaks
+    gnome-extension-manager
+    
+    # gaming
+    mangohud
+    heroic
     prismlauncher
-    vscodium
-    git
+    
+    # web
+    chromium
+
+    # creativity
     gimp
-    imv
+    
+    # fun
     cava
     btop
-    hyprpicker
-    eza
     asciiquarium-transparent
     cbonsai
     unimatrix
-    zenity
-    fastfetch
   ];
 }
