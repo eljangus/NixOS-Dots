@@ -31,8 +31,8 @@
     dconf-editor
     zenity
     fastfetch
-    xwayland-satellite
-    gnome-keyring
+    xwayland-satellite # Niri only
+    gnome-keyring # Niri only
 
     # media
     obs-studio

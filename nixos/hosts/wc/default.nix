@@ -16,7 +16,7 @@
     ../../modules/nixos/programs/steam.nix
     ../../modules/nixos/programs/gamescope.nix
     ../../modules/nixos/system/security/polkit.nix
-    ../../modules/nixos/system/xdg/portal.nix
+    ../../modules/nixos/system/xdg/portals-niri.nix
     ../../modules/nixos/system/default.nix
     ../../modules/nixos/system/nix.nix
     ../../modules/nixos/system/environment/sessionVariables.nix

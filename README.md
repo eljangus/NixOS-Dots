@@ -167,7 +167,8 @@ theming, and applications — into a known, reproducible state.
 │   │           │       ├── amdgpu.nix
 │   │           │       └── xkb.nix
 │   │           └── xdg
-│   │               └── portal.nix
+│   │               ├── portals-hyprland.nix
+│   │               └── portals-niri.nix
 │   ├── patches
 │   │   └── qt6ct-shenanigans.patch
 │   └── system
