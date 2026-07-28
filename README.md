@@ -65,24 +65,18 @@ theming, and applications — into a known, reproducible state.
 │   ├── flake.nix
 │   ├── hosts
 │   │   ├── gnome
-│   │   │   ├── boot.nix
 │   │   │   ├── default.nix
 │   │   │   ├── home.nix
-│   │   │   ├── networking.nix
 │   │   │   ├── pkgs.nix
 │   │   │   └── user.nix
 │   │   ├── kde
-│   │   │   ├── boot.nix
 │   │   │   ├── default.nix
 │   │   │   ├── home.nix
-│   │   │   ├── networking.nix
 │   │   │   ├── pkgs.nix
 │   │   │   └── user.nix
 │   │   └── wc
-│   │       ├── boot.nix
 │   │       ├── default.nix
 │   │       ├── home.nix
-│   │       ├── networking.nix
 │   │       ├── pkgs.nix
 │   │       ├── user.nix
 │   │       └── wc
@@ -131,6 +125,7 @@ theming, and applications — into a known, reproducible state.
 │   │       │   ├── niri.nix
 │   │       │   └── steam.nix
 │   │       └── system
+│   │           ├── boot.nix
 │   │           ├── default.nix
 │   │           ├── environment
 │   │           │   └── sessionVariables.nix
@@ -179,7 +174,8 @@ theming, and applications — into a known, reproducible state.
 │   │   └── qt6ct-shenanigans.patch
 │   └── system
 │       └── Apollo
-│           └── hardware-configuration.nix
+│           ├── hardware-configuration.nix
+│           └── networking.nix
 └── README.md
 ```
 
