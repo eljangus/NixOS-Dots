@@ -79,6 +79,7 @@
         cff = "reset && fastfetch";
         cff2 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/nitch-like/config.jsonc";
         cff3 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
+        cff4 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/kitty/config.jsonc";
         ff = "fastfetch";
         ff2 = "fastfetch -c ~/.config/fastfetch/other-configs/nitch-like/config.jsonc";
         ff3 = "fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
