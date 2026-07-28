@@ -4,6 +4,8 @@
   imports = [
     ../programs/git.nix
     ../programs/nh.nix
+    ./boot.nix
+    ./nixpkgs/config.nix
   ];
 
   time.timeZone = "Europe/Berlin";

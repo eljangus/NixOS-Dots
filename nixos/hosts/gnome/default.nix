@@ -5,20 +5,22 @@
     ./user.nix
     ./home.nix
     ./pkgs.nix
-    ../../system/Apollo/networking.nix
-    ../../system/Apollo/hardware-configuration.nix
-    ../../modules/nixos/system/boot.nix
-    ../../modules/nixos/programs/fish.nix
-    ../../modules/nixos/programs/dconf.nix
-    ../../modules/nixos/programs/firefox.nix
-    ../../modules/nixos/programs/steam.nix
-    ../../modules/nixos/programs/gamescope.nix
-    ../../modules/nixos/system/services/flatpak.nix
-    ../../modules/nixos/system/services/hardware/openrgb.nix
-    ../../modules/nixos/system/services/displayManager/gdm.nix
-    ../../modules/nixos/system/services/desktopManager/gnome.nix
-    ../../modules/nixos/system/default.nix
-    ../../modules/nixos/system/nixpkgs/config.nix
+
+    (self + "/system/Apollo/networking.nix")
+    (self + "/system/Apollo/hardware-configuration.nix")
+
+    (self + "/modules/nixos/programs/fish.nix")
+    (self + "/modules/nixos/programs/dconf.nix")
+    (self + "/modules/nixos/programs/firefox.nix")
+    (self + "/modules/nixos/programs/steam.nix")
+    (self + "/modules/nixos/programs/gamescope.nix")
+
+    (self + "/modules/nixos/system/services/flatpak.nix")
+    (self + "/modules/nixos/system/services/hardware/openrgb.nix")
+    (self + "/modules/nixos/system/services/displayManager/gdm.nix")
+    (self + "/modules/nixos/system/services/desktopManager/gnome.nix")
+
+    (self + "/modules/nixos/system/default.nix")
   ];
 
   system.stateVersion = "26.05";

@@ -21,7 +21,7 @@
       }:
       nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         modules = [
           ./hosts/${hostname}/default.nix
           home-manager.nixosModules.home-manager
