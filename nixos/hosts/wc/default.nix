@@ -7,7 +7,7 @@
     ./pkgs.nix
     ./boot.nix
     ./networking.nix
-    ./wc/niri.nix
+    ./wc/hyprland.nix
     ../../system/Apollo/hardware-configuration.nix
     ../../modules/nixos/programs/fish.nix
     ../../modules/nixos/programs/dconf.nix

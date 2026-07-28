@@ -11,22 +11,25 @@ sound_volume = 0.99999997764825821
 [backdrop]
 enabled = true
 
-[bar.default]
-capsule = true
-capsule_padding = 8.0
-end = [ "tray", "recorder", "notifications", "volume", "session" ]
-font_family = "JetBrainsMono Nerd Font Propo"
-hover_highlight = false
-margin_ends = 0
-padding = 8
-panel_overlap = 0
-radius = 20
-radius_top_left = 0
-radius_top_right = 0
-scale = 1.2500000111758709
-start = [ "launcher", "wallpaper", "nix-monitor", "workspaces" ]
-thickness = 48
-widget_spacing = 8
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    capsule = true
+    capsule_padding = 8.0
+    end = [ "tray", "recorder", "notifications", "volume", "session" ]
+    font_family = "JetBrainsMono Nerd Font Propo"
+    hover_highlight = false
+    margin_ends = 0
+    padding = 8
+    panel_overlap = 0
+    radius = 20
+    radius_top_left = 0
+    radius_top_right = 0
+    scale = 1.2500000111758709
+    start = [ "launcher", "wallpaper", "nix-monitor", "workspaces" ]
+    thickness = 48
+    widget_spacing = 8
 
 [brightness]
 enable_ddcutil = true
@@ -266,7 +269,7 @@ source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "niri", "qt" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
     community_ids = [ "pywalfox", "vscode", "discord", "papirus-icons" ]
 
 [wallpaper]
@@ -302,6 +305,10 @@ update_available_color = "secondary"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
+
+[widget.taskbar]
+scale = 1.75
+show_all_outputs = true
 
 [widget.tray]
 drawer = true
