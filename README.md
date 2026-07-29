@@ -41,110 +41,90 @@ theming, and applications — into a known, reproducible state.
 
 ```
 .
-├── dotfiles
-│   ├── gnome-dots
-│   ├── kde-dots
-│   └── wc-dots
-├── misc
-│   ├── images
-│   │   ├── DANCs48XcAIsP6j.jpg
-│   │   ├── nixos.svg
-│   │   ├── NixOS.svg
-│   │   ├── r7OyEq1.jpg
-│   │   └── screenshots
-│   │       ├── 1.png
-│   │       └── 2.png
-│   ├── misc-text
-│   │   └── LaunchCommandsSteam
-│   └── settings
-│       ├── noctalia-vscode-buttons.sh
-│       ├── settings.json
-│       └── settings.toml
-├── nixos
-│   ├── flake.lock
-│   ├── flake.nix
-│   ├── hosts
-│   │   ├── gnome
+├── flake.lock
+├── flake.nix
+├── hosts
+│   ├── gnome
+│   │   ├── default.nix
+│   │   ├── home.nix
+│   │   ├── pkgs.nix
+│   │   └── user.nix
+│   ├── kde
+│   │   ├── default.nix
+│   │   ├── home.nix
+│   │   ├── pkgs.nix
+│   │   └── user.nix
+│   └── wc
+│       ├── default.nix
+│       ├── home.nix
+│       ├── pkgs.nix
+│       └── user.nix
+├── lib
+│   └── import-tree.nix
+├── modules
+│   ├── home-manager
+│   │   ├── common-programs
+│   │   │   ├── default.nix
+│   │   │   ├── fish.nix
+│   │   │   ├── starship.nix
+│   │   │   └── vim.nix
+│   │   ├── elias
 │   │   │   ├── default.nix
 │   │   │   ├── home.nix
-│   │   │   ├── pkgs.nix
-│   │   │   └── user.nix
-│   │   ├── kde
+│   │   │   ├── programs
+│   │   │   │   └── fish.nix
+│   │   │   └── xdg.nix
+│   │   ├── gelias
 │   │   │   ├── default.nix
 │   │   │   ├── home.nix
-│   │   │   ├── pkgs.nix
-│   │   │   └── user.nix
-│   │   └── wc
+│   │   │   └── programs
+│   │   │       └── fish.nix
+│   │   └── kdelias
 │   │       ├── default.nix
 │   │       ├── home.nix
-│   │       ├── pkgs.nix
-│   │       └── user.nix
-│   ├── modules
-│   │   ├── home-manager
-│   │   │   ├── common-programs
-│   │   │   │   ├── default.nix
-│   │   │   │   ├── fish.nix
-│   │   │   │   ├── starship.nix
-│   │   │   │   └── vim.nix
-│   │   │   ├── elias
-│   │   │   │   ├── default.nix
-│   │   │   │   ├── home.nix
-│   │   │   │   ├── programs
-│   │   │   │   │   └── fish.nix
-│   │   │   │   └── xdg.nix
-│   │   │   ├── gelias
-│   │   │   │   ├── default.nix
-│   │   │   │   ├── home.nix
-│   │   │   │   └── programs
-│   │   │   │       └── fish.nix
-│   │   │   └── kdelias
-│   │   │       ├── default.nix
-│   │   │       ├── home.nix
-│   │   │       └── programs
-│   │   │           └── fish.nix
-│   │   └── nixos
-│   │       ├── default.nix
-│   │       ├── options.nix
-│   │       ├── programs
-│   │       │   ├── base.nix
-│   │       │   ├── dconf.nix
-│   │       │   ├── default.nix
-│   │       │   ├── firefox.nix
-│   │       │   ├── fish.nix
-│   │       │   ├── gamescope.nix
-│   │       │   ├── git.nix
-│   │       │   ├── gpu-screen-recorder.nix
-│   │       │   ├── nh.nix
-│   │       │   └── steam.nix
-│   │       └── system
-│   │           ├── amdgpu.nix
-│   │           ├── boot.nix
-│   │           ├── default.nix
-│   │           ├── desktops
-│   │           │   ├── gnome.nix
-│   │           │   ├── hyprland.nix
-│   │           │   ├── niri.nix
-│   │           │   └── plasma6.nix
-│   │           ├── hardware.nix
-│   │           ├── nix.nix
-│   │           ├── overlays
-│   │           │   ├── default.nix
-│   │           │   ├── niri.nix
-│   │           │   ├── noctalia.nix
-│   │           │   ├── options.nix
-│   │           │   ├── qt6ct-kde.nix
-│   │           │   ├── sddm-astronaut.nix
-│   │           │   └── swash.nix
-│   │           ├── polkit.nix
-│   │           ├── services.nix
-│   │           └── xkb.nix
-│   ├── patches
-│   │   └── qt6ct-shenanigans.patch
-│   └── system
-│       └── Apollo
-│           ├── hardware-configuration.nix
-│           └── networking.nix
-└── README.md
+│   │       └── programs
+│   │           └── fish.nix
+│   └── nixos
+│       ├── default.nix
+│       ├── options.nix
+│       ├── programs
+│       │   ├── dconf.nix
+│       │   ├── firefox.nix
+│       │   ├── fish.nix
+│       │   ├── gamescope.nix
+│       │   ├── git.nix
+│       │   ├── gpu-screen-recorder.nix
+│       │   ├── nh.nix
+│       │   └── steam.nix
+│       └── system
+│           ├── amdgpu.nix
+│           ├── boot.nix
+│           ├── desktops
+│           │   ├── gnome.nix
+│           │   ├── hyprland.nix
+│           │   ├── niri.nix
+│           │   └── plasma6.nix
+│           ├── environment.nix
+│           ├── fonts.nix
+│           ├── hardware.nix
+│           ├── nix.nix
+│           ├── noctalia-cachix.nix
+│           ├── overlays
+│           │   ├── niri.nix
+│           │   ├── noctalia.nix
+│           │   ├── qt6ct-kde.nix
+│           │   ├── sddm-astronaut.nix
+│           │   └── swash.nix
+│           ├── polkit.nix
+│           ├── services.nix
+│           ├── time.nix
+│           └── xkb.nix
+├── patches
+│   └── qt6ct-shenanigans.patch
+└── system
+    └── Apollo
+        ├── hardware-configuration.nix
+        └── networking.nix
 ```
 
 ---
