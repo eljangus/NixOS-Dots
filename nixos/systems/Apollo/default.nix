@@ -1,0 +1,5 @@
+{ importTree, ... }:
+
+{
+  imports = importTree ./.;
+}
