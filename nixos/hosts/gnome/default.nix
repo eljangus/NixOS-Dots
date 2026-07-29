@@ -14,6 +14,7 @@
     desktop = "gnome";
     programs = {
       fish.enable = true;
+      dconf.enable = true;
       firefox.enable = true;
       steam.enable = true;
       git.enable = true;
