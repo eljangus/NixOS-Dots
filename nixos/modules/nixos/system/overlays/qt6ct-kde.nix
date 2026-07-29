@@ -1,7 +1,7 @@
 { config, lib, self, ... }:
 
 {
-  config = lib.mkIf config.myModules.overlays.qt6ct-kde.enable {
+  config = lib.mkIf config.myModules.system.overlays.qt6ct-kde.enable {
     nixpkgs.overlays = [
       (final: prev: {
         qt6ct-kde = prev.kdePackages.qt6ct.overrideAttrs (old: {

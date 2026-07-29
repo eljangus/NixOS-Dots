@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 {
-  config = lib.mkIf config.myModules.noctalia-cachix.enable {
+  config = lib.mkIf config.myModules.system.noctalia-cachix.enable {
     nix = {
       settings = {
         extra-substituters = [ "https://noctalia.cachix.org" ];

@@ -2,7 +2,7 @@
 
 {
   config = lib.mkMerge [
-    (lib.mkIf config.myModules.base-services.enable {
+    (lib.mkIf config.myModules.system.base-services.enable {
       services.flatpak.enable = true;
       services.gvfs.enable = true;
       services.pipewire = {
@@ -16,7 +16,7 @@
       };
     })
 
-    (lib.mkIf config.myModules.services.openrgb.enable {
+    (lib.mkIf config.myModules.system.openrgb.enable {
       services.hardware.openrgb = {
         enable = true;
         package = pkgs.openrgb-with-all-plugins;
@@ -24,7 +24,7 @@
       };
     })
 
-    (lib.mkIf config.myModules.services.udev.enable {
+    (lib.mkIf config.myModules.system.udev.enable {
       services.udev.extraRules = ''
         SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f523", MODE="0666", TAG+="uaccess"
         SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f522", MODE="0666", TAG+="uaccess"

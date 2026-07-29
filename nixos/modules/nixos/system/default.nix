@@ -13,7 +13,7 @@
     ./desktops/hyprland.nix
     ./desktops/plasma6.nix
     ./polkit.nix
-    ./nix.nix
+    ./noctalia-cachix.nix
   ];
 
   time.timeZone = "Europe/Berlin";

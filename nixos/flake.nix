@@ -25,6 +25,7 @@
 
         modules = [
           ./hosts/${hostname}/default.nix
+          ./modules/nixos
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit self; };

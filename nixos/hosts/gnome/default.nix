@@ -7,7 +7,6 @@
     ./pkgs.nix
     (self + "/system/Apollo/networking.nix")
     (self + "/system/Apollo/hardware-configuration.nix")
-    (self + "/modules/nixos")
   ];
 
  myModules = {
@@ -15,7 +14,7 @@
     programs = {
       base.enable = true; # base programs, on by default
     };
-    services = {
+    system = {
       openrgb.enable = true;
       udev.enable = true;
     };

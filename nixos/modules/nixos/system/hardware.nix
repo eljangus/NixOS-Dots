@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  config = lib.mkIf config.myModules.hardware.enable {
+  config = lib.mkIf config.myModules.system.hardware.enable {
     hardware = {
       bluetooth.enable = true;
       cpu.amd.updateMicrocode = true;
