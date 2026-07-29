@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./vim.nix
-    ./starship.nix
     ./fish.nix
+    ./starship.nix
+    ./vim.nix
   ];
 }

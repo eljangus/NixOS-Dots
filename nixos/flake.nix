@@ -22,9 +22,13 @@
       nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = { inherit inputs self; };
+
         modules = [
           ./hosts/${hostname}/default.nix
           home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = { inherit self; };
+          }
         ];
       };
       in {

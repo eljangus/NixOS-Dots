@@ -5,6 +5,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.gelias = import ../../modules/home-manager/gelias/default.nix;
+    users.gelias = import (self + "/modules/home-manager/gelias/default.nix");
   };
 }
