@@ -2,10 +2,11 @@
 
 {
   imports = [
-    ../programs/git.nix
-    ../programs/nh.nix
     ./boot.nix
     ./nixpkgs/config.nix
+    ./services/xserver/xkb.nix
+    ./environment/sessionVariables.nix
+    ./services/flatpak.nix
   ];
 
   time.timeZone = "Europe/Berlin";
