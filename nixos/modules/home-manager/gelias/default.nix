@@ -1,5 +1,7 @@
 { importTree, ... }:
 
 {
-  imports = importTree ./.;
+  imports = [
+    ../common-programs/default.nix
+  ] ++ importTree ./.;
 }
