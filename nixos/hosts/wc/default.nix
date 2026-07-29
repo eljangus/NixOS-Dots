@@ -21,6 +21,7 @@
     polkit.enable = true;
     services = {
       openrgb.enable = true;
+      udev.enable = true;
     };
   };
 

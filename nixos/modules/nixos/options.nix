@@ -23,8 +23,6 @@
       description = "enables gvfs, flatpak and pipewire";
     };
 
-    udev.enable = lib.mkEnableOption "enable udev rules";
-
     amdgpu.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -47,6 +45,7 @@
 
     services = {
       openrgb.enable = lib.mkEnableOption "OpenRGB";
+      udev.enable = lib.mkEnableOption "udev rules";
     };
   };
 }

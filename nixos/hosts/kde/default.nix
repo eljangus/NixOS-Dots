@@ -17,6 +17,7 @@
     };
     services = {
       openrgb.enable = true;
+      udev.enable = true;
     };
   };
 

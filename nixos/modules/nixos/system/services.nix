@@ -24,7 +24,7 @@
       };
     })
 
-    (lib.mkIf config.myModules.udev.enable {
+    (lib.mkIf config.myModules.services.udev.enable {
       services.udev.extraRules = ''
         SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f523", MODE="0666", TAG+="uaccess"
         SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f522", MODE="0666", TAG+="uaccess"
