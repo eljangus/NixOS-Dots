@@ -110,6 +110,7 @@ theming, and applications — into a known, reproducible state.
 │   │       ├── default.nix
 │   │       ├── options.nix
 │   │       ├── programs
+│   │       │   ├── base.nix
 │   │       │   ├── dconf.nix
 │   │       │   ├── default.nix
 │   │       │   ├── firefox.nix
@@ -120,6 +121,7 @@ theming, and applications — into a known, reproducible state.
 │   │       │   ├── nh.nix
 │   │       │   └── steam.nix
 │   │       └── system
+│   │           ├── amdgpu.nix
 │   │           ├── boot.nix
 │   │           ├── default.nix
 │   │           ├── desktops
@@ -127,28 +129,19 @@ theming, and applications — into a known, reproducible state.
 │   │           │   ├── hyprland.nix
 │   │           │   ├── niri.nix
 │   │           │   └── plasma6.nix
-│   │           ├── environment
-│   │           │   └── sessionVariables.nix
-│   │           ├── hardware
-│   │           │   └── hardware.nix
+│   │           ├── hardware.nix
 │   │           ├── nix.nix
-│   │           ├── nixpkgs
-│   │           │   ├── config.nix
-│   │           │   └── overlays
-│   │           │       ├── default.nix
-│   │           │       ├── niri.nix
-│   │           │       ├── noctalia.nix
-│   │           │       ├── options.nix
-│   │           │       ├── qt6ct-kde.nix
-│   │           │       ├── sddm-astronaut.nix
-│   │           │       └── swash.nix
-│   │           ├── security
-│   │           │   └── polkit.nix
-│   │           └── services
-│   │               ├── services.nix
-│   │               └── xserver
-│   │                   ├── amdgpu.nix
-│   │                   └── xkb.nix
+│   │           ├── overlays
+│   │           │   ├── default.nix
+│   │           │   ├── niri.nix
+│   │           │   ├── noctalia.nix
+│   │           │   ├── options.nix
+│   │           │   ├── qt6ct-kde.nix
+│   │           │   ├── sddm-astronaut.nix
+│   │           │   └── swash.nix
+│   │           ├── polkit.nix
+│   │           ├── services.nix
+│   │           └── xkb.nix
 │   ├── patches
 │   │   └── qt6ct-shenanigans.patch
 │   └── system
