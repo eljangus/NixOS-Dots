@@ -16,6 +16,7 @@
       gpu-screen-recorder.enable = true;
     };
     system = {
+      base.enable = true; # base system, on by default
       overlays.enable = true;
       noctalia-cachix.enable = true;
       openrgb.enable = true;

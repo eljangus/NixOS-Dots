@@ -1,9 +1,5 @@
-{ ... }:
+{ importTree, ... }:
 
 {
-  imports = [
-    ./fish.nix
-    ./starship.nix
-    ./vim.nix
-  ];
+  imports = importTree ./.;
 }

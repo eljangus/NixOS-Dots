@@ -2,20 +2,6 @@
 
 {
   config = lib.mkMerge [
-    (lib.mkIf config.myModules.system.base-services.enable {
-      services.flatpak.enable = true;
-      services.gvfs.enable = true;
-      services.pipewire = {
-        enable = true;
-        wireplumber.enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
-        audio.enable = true;
-      };
-    })
-
     (lib.mkIf config.myModules.system.openrgb.enable {
       services.hardware.openrgb = {
         enable = true;

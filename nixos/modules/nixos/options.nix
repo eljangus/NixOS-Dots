@@ -1,9 +1,17 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
+let
+  cfgPrograms = config.myModules.programs;
+  cfgSystem = config.myModules.system;
+  cfgOverlays = config.myModules.system.overlays;
+
+  baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" ];
+  baseSystemNames = [ "fonts" "environment" "time" "nix" ];
+  overlayNames = [ "niri" "noctalia" "qt6ct-kde" "sddm-astronaut" "swash" ];
+in
 {
   options.myModules = {
     programs = {
-      base.enable = lib.mkEnableOption "enables firefox, steam, fish, dconf, git, nh";
       firefox.enable = lib.mkEnableOption "Firefox";
       steam.enable = lib.mkEnableOption "Steam";
       gamescope.enable = lib.mkEnableOption "Gamescope";
@@ -12,16 +20,25 @@
       git.enable = lib.mkEnableOption "Git";
       nh.enable = lib.mkEnableOption "nh";
       gpu-screen-recorder.enable = lib.mkEnableOption "GPU Screen Recorder";
+      base.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "enables firefox, steam, fish, dconf, git, nh";
+      };
     };
     system = {
       polkit.enable = lib.mkEnableOption "polkit wrapper for noctalia";
       noctalia-cachix.enable = lib.mkEnableOption "enable noctalia's cachix stuff";
       openrgb.enable = lib.mkEnableOption "OpenRGB";
       udev.enable = lib.mkEnableOption "udev rules";
-      base-services.enable = lib.mkOption {
+      time.enable = lib.mkEnableOption "timezone settings";
+      nix.enable = lib.mkEnableOption "nix settings and configuration, such as enabling flakes and allowing unfree packages";
+      environment.enable = lib.mkEnableOption "general environment stuff I want enabled";
+      fonts.enable = lib.mkEnableOption "fonts";
+      base.enable = lib.mkOption {
         type = lib.types.bool;
         default = true;
-        description = "enables gvfs, flatpak and pipewire";
+        description = "enables gvfs, flatpak and pipewire, such as base environment stuff I always want enabled";
       };
       amdgpu.enable = lib.mkOption {
         type = lib.types.bool;
@@ -48,4 +65,22 @@
       description = "Which desktop/window manager this host runs";
     };
   };
+
+  config = lib.mkMerge [
+    (lib.mkIf cfgPrograms.base.enable {
+      myModules.programs = lib.genAttrs baseProgramNames (name: {
+        enable = lib.mkDefault true;
+      });
+    })
+    (lib.mkIf cfgSystem.base.enable {
+      myModules.system = lib.genAttrs baseSystemNames (name: {
+        enable = lib.mkDefault true;
+      });
+    })
+    (lib.mkIf cfgOverlays.enable {
+      myModules.system.overlays = lib.genAttrs overlayNames (name: {
+        enable = lib.mkDefault true;
+      });
+    })
+  ];
 }

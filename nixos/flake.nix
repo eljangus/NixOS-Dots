@@ -15,20 +15,20 @@
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations =
       let
+      importTree = import ./lib/import-tree.nix { inherit (nixpkgs) lib; };
       mkSystem = hostname:
       {
         system ? "x86_64-linux",
       }:
       nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { inherit inputs self; };
-
+        specialArgs = { inherit inputs self importTree; };
         modules = [
           ./hosts/${hostname}/default.nix
           ./modules/nixos
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = { inherit self; };
+            home-manager.extraSpecialArgs = { inherit self importTree; };
           }
         ];
       };
