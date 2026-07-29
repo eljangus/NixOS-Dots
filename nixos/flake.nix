@@ -24,7 +24,7 @@
         system = system;
         specialArgs = { inherit inputs self importTree; };
         modules = [
-          ./hosts/${hostname}/default.nix
+          ./hosts/${hostname}
           ./modules/nixos
           home-manager.nixosModules.home-manager
           {

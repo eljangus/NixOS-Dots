@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ../common-programs/default.nix
+    ../common-programs
   ] ++ importTree ./.;
 }

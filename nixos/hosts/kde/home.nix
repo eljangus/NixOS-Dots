@@ -5,6 +5,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.kdelias = import (self + "/modules/home-manager/kdelias/default.nix");
+    users.kdelias = import (self + "/modules/home-manager/kdelias");
   };
 }
