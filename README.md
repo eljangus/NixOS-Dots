@@ -81,31 +81,27 @@ theming, and applications — into a known, reproducible state.
 │   │       └── user.nix
 │   ├── modules
 │   │   ├── home-manager
+│   │   │   ├── common-programs
+│   │   │   │   ├── default.nix
+│   │   │   │   ├── fish.nix
+│   │   │   │   ├── starship.nix
+│   │   │   │   └── vim.nix
 │   │   │   ├── elias
 │   │   │   │   ├── default.nix
 │   │   │   │   ├── home.nix
 │   │   │   │   ├── programs
-│   │   │   │   │   ├── default.nix
-│   │   │   │   │   ├── fish.nix
-│   │   │   │   │   ├── starship.nix
-│   │   │   │   │   └── vim.nix
+│   │   │   │   │   └── fish.nix
 │   │   │   │   └── xdg.nix
 │   │   │   ├── gelias
 │   │   │   │   ├── default.nix
 │   │   │   │   ├── home.nix
 │   │   │   │   └── programs
-│   │   │   │       ├── default.nix
-│   │   │   │       ├── fish.nix
-│   │   │   │       ├── starship.nix
-│   │   │   │       └── vim.nix
+│   │   │   │       └── fish.nix
 │   │   │   └── kdelias
 │   │   │       ├── default.nix
 │   │   │       ├── home.nix
 │   │   │       └── programs
-│   │   │           ├── default.nix
-│   │   │           ├── fish.nix
-│   │   │           ├── starship.nix
-│   │   │           └── vim.nix
+│   │   │           └── fish.nix
 │   │   └── nixos
 │   │       ├── default.nix
 │   │       ├── options.nix
