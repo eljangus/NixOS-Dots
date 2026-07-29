@@ -3,6 +3,8 @@
 {
   options.myModules = {
     programs = {
+      base.enable = lib.mkEnableOption "enables firefox, steam, fish, dconf, git, nh";
+
       firefox.enable = lib.mkEnableOption "Firefox";
       steam.enable = lib.mkEnableOption "Steam";
       gamescope.enable = lib.mkEnableOption "Gamescope";
@@ -15,7 +17,11 @@
 
     polkit.enable = lib.mkEnableOption "polkit wrapper for noctalia";
 
-    base-services.enable = lib.mkEnableOption "enable flatpak, gvfs, pipewire";
+    base-services.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "enables gvfs, flatpak and pipewire";
+    };
 
     udev.enable = lib.mkEnableOption "enable udev rules";
 

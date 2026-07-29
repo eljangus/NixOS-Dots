@@ -3,19 +3,16 @@
 {
   imports = [
     ./boot.nix
-    ./nixpkgs/config.nix
-    ./services/xserver/xkb.nix
-    ./services/xserver/amdgpu.nix
-    ./environment/sessionVariables.nix
-    ./services/services.nix
-    ./environment/sessionVariables.nix
-    ./hardware/hardware.nix
-    ./nixpkgs/overlays/default.nix
+    ./xkb.nix
+    ./amdgpu.nix
+    ./services.nix
+    ./hardware.nix
+    ./overlays/default.nix
     ./desktops/gnome.nix
     ./desktops/niri.nix
     ./desktops/hyprland.nix
     ./desktops/plasma6.nix
-    ./security/polkit.nix
+    ./polkit.nix
     ./nix.nix
   ];
 
@@ -36,9 +33,8 @@
   };
 
   zramSwap.enable = true;
-
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   console.keyMap = "de";
-
   documentation.nixos.enable = false;
 
   nix = {
@@ -46,6 +42,12 @@
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
+  };
+
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+    ];
+    allowUnfree = true;
   };
 
   fonts.packages = with pkgs; [

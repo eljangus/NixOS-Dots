@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     ./git.nix
+    ./base.nix
     ./nh.nix
     ./firefox.nix
     ./fish.nix

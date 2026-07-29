@@ -13,14 +13,8 @@
  myModules = {
     desktop = "plasma";
     programs = {
-      fish.enable = true;
-      dconf.enable = true;
-      firefox.enable = true;
-      steam.enable = true;
-      git.enable = true;
-      nh.enable = true;
+      base.enable = true; # base programs, on by default
     };
-    base-services.enable = true;
     services = {
       openrgb.enable = true;
     };

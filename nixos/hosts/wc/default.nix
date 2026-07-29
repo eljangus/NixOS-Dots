@@ -15,16 +15,10 @@
     noctalia-cachix.enable = true;
     overlays.enable = true;
     programs = {
-      fish.enable = true;
-      dconf.enable = true;
-      firefox.enable = true;
-      steam.enable = true;
-      git.enable = true;
-      nh.enable = true;
+      base.enable = true; # base programs, on by default
       gpu-screen-recorder.enable = true;
     };
     polkit.enable = true;
-    base-services.enable = true;
     services = {
       openrgb.enable = true;
     };
