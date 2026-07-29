@@ -78,13 +78,7 @@ theming, and applications — into a known, reproducible state.
 │   │       ├── default.nix
 │   │       ├── home.nix
 │   │       ├── pkgs.nix
-│   │       ├── user.nix
-│   │       └── wc
-│   │           ├── hyprland.nix
-│   │           ├── niri.nix
-│   │           └── pkgs
-│   │               ├── hyprland-pkgs.nix
-│   │               └── niri-pkgs.nix
+│   │       └── user.nix
 │   ├── modules
 │   │   ├── home-manager
 │   │   │   ├── elias
@@ -113,29 +107,30 @@ theming, and applications — into a known, reproducible state.
 │   │   │           ├── starship.nix
 │   │   │           └── vim.nix
 │   │   └── nixos
+│   │       ├── default.nix
+│   │       ├── options.nix
 │   │       ├── programs
 │   │       │   ├── dconf.nix
+│   │       │   ├── default.nix
 │   │       │   ├── firefox.nix
 │   │       │   ├── fish.nix
 │   │       │   ├── gamescope.nix
 │   │       │   ├── git.nix
 │   │       │   ├── gpu-screen-recorder.nix
-│   │       │   ├── hyprland.nix
 │   │       │   ├── nh.nix
-│   │       │   ├── niri.nix
 │   │       │   └── steam.nix
 │   │       └── system
 │   │           ├── boot.nix
 │   │           ├── default.nix
+│   │           ├── desktops
+│   │           │   ├── gnome.nix
+│   │           │   ├── hyprland.nix
+│   │           │   ├── niri.nix
+│   │           │   └── plasma6.nix
 │   │           ├── environment
 │   │           │   └── sessionVariables.nix
-│   │           ├── graphics
 │   │           ├── hardware
-│   │           │   ├── bluetooth.nix
-│   │           │   ├── cpu.nix
-│   │           │   ├── enableAllFirmware.nix
-│   │           │   └── graphics.nix
-│   │           ├── networking
+│   │           │   └── hardware.nix
 │   │           ├── nix.nix
 │   │           ├── nixpkgs
 │   │           │   ├── config.nix
@@ -143,33 +138,17 @@ theming, and applications — into a known, reproducible state.
 │   │           │       ├── default.nix
 │   │           │       ├── niri.nix
 │   │           │       ├── noctalia.nix
+│   │           │       ├── options.nix
 │   │           │       ├── qt6ct-kde.nix
 │   │           │       ├── sddm-astronaut.nix
 │   │           │       └── swash.nix
 │   │           ├── security
 │   │           │   └── polkit.nix
-│   │           ├── services
-│   │           │   ├── desktopManager
-│   │           │   │   ├── gnome.nix
-│   │           │   │   └── plasma6.nix
-│   │           │   ├── displayManager
-│   │           │   │   ├── defaultSession-hyprland.nix
-│   │           │   │   ├── defaultSession-niri.nix
-│   │           │   │   ├── gdm.nix
-│   │           │   │   ├── sddm-astronaut.nix
-│   │           │   │   └── sddm.nix
-│   │           │   ├── flatpak.nix
-│   │           │   ├── gvfs.nix
-│   │           │   ├── hardware
-│   │           │   │   └── openrgb.nix
-│   │           │   ├── pipewire.nix
-│   │           │   ├── udev.nix
-│   │           │   └── xserver
-│   │           │       ├── amdgpu.nix
-│   │           │       └── xkb.nix
-│   │           └── xdg
-│   │               ├── portals-hyprland.nix
-│   │               └── portals-niri.nix
+│   │           └── services
+│   │               ├── services.nix
+│   │               └── xserver
+│   │                   ├── amdgpu.nix
+│   │                   └── xkb.nix
 │   ├── patches
 │   │   └── qt6ct-shenanigans.patch
 │   └── system
