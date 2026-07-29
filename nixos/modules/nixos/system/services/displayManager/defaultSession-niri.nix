@@ -1,5 +1,0 @@
-{ ... }:
-
-{
-  services.displayManager.defaultSession = "niri";
-}

@@ -1,10 +1,10 @@
-{ inputs, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 {
-  nixpkgs = {
-    overlays = [
+  config = lib.mkIf config.myModules.overlays.swash.enable {
+    nixpkgs.overlays = [
       (final: prev: {
-        swash = inputs.swash.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      swash = inputs.swash.packages.${pkgs.stdenv.hostPlatform.system}.default;
       })
     ];
   };

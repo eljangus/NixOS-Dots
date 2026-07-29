@@ -1,5 +1,7 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  services.xserver.videoDrivers = ["amdgpu"];
+  config = lib.mkIf config.myModules.amdgpu.enable {
+    services.xserver.videoDrivers = ["amdgpu"];
+  };
 }

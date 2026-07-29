@@ -5,8 +5,18 @@
     ./boot.nix
     ./nixpkgs/config.nix
     ./services/xserver/xkb.nix
+    ./services/xserver/amdgpu.nix
     ./environment/sessionVariables.nix
-    ./services/flatpak.nix
+    ./services/services.nix
+    ./environment/sessionVariables.nix
+    ./hardware/hardware.nix
+    ./nixpkgs/overlays/default.nix
+    ./desktops/gnome.nix
+    ./desktops/niri.nix
+    ./desktops/hyprland.nix
+    ./desktops/plasma6.nix
+    ./security/polkit.nix
+    ./nix.nix
   ];
 
   time.timeZone = "Europe/Berlin";

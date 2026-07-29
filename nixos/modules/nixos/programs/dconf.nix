@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.dconf.enable = true;
+  config = lib.mkIf config.myModules.programs.dconf.enable {
+    programs.dconf.enable = true;
+  };
 }

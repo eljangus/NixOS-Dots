@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.fish.enable = true;
+  config = lib.mkIf config.myModules.programs.fish.enable {
+    programs.fish.enable = true;
+  };
 }

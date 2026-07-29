@@ -1,8 +1,8 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  nixpkgs = {
-    overlays = [
+  config = lib.mkIf config.myModules.overlays.niri.enable {
+    nixpkgs.overlays = [
       (final: prev: {
         niri = prev.niri.override {
           libdisplay-info = prev.libdisplay-info.overrideAttrs (finalAttrs: {

@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.firefox = {
-    enable = true;
-    languagePacks = [ "de" ];
+  config = lib.mkIf config.myModules.programs.firefox.enable {
+    programs.firefox = {
+      enable = true;
+      languagePacks = [ "de" ];
+    };
   };
 }

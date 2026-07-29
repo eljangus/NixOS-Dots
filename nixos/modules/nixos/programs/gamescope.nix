@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.gamescope = {
-    enable = true;
+  config = lib.mkIf config.myModules.programs.gamescope.enable {
+    programs.gamescope.enable = true;
   };
 }

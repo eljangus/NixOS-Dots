@@ -1,12 +1,14 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.nh = {
-    enable = true;
-    clean = {
+  config = lib.mkIf config.myModules.programs.nh.enable {
+    programs.nh = {
       enable = true;
-      extraArgs = "--keep 5 --keep-since 3d";
-      dates = "weekly";
+      clean = {
+        enable = true;
+        extraArgs = "--keep 5 --keep-since 3d";
+        dates = "weekly";
+      };
     };
   };
 }

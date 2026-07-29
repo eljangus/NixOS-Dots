@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  programs.git.enable = true;
+  config = lib.mkIf config.myModules.programs.git.enable {
+    programs.git.enable = true;
+  };
 }
