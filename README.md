@@ -46,19 +46,16 @@ theming, and applications — into a known, reproducible state.
 ├── hosts
 │   ├── gnome
 │   │   ├── default.nix
-│   │   ├── home.nix
-│   │   ├── pkgs.nix
-│   │   └── user.nix
+│   │   ├── modules.nix
+│   │   └── pkgs.nix
 │   ├── kde
 │   │   ├── default.nix
-│   │   ├── home.nix
-│   │   ├── pkgs.nix
-│   │   └── user.nix
+│   │   ├── modules.nix
+│   │   └── pkgs.nix
 │   └── wc
 │       ├── default.nix
-│       ├── home.nix
-│       ├── pkgs.nix
-│       └── user.nix
+│       ├── modules.nix
+│       └── pkgs.nix
 ├── lib
 │   └── import-tree.nix
 ├── modules
@@ -110,7 +107,6 @@ theming, and applications — into a known, reproducible state.
 │           ├── nix.nix
 │           ├── noctalia-cachix.nix
 │           ├── overlays
-│           │   ├── niri.nix
 │           │   ├── noctalia.nix
 │           │   ├── qt6ct-kde.nix
 │           │   ├── sddm-astronaut.nix
@@ -118,13 +114,28 @@ theming, and applications — into a known, reproducible state.
 │           ├── polkit.nix
 │           ├── services.nix
 │           ├── time.nix
+│           ├── users
 │           └── xkb.nix
 ├── patches
 │   └── qt6ct-shenanigans.patch
-└── system
-    └── Apollo
-        ├── hardware-configuration.nix
-        └── networking.nix
+├── systems
+│   └── Apollo
+│       ├── default.nix
+│       ├── hardware-configuration.nix
+│       └── networking.nix
+└── users
+    ├── elias
+    │   ├── default.nix
+    │   ├── home.nix
+    │   └── user.nix
+    ├── gelias
+    │   ├── default.nix
+    │   ├── home.nix
+    │   └── user.nix
+    └── kdelias
+        ├── default.nix
+        ├── home.nix
+        └── user.nix
 ```
 
 ---
