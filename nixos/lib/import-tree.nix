@@ -4,8 +4,11 @@ dir:
 let
   inherit (builtins) filter map baseNameOf;
   inherit (lib.filesystem) listFilesRecursive;
-  inherit (lib.strings) hasSuffix;
+  inherit (lib.strings) hasSuffix hasPrefix;
 
   files = map toString (listFilesRecursive dir);
 in
-filter (p: hasSuffix ".nix" p && baseNameOf p != "default.nix") files
+filter (
+  p:
+  hasSuffix ".nix" p && baseNameOf p != "default.nix" && !(hasPrefix "_" (baseNameOf p))
+) files
