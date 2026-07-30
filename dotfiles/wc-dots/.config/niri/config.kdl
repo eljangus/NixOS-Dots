@@ -44,7 +44,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 16
+    gaps 10
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -181,7 +181,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 20
+    geometry-corner-radius 0
     clip-to-geometry true
     open-maximized-to-edges false
     draw-border-with-background false

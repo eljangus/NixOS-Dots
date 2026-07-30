@@ -15,20 +15,42 @@ enabled = true
 order = [ "default" ]
 
     [bar.default]
-    capsule = true
     capsule_padding = 8.0
-    end = [ "tray", "recorder", "notifications", "volume", "session" ]
+    center = [ "text_left", "clock", "text_right" ]
+    end = [
+        "text_left",
+        "tray",
+        "text_seperator",
+        "recorder",
+        "text_seperator",
+        "notifications",
+        "text_seperator",
+        "volume",
+        "text_seperator",
+        "session",
+        "text_right"
+    ]
     font_family = "JetBrainsMono Nerd Font Propo"
     hover_highlight = false
     margin_ends = 0
-    padding = 8
+    padding = 0
     panel_overlap = 0
-    radius = 20
+    radius = 0
     radius_top_left = 0
     radius_top_right = 0
     scale = 1.2500000111758709
-    start = [ "launcher", "wallpaper", "nix-monitor", "workspaces" ]
-    thickness = 48
+    start = [
+        "text_left_custom",
+        "launcher",
+        "custom-text",
+        "wallpaper",
+        "text_seperator",
+        "nix-monitor",
+        "text_seperator",
+        "workspaces",
+        "text_right"
+    ]
+    thickness = 42
     widget_spacing = 8
 
 [brightness]
@@ -48,7 +70,7 @@ inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 launcher_icon = "rocket"
 pinned = [ "firefox", "org.gnome.Nautilus", "Vesktop", "codium", "steam" ]
-radius = 20
+radius = 0
 reserve_space = false
 show_dots = true
 show_instance_count = false
@@ -189,7 +211,7 @@ avatar_path = "/home/elias/NixOS-Dots/misc/images/DANCs48XcAIsP6j.jpg"
 button_borders = false
 card_borders = false
 clipboard_image_action_command = "swash"
-corner_radius_scale = 2.0
+corner_radius_scale = 0.0
 font_family = "JetBrainsMono Nerd Font Propo"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
@@ -261,11 +283,11 @@ screen_time_enabled = true
 gpu_poll_seconds = 2
 
 [theme]
-builtin = "Gruvbox"
+builtin = "Catppuccin"
 community_palette = "Paradise"
 custom_palette = "Paradise"
 mode = "dark"
-source = "community"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -277,31 +299,36 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
+    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
+    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
+    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Düster-Mt.-Fuji.jpg"
+    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
 vertical_format = "\\\\n{:%H\\\\n%M\\\\n-\\\\n󰃮\\\\n%a\\\\n%d\\\\n%m\\\\n%y}"
+
+[widget.custom-text]
+color = "outline"
+text = " |"
+type = "text"
 
 [widget.launcher]
 custom_image = "~/NixOS-Dots/misc/images/nixos.svg"
 custom_image_colorize = true
 
 [widget.nix-monitor]
-checking_color = "hover"
+checking_color = "secondary"
 show_text = false
 type = "avivbintangaringga/nix-monitor:nix-monitor"
 up_to_date_color = "primary"
-update_available_color = "secondary"
+update_available_color = "tertiary"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
@@ -309,6 +336,23 @@ type = "noctalia/screen_recorder:recorder"
 [widget.taskbar]
 scale = 1.75
 show_all_outputs = true
+
+[widget.text_left]
+text = "「"
+type = "text"
+
+[widget.text_left_custom]
+text = "「 "
+type = "text"
+
+[widget.text_right]
+text = "」"
+type = "text"
+
+[widget.text_seperator]
+color = "outline"
+text = "|"
+type = "text"
 
 [widget.tray]
 drawer = true
@@ -318,5 +362,5 @@ show_label = false
 
 [widget.workspaces]
 display = "name"
-labels_only_when_occupied = true
 scroll_repeat = "steps"
+style = "minimal"
