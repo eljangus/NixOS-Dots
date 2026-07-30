@@ -6,7 +6,7 @@ let
   cfgOverlays = config.myModules.system.overlays;
 
   baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" ];
-  baseSystemNames = [ "fonts" "environment" "time" "nix" ];
+  baseSystemNames = [ "fonts" "environment" "time" "nix" "xkb" "boot" ];
   overlayNames = [ "noctalia" "qt6ct-kde" "sddm-astronaut" "swash" ];
 in
 {
@@ -35,6 +35,8 @@ in
       nix.enable = lib.mkEnableOption "nix settings and configuration, such as enabling flakes and allowing unfree packages";
       environment.enable = lib.mkEnableOption "general environment stuff I want enabled";
       fonts.enable = lib.mkEnableOption "fonts";
+      xkb.enable = lib.mkEnableOption "xkb to de";
+      boot.enable = lib.mkEnableOption "enable boot stuff";
       base.enable = lib.mkOption {
         type = lib.types.bool;
         default = true;

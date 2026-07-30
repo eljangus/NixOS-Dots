@@ -1,4 +1,4 @@
-{ config, lib, self, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   config = lib.mkIf (config.myModules.desktop == "hyprland") {

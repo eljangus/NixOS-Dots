@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
 
 {
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+  config = lib.mkIf config.myModules.system.boot.enable {
+    boot = {
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
   };
 }

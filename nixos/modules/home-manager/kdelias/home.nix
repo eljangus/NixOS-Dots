@@ -5,5 +5,8 @@
     stateVersion = "26.05";
     username = "kdelias";
     homeDirectory = "/home/kdelias";
+    sessionVariables = {
+      EDITOR = "vim";
+    };
   };
 }

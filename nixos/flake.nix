@@ -25,7 +25,6 @@
         specialArgs = { inherit inputs self importTree; };
         modules = [
           ./hosts/${hostname}
-          ./systems/Apollo
           ./modules/nixos
           home-manager.nixosModules.home-manager
           {

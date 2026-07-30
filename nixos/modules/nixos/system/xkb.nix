@@ -1,8 +1,10 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
+  config = lib.mkIf config.myModules.system.xkb.enable {
+    services.xserver.xkb = {
+      layout = "de";
+      variant = "";
+    };
   };
 }
