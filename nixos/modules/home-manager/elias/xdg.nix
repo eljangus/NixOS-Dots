@@ -3,36 +3,46 @@
 {
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "image/jpeg" = "imv.desktop";
-      "image/png" = "imv.desktop";
-      "image/gif" = "firefox.desktop";
-      "image/webp" = "imv.desktop";
-      "image/heif" = "imv.desktop";
-      "text/plain" = "codium.desktop";
-      "text/css" = "codium.desktop";
-      "application/x-shellscript" = "codium.desktop";
-      "application/x-zerosize" = "codium.desktop";
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "application/pdf" = "firefox.desktop";
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "chromium.desktop";
-      "audio/mpeg" = "org.gnome.Decibels.desktop";
-      "inode/directory" = "org.gnome.Nautilus.desktop";
-      "video/mp4" = "mpv.desktop";
-      "video/x-matroska" = "mpv.desktop";
-      "video/webm" = "mpv.desktop";
-      "video/ogg" = "mpv.desktop";
-      "video/quicktime" = "mpv.desktop";
-      "video/x-flv" = "mpv.desktop";
-      "video/x-msvideo" = "mpv.desktop";
-      "video/x-ms-wmv" = "mpv.desktop";
-      "video/mpeg" = "mpv.desktop";
-      "text/x-chdr" = "codium.desktop";
-      "text/x-csrc" = "codium.desktop";
-      "text/x-c++hdr" = "codium.desktop";
-      "text/x-c++src" = "codium.desktop";
+    defaultApplications =
+      let
+        imageViewer = "imv.desktop";
+        videoViewer = "mpv.desktop";
+        audioViewer = "org.gnome.Decibels.desktop";
+        fileViewer = "org.gnome.Nautilus.desktop";
+        browser = "firefox.desktop";
+        textEditor = "codium.desktop";
+        chromium = "chromium.desktop";
+      in
+    {
+      "image/jpeg" = imageViewer;
+      "image/png" = imageViewer;
+      "image/gif" = browser;
+      "image/webp" = imageViewer;
+      "image/heif" = imageViewer;
+      "text/plain" = textEditor;
+      "text/css" = textEditor;
+      "application/x-shellscript" = textEditor;
+      "application/x-zerosize" = textEditor;
+      "text/html" = browser;
+      "x-scheme-handler/http" = browser;
+      "x-scheme-handler/https" = browser;
+      "application/pdf" = browser;
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = chromium;
+      "audio/mpeg" = audioViewer;
+      "inode/directory" = fileViewer;
+      "video/mp4" = videoViewer;
+      "video/x-matroska" = videoViewer;
+      "video/webm" = videoViewer;
+      "video/ogg" = audioViewer;
+      "video/quicktime" = videoViewer;
+      "video/x-flv" = videoViewer;
+      "video/x-msvideo" = videoViewer;
+      "video/x-ms-wmv" = videoViewer;
+      "video/mpeg" = videoViewer;
+      "text/x-chdr" = textEditor;
+      "text/x-csrc" = textEditor;
+      "text/x-c++hdr" = textEditor;
+      "text/x-c++src" = textEditor;
     };
   };
 }
