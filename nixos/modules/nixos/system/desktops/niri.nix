@@ -6,9 +6,9 @@
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite
-      gnome-keyring
     ];
-
+ 
+    services.gnome.gnome-keyring.enable = true;
     services.displayManager.defaultSession = "niri";
     services.displayManager.sddm = {
       enable = true;
