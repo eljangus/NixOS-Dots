@@ -24,7 +24,7 @@
       '';
       shellAliases = {
         nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
-        try = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
+        try = "NIXPKGS_ALLOW_UNFREE=1 nix shell";
         ncg = "nh clean all";
         ncr = "nix run github:greyxp1/ncr";
         cff = "reset && fastfetch";
@@ -32,6 +32,7 @@
         cff3 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
         cff4 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/kitty/config.jsonc";
         cff5 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/frieren/config.jsonc";
+        cff6 = "reset && python3 ~/NixOS-Dots/misc/misc-text/bunnyfetch.py";
         ff = "fastfetch";
         ff2 = "fastfetch -c ~/.config/fastfetch/other-configs/nitch-like/config.jsonc";
         ff3 = "fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
