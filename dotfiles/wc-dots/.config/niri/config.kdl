@@ -202,8 +202,11 @@ window-rule {
     default-floating-position x=0 y=0 relative-to="bottom-right"
     geometry-corner-radius 0
     open-focused false
+    border {
+      off
+    }
     focus-ring {
-        off
+      off
     }
 }
 
