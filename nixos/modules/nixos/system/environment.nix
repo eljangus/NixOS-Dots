@@ -8,6 +8,7 @@
     documentation.nixos.enable = false;
     services.flatpak.enable = true;
     services.gvfs.enable = true;
+    services.openssh.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
