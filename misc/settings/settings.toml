@@ -75,11 +75,8 @@ reserve_space = false
 show_dots = true
 show_instance_count = false
 
-[hot_corners]
-enabled = true
-
-    [hot_corners.top_right]
-    action = "control_center"
+[hot_corners.top_right]
+action = "control_center"
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -207,7 +204,7 @@ panel_placement = "attached"
 enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor", "oldirtty/color_picker" ]
 
 [shell]
-avatar_path = "/home/elias/NixOS-Dots/misc/images/DANCs48XcAIsP6j.jpg"
+avatar_path = "/home/elias/NixOS-Dots/misc/images/Alisa_Mikhailovna_Kujou_Manga.png"
 button_borders = false
 card_borders = false
 clipboard_image_action_command = "swash"
@@ -287,7 +284,7 @@ builtin = "Catppuccin"
 community_palette = "Paradise"
 custom_palette = "Paradise"
 mode = "dark"
-source = "wallpaper"
+source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -299,16 +296,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
+    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
+    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
+    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Anime-Rot.png"
+    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
