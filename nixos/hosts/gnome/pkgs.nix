@@ -3,16 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
     # core
-    stow
-    winetricks
-    wine
-    nix-search-tv
-    fzf
-    killall
     imv
-    eza
     zenity
-    fastfetch
 
     # media
     obs-studio

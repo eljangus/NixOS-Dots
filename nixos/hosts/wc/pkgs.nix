@@ -11,26 +11,18 @@
     # core
     kitty
     ddcutil
-    killall
     libsForQt5.qt5ct
     gnome-themes-extra
     libnotify
-    winetricks
-    wine
-    nix-search-tv
-    fzf
     cabextract # for heroic
     p7zip # for heroic
-    eza
     hyprpicker
     cliphist
     wl-clipboard
     wl-clip-persist
-    stow
     kdePackages.kamera
     dconf-editor
     zenity
-    fastfetch
 
     # media
     obs-studio
@@ -39,9 +31,6 @@
     easyeffects
     spotify
     imv
-
-    # texteditor
-    vscodium
 
     # Gaming
     mangohud

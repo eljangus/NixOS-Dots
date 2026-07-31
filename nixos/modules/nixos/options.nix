@@ -5,7 +5,7 @@ let
   cfgSystem = config.myModules.system;
   cfgOverlays = config.myModules.system.overlays;
 
-  baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" ];
+  baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" "common-pkgs" ];
   baseSystemNames = [ "fonts" "environment" "time" "nix" "xkb" "boot" ];
   overlayNames = [ "noctalia" "qt6ct-kde" "sddm-astronaut" "swash" ];
 in
@@ -19,6 +19,7 @@ in
       dconf.enable = lib.mkEnableOption "dconf";
       git.enable = lib.mkEnableOption "Git";
       nh.enable = lib.mkEnableOption "nh";
+      common-pkgs.enable = lib.mkEnableOption "common pkgs";
       gpu-screen-recorder.enable = lib.mkEnableOption "GPU Screen Recorder";
       base.enable = lib.mkOption {
         type = lib.types.bool;

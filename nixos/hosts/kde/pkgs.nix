@@ -8,18 +8,10 @@
   systemPackages = with pkgs; [
     # core
     kitty
-    stow
-    winetricks
-    wine
-    nix-search-tv
-    fzf
-    killall
     kdePackages.oxygen
     imv
-    eza
     kdePackages.kamera
     zenity
-    fastfetch
 
     # media
     obs-studio
@@ -39,9 +31,6 @@
 
     # web
     chromium
-
-    # texteditor
-    vscodium
 
     # creativity
     gimp
