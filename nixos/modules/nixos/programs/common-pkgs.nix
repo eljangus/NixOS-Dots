@@ -13,6 +13,7 @@
       stow
       fastfetch
       python3
+      lazygit
 
       # texteditor
       vscodium
