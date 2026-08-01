@@ -16,7 +16,6 @@ import socket
 import subprocess
 import sys
 import time
-import unicodedata
 from datetime import timedelta
 
 # ---------------------------------------------------------------------------
@@ -61,20 +60,19 @@ BAR_EMPTY   = GRAY
 # ---------------------------------------------------------------------------
 
 BUNNY_ART = r"""
-  (\(\
-  ( -.-)
-o_(")(")
+       (\(\
+       ( -.-)
+      o_(")(")
 """
 
 BUNNY_ART_LINES = [
-    "  (\\(\\",
-    "  ( -.-)",
-    "o_(\")(\")",
-    "",
-    "",
-    "",
+    "       (\\(\\ ",
+    "       ( -.-)",
+    "      o_(\")(\")",
+    "              ",
+    "              ",
+    "              ",
 ]
-
 
 # ---------------------------------------------------------------------------
 # 🥕 info gathering helpers
@@ -213,20 +211,6 @@ def get_de():
 # 🌸 formatting helpers
 # ---------------------------------------------------------------------------
 
-def display_width(text):
-    """Visible column width of a string, accounting for wide (emoji/CJK)
-    characters which occupy 2 terminal columns but count as len()==1."""
-    width = 0
-    for ch in text:
-        eaw = unicodedata.east_asian_width(ch)
-        width += 2 if eaw in ("W", "F") else 1
-    return width
-
-def pad_display(text, width):
-    """Right-pad text to `width` visible columns (not len() characters)."""
-    pad = max(0, width - display_width(text))
-    return text + " " * pad
-
 def make_bar(pct, width=18):
     filled = int(round(width * pct / 100))
     filled = max(0, min(width, filled))
@@ -249,10 +233,6 @@ def fluff_meter_label(pct):
 
 def hearts(n=3):
     return PINK("♥ " * n).rstrip()
-
-def sparkle_divider(width):
-    pattern = "✦ " * (width // 2)
-    return LAVENDER(pattern.rstrip())
 
 def label(text, width=20):
     """Pad label text to a fixed width BEFORE colorizing, so ANSI codes
@@ -285,8 +265,8 @@ def main():
     underline = "─" * len(title)
 
     lines = []
-    lines.append(f"{LABEL_COLOR(bold('✿ ' + title + ' ✿'))}")
-    lines.append(sparkle_divider(len(underline) + 4))
+    lines.append(f"{LABEL_COLOR(bold(title))}")
+    lines.append(f"{GRAY(underline)}")
     lines.append(f"{label('Burrow OS')} {VALUE_COLOR(os_name)}")
     lines.append(f"{label('Warren kernel')} {VALUE_COLOR(kernel)}")
     lines.append(f"{label('Hop time')} {VALUE_COLOR(uptime)}")
@@ -314,19 +294,18 @@ def main():
     # pastel color swatch row, bunny-fied
     swatches = [PINK("●"), DEEP_PINK("●"), LAVENDER("●"), CREAM("●"), MINT("●"), SKY("●"), PEACH("●")]
     lines.append(" ".join(swatches))
-    lines.append(GRAY("thumpthump~ have a fluffy day"))
 
     # combine bunny art (left) with info (right).
     # Pad the PLAIN text to a fixed width first, then colorize — this keeps
     # alignment correct even though ANSI escape codes add invisible bytes.
     art = BUNNY_ART_LINES
-    max_art_width = max(display_width(l) for l in art) + 4
+    max_art_width = max(len(l) for l in art) + 4
 
     out = []
     for i in range(max(len(art), len(lines))):
         art_line = art[i] if i < len(art) else ""
         info_line = lines[i] if i < len(lines) else ""
-        padded_art = pad_display(art_line, max_art_width)
+        padded_art = f"{art_line:<{max_art_width}}"
         out.append(f"{PINK(padded_art)}{info_line}")
 
     print()
