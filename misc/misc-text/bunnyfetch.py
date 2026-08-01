@@ -57,22 +57,30 @@ BAR_FILLED  = PINK
 BAR_EMPTY   = GRAY
 
 # ---------------------------------------------------------------------------
-# 🐇 the bunny herself
+# 🐇 the bunnies — four of them, stacked, so the art column has enough
+# height to sit comfortably next to the full info panel instead of
+# floating alone up top.
 # ---------------------------------------------------------------------------
 
-BUNNY_ART = r"""
-  (\(\
-  ( -.-)
-  o_(")(")
-"""
-
 BUNNY_ART_LINES = [
-    "  (\\(\\",
-    "  ( -.-)",
+    "   (\\(\\",
+    "   (^.^ )",
+    "  o(\")(\")",
+    "",
+    "",
+    "   (\\(\\",
+    "   ( -.-)",
     "  o_(\")(\")",
     "",
     "",
+    "   (\\(\\",
+    "   (=.=)  z",
+    "  o_(\")(\")",
     "",
+    "",
+    "   (\\(\\",
+    "   (='.'=)",
+    "   (\")_(\")",
 ]
 
 
@@ -286,7 +294,7 @@ def main():
 
     lines = []
     lines.append(f"{LABEL_COLOR(bold('✿ ' + title + ' ✿'))}")
-    lines.append(sparkle_divider(len(underline) + 4))
+    lines.append(sparkle_divider(len(underline) + 6))
     lines.append(f"{label('Burrow OS')} {VALUE_COLOR(os_name)}")
     lines.append(f"{label('Warren kernel')} {VALUE_COLOR(kernel)}")
     lines.append(f"{label('Hop time')} {VALUE_COLOR(uptime)}")
@@ -308,13 +316,14 @@ def main():
         f"{make_bar(disk_pct)} {VALUE_COLOR(f'{disk_pct:.0f}%')} "
         f"{GRAY(f'({used_disk:.1f}GiB / {total_disk:.1f}GiB)')}"
     )
+    lines.append(sparkle_divider(len(underline) + 6))
     lines.append("")
-    lines.append(hearts(4))
+    lines.append(hearts(7))
 
     # pastel color swatch row, bunny-fied
     swatches = [PINK("●"), DEEP_PINK("●"), LAVENDER("●"), CREAM("●"), MINT("●"), SKY("●"), PEACH("●")]
     lines.append(" ".join(swatches))
-    lines.append(GRAY("thumpthump~ have a fluffy day"))
+    lines.append(LAVENDER("✿ thumpthump~ have a fluffy day ✿"))
 
     # combine bunny art (left) with info (right).
     # Pad the PLAIN text to a fixed width first, then colorize — this keeps
