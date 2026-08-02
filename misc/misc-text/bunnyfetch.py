@@ -32,24 +32,29 @@ def _supports_color():
 
 COLOR = _supports_color()
 
-def rgb(r, g, b, text):
+def ansi(code, text):
+    """Use standard/bright ANSI SGR codes (16-color palette) instead of
+    truecolor, so bunnyfetch inherits the user's own terminal theme."""
     if not COLOR:
         return text
-    return f"\033[38;2;{r};{g};{b}m{text}\033[0m"
+    return f"\033[{code}m{text}\033[0m"
 
 def bold(text):
     if not COLOR:
         return text
     return f"\033[1m{text}\033[0m"
 
-PINK      = lambda t: rgb(255, 175, 204, t)
-DEEP_PINK = lambda t: rgb(255, 110, 168, t)
-LAVENDER  = lambda t: rgb(203, 178, 255, t)
-CREAM     = lambda t: rgb(255, 240, 214, t)
-MINT      = lambda t: rgb(178, 240, 210, t)
-SKY       = lambda t: rgb(178, 220, 255, t)
-GRAY      = lambda t: rgb(170, 170, 170, t)
-PEACH     = lambda t: rgb(255, 200, 170, t)
+# Standard terminal color codes (30-37 normal, 90-97 bright).
+# Kept on the pink/magenta family per the palette's original intent,
+# with the rest mapped to their nearest standard terminal color.
+PINK      = lambda t: ansi(95, t)  # bright magenta
+DEEP_PINK = lambda t: ansi(35, t)  # magenta
+LAVENDER  = lambda t: ansi(94, t)  # bright blue
+CREAM     = lambda t: ansi(97, t)  # bright white
+MINT      = lambda t: ansi(92, t)  # bright green
+SKY       = lambda t: ansi(96, t)  # bright cyan
+GRAY      = lambda t: ansi(90, t)  # bright black (gray)
+PEACH     = lambda t: ansi(93, t)  # bright yellow
 
 LABEL_COLOR = DEEP_PINK
 VALUE_COLOR = CREAM
