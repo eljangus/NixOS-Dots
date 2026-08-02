@@ -228,7 +228,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.gnome\.Nautilus$"#
     match app-id=r#"^codium$"#
-    opacity 0.8
+    opacity 1.0
 }
 
 layer-rule {
