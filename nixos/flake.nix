@@ -1,40 +1,35 @@
 {
   description = "NixOS flake with home-manager and support for multiple users and DEs/WCs";
-  inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
-    swash = {
-      url = "github:ItsLemmy/swash";
-      inputs.nixpkgs.follows = "nixpkgs";
+  outputs =
+    args @ { self, ... }:
+    let
+      inputs = (import ./.tack) {
+      overrides = args.tackOverrides or { };
     };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+    in {
     nixosConfigurations =
-      let
-      importTree = import ./lib/import-tree.nix { inherit (nixpkgs) lib; };
-      mkSystem = hostname:
-      {
-        system ? "x86_64-linux",
-      }:
-      nixpkgs.lib.nixosSystem {
-        system = system;
-        specialArgs = { inherit inputs self importTree; };
-        modules = [
-          ./hosts/${hostname}
-          ./modules/nixos
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = { inherit self importTree; };
-          }
-        ];
-      };
-      in {
-        wc = mkSystem "wc" { };
-        gnome = mkSystem "gnome" { };
-        kde = mkSystem "kde" { };
-      };
+    let
+    importTree = import ./lib/import-tree.nix { inherit (inputs.nixpkgs) lib; };
+    mkSystem = hostname:
+    {
+      system ? "x86_64-linux",
+    }:
+    inputs.nixpkgs.lib.nixosSystem {
+      system = system;
+      specialArgs = { inherit inputs self importTree; };
+      modules = [
+        ./hosts/${hostname}
+        ./modules/nixos
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs = { inherit self importTree; };
+        }
+      ];
+    };
+    in {
+      wc = mkSystem "wc" { };
+      gnome = mkSystem "gnome" { };
+      kde = mkSystem "kde" { };
+    };
   };
 }

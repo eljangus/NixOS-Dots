@@ -1,0 +1,10 @@
+[inputs.nixpkgs]
+url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+
+[inputs.swash]
+url = "github:ItsLemmy/swash"
+follows = { nixpkgs = "nixpkgs" }
+
+[inputs.home-manager]
+url = "github:nix-community/home-manager"
+follows = { nixpkgs = "nixpkgs" }

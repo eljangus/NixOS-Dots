@@ -23,7 +23,6 @@
         set -U fish_greeting ""
       '';
       shellAliases = {
-        nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
         ncg = "nh clean all";
         lg = "lazygit";
         cff = "reset && fastfetch";
