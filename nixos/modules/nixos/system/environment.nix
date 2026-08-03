@@ -3,7 +3,10 @@
 {
   config = lib.mkIf config.myModules.system.environment.enable {
     zramSwap.enable = true;
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      TACK_NIX_CONF_TOKENS=1;
+    };
     console.keyMap = "de";
     documentation.nixos.enable = false;
     services.flatpak.enable = true;
