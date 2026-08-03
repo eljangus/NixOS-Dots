@@ -24,9 +24,8 @@
       '';
       shellAliases = {
         nfu = "nix flake update --flake ~/NixOS-Dots/nixos";
-        try = "NIXPKGS_ALLOW_UNFREE=1 nix shell";
         ncg = "nh clean all";
-        ncr = "nix run github:greyxp1/ncr";
+        lg = "lazygit";
         cff = "reset && fastfetch";
         cff2 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/nitch-like/config.jsonc";
         cff3 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
