@@ -93,7 +93,8 @@ theming, and applications — into a known, reproducible state.
 │       │   ├── git.nix
 │       │   ├── gpu-screen-recorder.nix
 │       │   ├── nh.nix
-│       │   └── steam.nix
+│       │   ├── steam.nix
+│       │   └── tack.nix
 │       └── system
 │           ├── amdgpu.nix
 │           ├── boot.nix
@@ -124,6 +125,10 @@ theming, and applications — into a known, reproducible state.
 │       ├── default.nix
 │       ├── hardware-configuration.nix
 │       └── networking.nix
+├── .tack
+│   ├── default.nix
+│   ├── pins.lock.json
+│   └── pins.toml
 └── users
     ├── elias
     │   ├── default.nix
