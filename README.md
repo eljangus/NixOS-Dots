@@ -85,6 +85,7 @@ theming, and applications — into a known, reproducible state.
 │       ├── default.nix
 │       ├── options.nix
 │       ├── programs
+│       │   ├── common-pkgs.nix
 │       │   ├── dconf.nix
 │       │   ├── firefox.nix
 │       │   ├── fish.nix
