@@ -5,7 +5,7 @@ let
   cfgSystem = config.myModules.system;
   cfgOverlays = config.myModules.system.overlays;
 
-  baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" "common-pkgs" ];
+  baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" "common-pkgs" "tack" ];
   baseSystemNames = [ "fonts" "environment" "time" "nix" "xkb" "boot" ];
   overlayNames = [ "noctalia" "qt6ct-kde" "sddm-astronaut" "swash" ];
 in
@@ -13,6 +13,7 @@ in
   options.myModules = {
     programs = {
       firefox.enable = lib.mkEnableOption "Firefox";
+      tack.enable = lib.mkEnableOption "tack";
       steam.enable = lib.mkEnableOption "Steam";
       gamescope.enable = lib.mkEnableOption "Gamescope";
       fish.enable = lib.mkEnableOption "Fish shell";

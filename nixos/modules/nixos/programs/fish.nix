@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   config = lib.mkIf config.myModules.programs.fish.enable {
