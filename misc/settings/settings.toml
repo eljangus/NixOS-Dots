@@ -281,10 +281,10 @@ gpu_poll_seconds = 2
 
 [theme]
 builtin = "Catppuccin"
-community_palette = "Paradise"
+community_palette = "Monochrome"
 custom_palette = "Paradise"
 mode = "dark"
-source = "community"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -296,16 +296,16 @@ directory = "~/Wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
@@ -358,6 +358,6 @@ drawer = true
 show_label = false
 
 [widget.workspaces]
-display = "name"
+label_source = "name"
 scroll_repeat = "steps"
 style = "minimal"

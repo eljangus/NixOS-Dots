@@ -10,7 +10,7 @@
     system = {
       base.enable = true; # base system, on by default
       overlays.enable = true;
-      noctalia-cachix.enable = true;
+      overlays.noctalia.enable = false;
       openrgb.enable = true;
       udev.enable = true;
       polkit.enable = true;

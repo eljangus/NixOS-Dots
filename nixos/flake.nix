@@ -10,7 +10,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
   };
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations =
