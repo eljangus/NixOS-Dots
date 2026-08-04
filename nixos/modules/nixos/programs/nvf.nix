@@ -43,7 +43,7 @@
           # UI / QoL
           statusline.lualine.enable = true;
           tabline.nvimBufferline.enable = true;
-      dashboard.alpha = {
+          dashboard.alpha = {
             enable = true;
             theme = null;
             layout = [
@@ -54,12 +54,12 @@
               {
                 type = "text";
                 val = [
-                  "███╗   ██╗██╗   ██╗██╗███╗   ███╗"
-                  "████╗  ██║██║   ██║██║████╗ ████║"
-                  "██╔██╗ ██║██║   ██║██║██╔████╔██║"
-                  "██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║"
-                  "██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║"
-                  "╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
+                  "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗"
+                  "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║"
+                  "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║"
+                  "██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║"
+                  "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║"
+                  "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝"
                 ];
                 opts = {
                   position = "center";
@@ -75,13 +75,13 @@
                 val = [
                   {
                     type = "button";
-                    val = " Neue Datei";
+                    val = " Neue Datei";
                     on_press = lib.generators.mkLuaInline "function() vim.cmd('ene | startinsert') end";
                     opts = {
                       position = "center";
                       shortcut = "e";
-                      cursor = 1;
-                      width = 34;
+                      cursor = 25;
+                      width = 50;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -99,13 +99,13 @@
                   }
                   {
                     type = "button";
-                    val = " Datei suchen";
+                    val = "󰱽 Datei suchen";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').find_files() end";
                     opts = {
                       position = "center";
                       shortcut = "f";
-                      cursor = 1;
-                      width = 34;
+                      cursor = 25;
+                      width = 50;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -123,13 +123,13 @@
                   }
                   {
                     type = "button";
-                    val = " Wort suchen";
+                    val = "󱝩 Wort suchen";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').live_grep() end";
                     opts = {
                       position = "center";
                       shortcut = "w";
-                      cursor = 1;
-                      width = 34;
+                      cursor = 25;
+                      width = 50;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -147,13 +147,13 @@
                   }
                   {
                     type = "button";
-                    val = " Zuletzt geöffnet";
+                    val = "󱑍 Zuletzt geöffnet";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').oldfiles() end";
                     opts = {
                       position = "center";
                       shortcut = "r";
-                      cursor = 1;
-                      width = 34;
+                      cursor = 25;
+                      width = 50;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -171,13 +171,13 @@
                   }
                   {
                     type = "button";
-                    val = " Config bearbeiten";
+                    val = " Config bearbeiten";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').find_files({ cwd = '~/NixOS-Dots/nixos', hidden = true, no_ignore = true, follow = true }) end";
                     opts = {
                       position = "center";
                       shortcut = "c";
-                      cursor = 1;
-                      width = 34;
+                      cursor = 25;
+                      width = 50;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -195,13 +195,13 @@
                   }
                   {
                     type = "button";
-                    val = " Beenden";
+                    val = " Beenden";
                     on_press = lib.generators.mkLuaInline "function() vim.cmd('qa') end";
                     opts = {
                       position = "center";
                       shortcut = "q";
-                      cursor = 1;
-                      width = 34;
+                      cursor = 25;
+                      width = 50;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
