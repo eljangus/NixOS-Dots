@@ -14,8 +14,8 @@
 
           theme = {
             enable = true;
-            name = "onedark";
-            style = "dark";
+            name = "tokyonight";
+            style = "storm";
             transparent = false;
           };
 
@@ -43,10 +43,8 @@
           # UI / QoL
           statusline.lualine.enable = true;
           tabline.nvimBufferline.enable = true;
-          dashboard.alpha = {
+      dashboard.alpha = {
             enable = true;
-            # Must be null: nvf's alpha module defaults `theme` to "dashboard", and it
-            # asserts that a built-in theme and a custom layout are never set together.
             theme = null;
             layout = [
               {
@@ -56,12 +54,12 @@
               {
                 type = "text";
                 val = [
-                  "  ███╗   ██╗██╗   ██╗██╗███╗   ███╗ "
-                  "  ████╗  ██║██║   ██║██║████╗ ████║ "
-                  "  ██╔██╗ ██║██║   ██║██║██╔████╔██║ "
-                  "  ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║ "
-                  "  ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ "
-                  "  ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ "
+                  "███╗   ██╗██╗   ██╗██╗███╗   ███╗"
+                  "████╗  ██║██║   ██║██║████╗ ████║"
+                  "██╔██╗ ██║██║   ██║██║██╔████╔██║"
+                  "██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║"
+                  "██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║"
+                  "╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
                 ];
                 opts = {
                   position = "center";
@@ -77,13 +75,13 @@
                 val = [
                   {
                     type = "button";
-                    val = "  Neue Datei";
+                    val = " Neue Datei";
                     on_press = lib.generators.mkLuaInline "function() vim.cmd('ene | startinsert') end";
                     opts = {
                       position = "center";
                       shortcut = "e";
-                      cursor = 3;
-                      width = 42;
+                      cursor = 1;
+                      width = 34;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -101,13 +99,13 @@
                   }
                   {
                     type = "button";
-                    val = "  Datei suchen";
+                    val = " Datei suchen";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').find_files() end";
                     opts = {
                       position = "center";
                       shortcut = "f";
-                      cursor = 3;
-                      width = 42;
+                      cursor = 1;
+                      width = 34;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -125,13 +123,13 @@
                   }
                   {
                     type = "button";
-                    val = "  Wort suchen";
+                    val = " Wort suchen";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').live_grep() end";
                     opts = {
                       position = "center";
                       shortcut = "w";
-                      cursor = 3;
-                      width = 42;
+                      cursor = 1;
+                      width = 34;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -149,13 +147,13 @@
                   }
                   {
                     type = "button";
-                    val = "  Zuletzt geöffnet";
+                    val = " Zuletzt geöffnet";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').oldfiles() end";
                     opts = {
                       position = "center";
                       shortcut = "r";
-                      cursor = 3;
-                      width = 42;
+                      cursor = 1;
+                      width = 34;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -173,20 +171,20 @@
                   }
                   {
                     type = "button";
-                    val = "  Config bearbeiten";
-                    on_press = lib.generators.mkLuaInline "function() vim.cmd('cd ~/NixOS-Dots/nixos'); require('telescope.builtin').find_files({ hidden = true, no_ignore = true, follow = true }) end";
+                    val = " Config bearbeiten";
+                    on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').find_files({ cwd = '~/NixOS-Dots/nixos', hidden = true, no_ignore = true, follow = true }) end";
                     opts = {
                       position = "center";
                       shortcut = "c";
-                      cursor = 3;
-                      width = 42;
+                      cursor = 1;
+                      width = 34;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
                       keymap = [
                         "n"
                         "c"
-                        ":lua vim.cmd('cd ~/NixOS-Dots/nixos'); require('telescope.builtin').find_files({ hidden = true, no_ignore = true, follow = true })<CR>"
+                        ":lua require('telescope.builtin').find_files({ cwd = '~/NixOS-Dots/nixos', hidden = true, no_ignore = true, follow = true })<CR>"
                         {
                           noremap = true;
                           silent = true;
@@ -197,13 +195,13 @@
                   }
                   {
                     type = "button";
-                    val = "  Beenden";
+                    val = " Beenden";
                     on_press = lib.generators.mkLuaInline "function() vim.cmd('qa') end";
                     opts = {
                       position = "center";
                       shortcut = "q";
-                      cursor = 3;
-                      width = 42;
+                      cursor = 1;
+                      width = 34;
                       align_shortcut = "right";
                       hl = "Type";
                       hl_shortcut = "Keyword";
@@ -228,7 +226,7 @@
               }
               {
                 type = "text";
-                val = lib.generators.mkLuaInline "os.date('  %A, %d.%m.%Y  •  %H:%M')";
+                val = lib.generators.mkLuaInline "os.date('%A, %d.%m.%Y  •  %H:%M')";
                 opts = {
                   position = "center";
                   hl = "Comment";
@@ -243,17 +241,16 @@
           visuals = {
             nvim-web-devicons.enable = true;
             indent-blankline.enable = true;
-            fidget-nvim.enable = true; # LSP progress spinner
+            fidget-nvim.enable = true;
           };
 
-          binds.whichKey.enable = true; # keybind popup helper
+          binds.whichKey.enable = true;
           autopairs.nvim-autopairs.enable = true;
 
-          # Comments / TODOs
           comments.comment-nvim.enable = true;
           notes.todo-comments.enable = true;
 
-          # Navigation
+          # Navigation / Telescope setup (Global default includes hidden/ignored files)
           telescope = {
             enable = true;
             setupOpts = {
@@ -270,13 +267,9 @@
             };
           };
 
-          # Git
           git.gitsigns.enable = true;
-
-          # Completion
           autocomplete.nvim-cmp.enable = true;
 
-          # LSP / languages
           lsp = {
             enable = true;
             lightbulb.enable = true;
@@ -310,11 +303,25 @@
               desc = "Buffer/Datei schliessen";
             }
             {
-              key = "<F4>"; # Alternativ eine F-Taste, falls leader zickt
+              key = "<F4>";
               action = ":bdelete<CR>";
               mode = "n";
               silent = true;
               desc = "Buffer mit F4 schliessen";
+            }
+            # <leader>ff overrides the global default to search WITHOUT hidden/ignored files
+            {
+              key = "<leader>ff";
+              mode = "n";
+              action = "<cmd>lua require('telescope.builtin').find_files({ hidden = false, no_ignore = false, find_command = { '${pkgs.fd}/bin/fd', '--type=file' } })<CR>";
+              desc = "Datei suchen (ohne versteckte Dateien)";
+            }
+            # <leader>fh searches WITH hidden files enabled
+            {
+              key = "<leader>fh";
+              mode = "n";
+              action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
+              desc = "Datei suchen (inkl. versteckte Dateien)";
             }
           ];
         };
