@@ -188,5 +188,5 @@ sudo nixos-rebuild switch --flake .#<hostname>
 
 ## 📄 License
 
-No license, use at your own risk.
+[MIT](LICENSE) — use it, copy it, break it. No warranty.
 
