@@ -9,6 +9,7 @@
       base.enable = true; # base system, on by default
       overlays.enable = true;
       overlays.noctalia.enable = false;
+      overlays.glaze.enable = false;
       openrgb.enable = true;
       udev.enable = true;
       polkit.enable = true;

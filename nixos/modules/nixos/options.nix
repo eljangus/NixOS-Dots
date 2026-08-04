@@ -31,6 +31,7 @@
     "qt6ct-kde"
     "sddm-astronaut"
     "swash"
+    "glaze"
   ];
 in {
   options.myModules = {
@@ -84,6 +85,7 @@ in {
         qt6ct-kde.enable = lib.mkEnableOption "qt6ct-kde overlay";
         sddm-astronaut.enable = lib.mkEnableOption "sddm-astronaut overlay";
         swash.enable = lib.mkEnableOption "swash overlay";
+        glaze.enable = lib.mkEnableOption "glaze overlay";
       };
     };
     desktop = lib.mkOption {
