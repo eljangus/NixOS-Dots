@@ -18,6 +18,8 @@
       python3
       lazygit
       alejandra
+      opencode
+      opencode-claude-auth
 
       # texteditor
       vscodium
