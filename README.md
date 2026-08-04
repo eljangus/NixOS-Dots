@@ -63,8 +63,7 @@ theming, and applications — into a known, reproducible state.
 │   │   ├── common-programs
 │   │   │   ├── default.nix
 │   │   │   ├── fish.nix
-│   │   │   ├── starship.nix
-│   │   │   └── vim.nix
+│   │   │   └── starship.nix
 │   │   ├── elias
 │   │   │   ├── default.nix
 │   │   │   ├── home.nix
@@ -93,6 +92,7 @@ theming, and applications — into a known, reproducible state.
 │       │   ├── git.nix
 │       │   ├── gpu-screen-recorder.nix
 │       │   ├── nh.nix
+│       │   ├── nvf.nix
 │       │   ├── steam.nix
 │       │   └── tack.nix
 │       └── system
@@ -109,6 +109,7 @@ theming, and applications — into a known, reproducible state.
 │           ├── nix.nix
 │           ├── noctalia-cachix.nix
 │           ├── overlays
+│           │   ├── glaze.nix
 │           │   ├── noctalia.nix
 │           │   ├── qt6ct-kde.nix
 │           │   ├── sddm-astronaut.nix
