@@ -4,8 +4,15 @@
       enable = true;
       functions = {
         ps5 = ''
-          set capacity (cat /sys/class/power_supply/ps-controller-battery-4c:b9:9b:cc:ba:12/capacity)
-          set battery_status (cat /sys/class/power_supply/ps-controller-battery-4c:b9:9b:cc:ba:12/status)
+          set battery_paths /sys/class/power_supply/ps-controller-battery-*
+          if not set -q battery_paths[1]
+            echo "🎮 PS5 Controller: nicht verbunden"
+            return 1
+          end
+
+          set battery_path $battery_paths[1]
+          set capacity (cat $battery_path/capacity)
+          set battery_status (cat $battery_path/status)
 
           # Simple bar
           set bar_length 20

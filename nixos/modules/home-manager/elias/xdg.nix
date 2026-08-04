@@ -29,7 +29,7 @@
       "video/mp4" = videoViewer;
       "video/x-matroska" = videoViewer;
       "video/webm" = videoViewer;
-      "video/ogg" = audioViewer;
+      "video/ogg" = videoViewer;
       "video/quicktime" = videoViewer;
       "video/x-flv" = videoViewer;
       "video/x-msvideo" = videoViewer;
