@@ -19,6 +19,7 @@
       fastfetch
       python3
       lazygit
+      nixfmt
 
       # texteditor
       vscodium
