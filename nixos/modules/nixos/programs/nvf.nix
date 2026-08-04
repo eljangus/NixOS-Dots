@@ -65,7 +65,6 @@
               };
             };
           };
-          dashboard.alpha.enable = true;
 
           # Comments / TODOs
           comments.comment-nvim.enable = true;
