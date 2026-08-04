@@ -154,7 +154,7 @@ theming, and applications — into a known, reproducible state.
 
 ```bash
 # Clone the repo
-git clone https://codeberg.org/eljangus/NixOS-Dots.git
+git clone git@github.com:eljangus/NixOS-Dots.git
 cd NixOS-Dots
 
 # Review and edit hardware-configuration.nix and host settings for your machine
