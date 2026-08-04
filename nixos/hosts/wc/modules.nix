@@ -1,7 +1,7 @@
 { ... }:
 
 {
- myModules = {
+  myModules = {
     desktop = "niri";
     programs = {
       base.enable = true; # base programs, on by default

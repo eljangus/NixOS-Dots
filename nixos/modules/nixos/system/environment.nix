@@ -5,7 +5,7 @@
     zramSwap.enable = true;
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      TACK_NIX_CONF_TOKENS=1;
+      TACK_NIX_CONF_TOKENS = 1;
     };
     console.keyMap = "de";
     documentation.nixos.enable = false;

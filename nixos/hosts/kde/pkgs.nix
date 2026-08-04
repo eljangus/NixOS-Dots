@@ -1,46 +1,46 @@
 { pkgs, ... }:
 
 {
- environment = {
-  plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
-  ];
-  systemPackages = with pkgs; [
-    # core
-    kitty
-    kdePackages.oxygen
-    imv
-    kdePackages.kamera
-    zenity
+  environment = {
+    plasma6.excludePackages = with pkgs.kdePackages; [
+      konsole
+    ];
+    systemPackages = with pkgs; [
+      # core
+      kitty
+      kdePackages.oxygen
+      imv
+      kdePackages.kamera
+      zenity
 
-    # media
-    obs-studio
-    vesktop
-    easyeffects
-    spotify
+      # media
+      obs-studio
+      vesktop
+      easyeffects
+      spotify
 
-    # desktop applications
-    kdePackages.dolphin
-    kdePackages.discover
-    mpv
+      # desktop applications
+      kdePackages.dolphin
+      kdePackages.discover
+      mpv
 
-    # gaming
-    mangohud
-    heroic
-    prismlauncher
+      # gaming
+      mangohud
+      heroic
+      prismlauncher
 
-    # web
-    chromium
+      # web
+      chromium
 
-    # creativity
-    gimp
+      # creativity
+      gimp
 
-    # fun
-    cava
-    btop
-    asciiquarium-transparent
-    cbonsai
-    unimatrix
+      # fun
+      cava
+      btop
+      asciiquarium-transparent
+      cbonsai
+      unimatrix
     ];
   };
 }

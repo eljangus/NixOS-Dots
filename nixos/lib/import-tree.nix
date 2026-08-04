@@ -9,6 +9,5 @@ let
   files = map toString (listFilesRecursive dir);
 in
 filter (
-  p:
-  hasSuffix ".nix" p && baseNameOf p != "default.nix" && !(hasPrefix "_" (baseNameOf p))
+  p: hasSuffix ".nix" p && baseNameOf p != "default.nix" && !(hasPrefix "_" (baseNameOf p))
 ) files

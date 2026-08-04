@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   config = lib.mkIf (config.myModules.desktop == "niri") {
@@ -7,7 +12,7 @@
     environment.systemPackages = with pkgs; [
       xwayland-satellite
     ];
- 
+
     services.gnome.gnome-keyring.enable = true;
     services.displayManager.defaultSession = "niri";
     services.displayManager.sddm = {

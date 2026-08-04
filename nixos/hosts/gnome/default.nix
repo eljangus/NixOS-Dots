@@ -4,5 +4,6 @@
   imports = [
     (self + "/systems/Apollo")
     (self + "/users/gelias")
-  ] ++ importTree ./.;
+  ]
+  ++ importTree ./.;
 }

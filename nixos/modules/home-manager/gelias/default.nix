@@ -3,5 +3,6 @@
 {
   imports = [
     ../common-programs
-  ] ++ importTree ./.;
+  ]
+  ++ importTree ./.;
 }

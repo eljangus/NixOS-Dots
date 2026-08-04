@@ -27,7 +27,7 @@
         nnoremap "+p :let @+ = system("wl-paste --no-newline")<cr>"+p
         nnoremap "*p :let @* = system("wl-paste --no-newline --primary")<cr>"*p
         endif
-        '';
+      '';
     };
   };
 }

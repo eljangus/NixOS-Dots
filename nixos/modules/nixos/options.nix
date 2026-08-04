@@ -5,9 +5,30 @@ let
   cfgSystem = config.myModules.system;
   cfgOverlays = config.myModules.system.overlays;
 
-  baseProgramNames = [ "fish" "dconf" "firefox" "steam" "git" "nh" "common-pkgs" "tack" ];
-  baseSystemNames = [ "fonts" "environment" "time" "nix" "xkb" "boot" ];
-  overlayNames = [ "noctalia" "qt6ct-kde" "sddm-astronaut" "swash" ];
+  baseProgramNames = [
+    "fish"
+    "dconf"
+    "firefox"
+    "steam"
+    "git"
+    "nh"
+    "common-pkgs"
+    "tack"
+  ];
+  baseSystemNames = [
+    "fonts"
+    "environment"
+    "time"
+    "nix"
+    "xkb"
+    "boot"
+  ];
+  overlayNames = [
+    "noctalia"
+    "qt6ct-kde"
+    "sddm-astronaut"
+    "swash"
+  ];
 in
 {
   options.myModules = {
@@ -63,7 +84,14 @@ in
       };
     };
     desktop = lib.mkOption {
-      type = lib.types.nullOr (lib.types.enum [ "gnome" "plasma" "hyprland" "niri" ]);
+      type = lib.types.nullOr (
+        lib.types.enum [
+          "gnome"
+          "plasma"
+          "hyprland"
+          "niri"
+        ]
+      );
       default = null;
       description = "Which desktop/window manager this host runs";
     };

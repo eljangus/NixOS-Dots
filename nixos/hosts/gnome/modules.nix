@@ -1,7 +1,7 @@
 { ... }:
 
 {
- myModules = {
+  myModules = {
     desktop = "gnome";
     programs = {
       base.enable = true; # base programs, on by default
