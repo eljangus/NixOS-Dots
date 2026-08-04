@@ -1,8 +1,7 @@
-{ importTree, ... }:
-
-{
-  imports = [
-    ../common-programs
-  ]
-  ++ importTree ./.;
+{importTree, ...}: {
+  imports =
+    [
+      ../common-programs
+    ]
+    ++ importTree ./.;
 }

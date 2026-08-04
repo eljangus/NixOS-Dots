@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   config = lib.mkIf (config.myModules.desktop == "hyprland") {
     programs.hyprland.enable = true;
 

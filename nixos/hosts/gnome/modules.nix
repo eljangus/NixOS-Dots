@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   myModules = {
     desktop = "gnome";
     programs = {

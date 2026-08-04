@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   config = lib.mkIf config.myModules.programs.common-pkgs.enable {
     environment.systemPackages = with pkgs; [
       # core
@@ -19,7 +17,7 @@
       fastfetch
       python3
       lazygit
-      nixfmt
+      alejandra
 
       # texteditor
       vscodium

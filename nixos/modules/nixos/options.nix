@@ -1,6 +1,8 @@
-{ config, lib, ... }:
-
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfgPrograms = config.myModules.programs;
   cfgSystem = config.myModules.system;
   cfgOverlays = config.myModules.system.overlays;
@@ -29,8 +31,7 @@ let
     "sddm-astronaut"
     "swash"
   ];
-in
-{
+in {
   options.myModules = {
     programs = {
       firefox.enable = lib.mkEnableOption "Firefox";

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   users.users.kdelias = {
     isNormalUser = true;
     description = "Elias Schlosser";

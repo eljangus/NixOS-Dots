@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   config = lib.mkIf config.myModules.system.fonts.enable {
     fonts.packages = with pkgs; [
       noto-fonts

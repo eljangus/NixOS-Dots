@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   networking = {
     hostName = "Apollo";
     networkmanager.enable = true;

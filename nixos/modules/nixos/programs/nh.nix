@@ -1,6 +1,8 @@
-{ config, lib, ... }:
-
 {
+  config,
+  lib,
+  ...
+}: {
   config = lib.mkIf config.myModules.programs.nh.enable {
     programs.nh = {
       enable = true;

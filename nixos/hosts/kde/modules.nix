@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   myModules = {
     desktop = "plasma";
     programs = {

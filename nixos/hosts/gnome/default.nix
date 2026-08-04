@@ -1,9 +1,12 @@
-{ self, importTree, ... }:
-
 {
-  imports = [
-    (self + "/systems/Apollo")
-    (self + "/users/gelias")
-  ]
-  ++ importTree ./.;
+  self,
+  importTree,
+  ...
+}: {
+  imports =
+    [
+      (self + "/systems/Apollo")
+      (self + "/users/gelias")
+    ]
+    ++ importTree ./.;
 }

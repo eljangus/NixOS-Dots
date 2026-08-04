@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   config = lib.mkIf config.myModules.system.hardware.enable {
     hardware = {
       bluetooth.enable = true;

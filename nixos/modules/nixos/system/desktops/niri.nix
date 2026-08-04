@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   config = lib.mkIf (config.myModules.desktop == "niri") {
     programs.niri.enable = true;
 

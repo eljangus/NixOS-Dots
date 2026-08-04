@@ -1,6 +1,8 @@
-{ config, lib, ... }:
-
 {
+  config,
+  lib,
+  ...
+}: {
   config = lib.mkIf config.myModules.system.overlays.sddm-astronaut.enable {
     nixpkgs.overlays = [
       (final: prev: {

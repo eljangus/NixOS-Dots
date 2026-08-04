@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   config = lib.mkIf config.myModules.programs.steam.enable {
     programs.steam = {
       enable = true;
