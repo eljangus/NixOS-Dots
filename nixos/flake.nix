@@ -15,6 +15,7 @@
             ./hosts/${hostname}
             ./modules/nixos
             inputs.home-manager.nixosModules.home-manager
+            inputs.nvf.nixosModules.default
             {
               home-manager.extraSpecialArgs = {inherit self importTree;};
             }

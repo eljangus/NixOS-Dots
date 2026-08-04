@@ -8,3 +8,7 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
 follows = { nixpkgs = "nixpkgs" }
+
+[inputs.nvf]
+url = "github:notashelf/nvf"
+follows = { nixpkgs = "nixpkgs" }

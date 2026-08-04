@@ -16,6 +16,7 @@
     "nh"
     "common-pkgs"
     "tack"
+    "nvf"
   ];
   baseSystemNames = [
     "fonts"
@@ -36,6 +37,7 @@ in {
     programs = {
       firefox.enable = lib.mkEnableOption "Firefox";
       tack.enable = lib.mkEnableOption "tack";
+      nvf.enable = lib.mkEnableOption "nvf";
       steam.enable = lib.mkEnableOption "Steam";
       gamescope.enable = lib.mkEnableOption "Gamescope";
       fish.enable = lib.mkEnableOption "Fish shell";
