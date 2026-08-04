@@ -190,3 +190,7 @@ sudo nixos-rebuild switch --flake .#<hostname>
 
 [MIT](LICENSE) — use it, copy it, break it. No warranty.
 
+The MIT license applies to the configuration files in this repository.
+Images under `misc/images/` are the property of their
+respective owners and are not covered.
+
