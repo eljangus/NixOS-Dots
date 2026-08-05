@@ -3,7 +3,7 @@
 My NixOS configuration. One machine, three systems, one module tree.
 
 Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
-imperatively and live in [NixOS-Dots](https://github.com/eljangus/dotfiles).
+imperatively and live [here](https://github.com/eljangus/dotfiles).
 
 ## Hosts
 
@@ -17,6 +17,8 @@ All three build the same machine, `Apollo`, with a different desktop and user:
 
 ```bash
 nh os switch .#wc
+nh os switch .#kde
+nh os switch .#gnome
 ```
 
 ## Layout
