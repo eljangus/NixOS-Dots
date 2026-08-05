@@ -12,3 +12,7 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.nvf]
 url = "github:notashelf/nvf"
 follows = { nixpkgs = "nixpkgs" }
+
+[inputs.nix-darwin]
+url = "github:nix-darwin/nix-darwin"
+follows = { nixpkgs = "nixpkgs" }

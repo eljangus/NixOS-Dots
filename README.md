@@ -1,6 +1,7 @@
 # ❄️ nixos
 
-My NixOS configuration. One machine, three systems, one module tree.
+My NixOS configuration. One machine, three systems, one module tree —
+with a nix-darwin branch growing on the side.
 
 Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
 imperatively and live [here](https://github.com/eljangus/dotfiles).
@@ -20,6 +21,10 @@ nh os switch .#wc
 nh os switch .#kde
 nh os switch .#gnome
 ```
+
+`darwinConfigurations.mac` exists in the flake but `hosts/mac` does not yet, so
+`nix flake check` will fail on that attribute until it does. The NixOS hosts are
+unaffected.
 
 ## Layout
 
@@ -45,51 +50,59 @@ nh os switch .#gnome
 │   ├── common
 │   │   ├── programs
 │   │   │   ├── common-pkgs.nix
-│   │   │   ├── dconf.nix
-│   │   │   ├── desktop-pkgs.nix
-│   │   │   ├── firefox.nix
-│   │   │   ├── fish.nix
-│   │   │   ├── gamescope.nix
-│   │   │   ├── git.nix
-│   │   │   ├── gpu-screen-recorder.nix
-│   │   │   ├── nh.nix
-│   │   │   ├── nvf.nix
-│   │   │   ├── steam.nix
-│   │   │   └── tack.nix
+│   │   │   └── fish.nix
 │   │   ├── system
-│   │   │   ├── desktops
-│   │   │   │   ├── gnome.nix
-│   │   │   │   ├── hyprland.nix
-│   │   │   │   ├── niri.nix
-│   │   │   │   ├── plasma6.nix
-│   │   │   │   └── sddm.nix
-│   │   │   ├── overlays
-│   │   │   │   ├── glaze.nix
-│   │   │   │   ├── qt6ct-kde.nix
-│   │   │   │   ├── sddm-astronaut.nix
-│   │   │   │   └── swash.nix
-│   │   │   ├── amdgpu.nix
-│   │   │   ├── boot.nix
-│   │   │   ├── environment.nix
 │   │   │   ├── fonts.nix
-│   │   │   ├── hardware.nix
-│   │   │   ├── locale.nix
 │   │   │   ├── nix.nix
-│   │   │   ├── openssh.nix
-│   │   │   ├── polkit.nix
-│   │   │   ├── services.nix
-│   │   │   ├── time.nix
-│   │   │   └── xkb.nix
+│   │   │   └── time.nix
 │   │   ├── default.nix
 │   │   └── options.nix
-│   └── home-manager
-│       ├── common-programs
-│       │   ├── default.nix
-│       │   ├── fish.nix
-│       │   └── starship.nix
-│       └── elias
-│           ├── default.nix
-│           └── xdg.nix
+│   ├── darwin
+│   │   └── default.nix
+│   ├── home-manager
+│   │   ├── common-programs
+│   │   │   ├── default.nix
+│   │   │   ├── fish.nix
+│   │   │   ├── git.nix
+│   │   │   ├── nh-darwin.nix
+│   │   │   ├── nvf.nix
+│   │   │   └── starship.nix
+│   │   └── elias
+│   │       ├── default.nix
+│   │       └── xdg.nix
+│   └── nixos
+│       ├── programs
+│       │   ├── dconf.nix
+│       │   ├── desktop-pkgs.nix
+│       │   ├── firefox.nix
+│       │   ├── gamescope.nix
+│       │   ├── gpu-screen-recorder.nix
+│       │   ├── nh.nix
+│       │   ├── steam.nix
+│       │   └── tack.nix
+│       ├── system
+│       │   ├── desktops
+│       │   │   ├── gnome.nix
+│       │   │   ├── hyprland.nix
+│       │   │   ├── niri.nix
+│       │   │   ├── plasma6.nix
+│       │   │   └── sddm.nix
+│       │   ├── overlays
+│       │   │   ├── glaze.nix
+│       │   │   ├── qt6ct-kde.nix
+│       │   │   ├── sddm-astronaut.nix
+│       │   │   └── swash.nix
+│       │   ├── amdgpu.nix
+│       │   ├── boot.nix
+│       │   ├── environment.nix
+│       │   ├── hardware.nix
+│       │   ├── locale.nix
+│       │   ├── openssh.nix
+│       │   ├── polkit.nix
+│       │   ├── services.nix
+│       │   └── xkb.nix
+│       ├── default.nix
+│       └── options.nix
 ├── patches
 │   └── qt6ct-shenanigans.patch
 ├── systems
@@ -108,8 +121,29 @@ nh os switch .#gnome
 
 ## Conventions
 
-Modules are toggled through a single option namespace declared in
-`modules/common/options.nix`:
+### The platform split is structural
+
+`modules/common` is imported by both `nixosSystem` and `darwinSystem`;
+`modules/nixos` and `modules/darwin` only by their own. This is not a
+stylistic choice, `lib.mkIf` does not protect against options that do not
+exist. The module system pushes the condition down to the leaves *before*
+checking option paths, so a disabled `mkIf false { boot.loader… = …; }` still
+registers `boot` as a defined attribute and nix-darwin will reject it. A module
+touching a NixOS-only option therefore has to be physically absent from the
+Darwin evaluation, not merely switched off.
+
+Rule of thumb for where a new module goes: if every option path it writes to
+exists in both NixOS and nix-darwin **and** every package it pulls in builds on
+both, it belongs in `common`. Otherwise `nixos` (or `darwin`).
+
+Cross-platform user-level things: git, nvf and starship live in
+`modules/home-manager` instead, which sidesteps the question entirely.
+
+### Options
+
+Modules are toggled through a single option namespace, declared in
+`modules/common/options.nix` for the shared modules and
+`modules/nixos/options.nix` for the Linux-only ones:
 
 ```nix
 myModules = {
@@ -120,20 +154,35 @@ myModules = {
 ```
 
 Every module is one `lib.mkIf` guarded on its own option, with nothing outside
-the guard. `lib/import-tree.nix` imports each directory recursively, skipping
-`default.nix` and any file prefixed with `_`, so adding a module is just adding
-a file. Users are generated by `lib/mk-user.nix`, which produces both the system
-account and the home-manager config from a name and a host.
+the guard. Most default to on; `gamescope`, `gpu-screen-recorder`, `openrgb`,
+`polkit`, `udev` and the overlays are opt-in and get switched on per host in
+`hosts/*/modules.nix` or `systems/Apollo/modules.nix`.
 
-Inputs are pinned with [tack](https://github.com/manic-systems/tack), so
-`.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
+### Adding a module
+
+`lib/import-tree.nix` imports each directory recursively, skipping `default.nix`
+and any file prefixed with `_`, so a new module is a new file plus its option
+declaration in the matching `options.nix`.
+
+### Users
+
+`lib/mk-user.nix` produces both the system account and the home-manager config
+from a name and a host. Darwin differences (home under `/Users`, no
+`isNormalUser`, `nh darwin` instead of `nh os`) are handled inside it.
+
+### Inputs
+
+Pinned with [tack](https://github.com/manic-systems/tack), so `.tack/pins.toml`
+is the source of truth and `nix flake update` does nothing. `tack update`
+refreshes the lock.
 
 ## Using it
 
 Tailored to my hardware. You'd need to replace
 `systems/Apollo/hardware-configuration.nix`, review
-`systems/Apollo/modules.nix`, and place hashed password files at
-`/etc/nixos/secrets/<user>.txt` before the first switch.
+`systems/Apollo/modules.nix`, set your own name and email in
+`modules/home-manager/common-programs/git.nix`, and place hashed password files
+at `/etc/nixos/secrets/<user>.txt` before the first switch.
 
 ## License
 

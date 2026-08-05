@@ -8,14 +8,10 @@
     environment.systemPackages = with pkgs; [
       # core
       killall
-      winetricks
-      wine
       nix-search-tv
       fzf
       eza
-      stow
       fastfetch
-      python3
       lazygit
       alejandra
       opencode

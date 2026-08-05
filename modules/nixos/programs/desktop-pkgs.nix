@@ -6,6 +6,11 @@
 }: {
   config = lib.mkIf config.myModules.programs.desktop-pkgs.enable {
     environment.systemPackages = with pkgs; [
+      # core linux
+      winetricks
+      wine
+      python3
+
       # media
       obs-studio
       mpv
