@@ -2,11 +2,9 @@
   myModules = {
     desktop = "niri";
     programs = {
-      base.enable = true; # base programs, on by default
       gpu-screen-recorder.enable = true;
     };
     system = {
-      base.enable = true; # base system, on by default
       overlays.enable = true;
       overlays.noctalia.enable = false;
       overlays.glaze.enable = false;

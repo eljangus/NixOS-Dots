@@ -103,20 +103,20 @@ in {
   };
 
   config = lib.mkMerge [
-    (lib.mkIf cfgPrograms.base.enable {
-      myModules.programs = lib.genAttrs baseProgramNames (name: {
+    (lib.mkIf config.nixpkgs.hostPlatform.isLinux {
+      myModules.programs = lib.genAttrs baseProgramNames (_: {
+        enable = lib.mkDefault true;
+      });
+
+      myModules.system = lib.genAttrs baseSystemNames (_: {
         enable = lib.mkDefault true;
       });
     })
-    (lib.mkIf cfgSystem.base.enable {
-      myModules.system = lib.genAttrs baseSystemNames (name: {
+
+    {
+      myModules.system.overlays = lib.genAttrs overlayNames (_: {
         enable = lib.mkDefault true;
       });
-    })
-    (lib.mkIf cfgOverlays.enable {
-      myModules.system.overlays = lib.genAttrs overlayNames (name: {
-        enable = lib.mkDefault true;
-      });
-    })
+    }
   ];
 }
