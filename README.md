@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/Home_Manager-Master-c6a0f6?style=for-the-badge&logo=nixos&logoColor=24273a" />&nbsp;
   <img src="https://img.shields.io/badge/Flakes-Enabled-d690e0?style=for-the-badge&logo=nixos&logoColor=24273a" />
   <br/>
-  <img src="https://img.shields.io/badge/Niri-Scrollable-f5a97f?style=for-the-badge&logoColor=24273a" />&nbsp;
+  <img src="https://img.shields.io/badge/Niri-WM-f5a97f?style=for-the-badge&logoColor=24273a" />&nbsp;
   <img src="https://img.shields.io/badge/Noctalia-Shell-7dc4e4?style=for-the-badge&logoColor=24273a" />&nbsp;
   <img src="https://img.shields.io/badge/nix--darwin-WIP-a6da95?style=for-the-badge&logoColor=24273a" />&nbsp;
   <img src="https://img.shields.io/badge/Inputs-tack-eed49f?style=for-the-badge&logoColor=24273a" />&nbsp;
