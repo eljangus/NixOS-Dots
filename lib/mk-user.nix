@@ -60,7 +60,7 @@ in {
         inherit stateVersion homeDirectory;
         username = name;
         sessionVariables = {
-          EDITOR = "vim";
+          EDITOR = "nvim";
         };
       };
 
