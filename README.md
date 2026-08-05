@@ -32,14 +32,17 @@ nh os switch .#kde
 nh os switch .#gnome
 ```
 
-`darwinConfigurations.mac` exists in the flake but `hosts/mac` does not yet, so
-`nix flake check` will fail on that attribute until it does. The NixOS hosts are
-unaffected.
+`darwinConfigurations.mac` exists in the flake but integrating nix-darwin is
+still a WIP.
 
 ## Layout
 
 ```
 .
+├── assets
+│   └── screenshots
+│       ├── 1.png
+│       └── 2.png
 ├── hosts
 │   ├── gnome
 │   │   ├── default.nix
@@ -49,6 +52,8 @@ unaffected.
 │   │   ├── default.nix
 │   │   ├── modules.nix
 │   │   └── pkgs.nix
+│   ├── mac
+│   │   └── default.nix
 │   └── wc
 │       ├── default.nix
 │       ├── modules.nix
@@ -74,12 +79,15 @@ unaffected.
 │   │   │   ├── default.nix
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
+│   │   │   ├── man.nix
 │   │   │   ├── nh-darwin.nix
 │   │   │   ├── nvf.nix
 │   │   │   └── starship.nix
-│   │   └── elias
-│   │       ├── default.nix
-│   │       └── xdg.nix
+│   │   ├── elias
+│   │   │   ├── default.nix
+│   │   │   └── xdg.nix
+│   │   └── melias
+│   │       └── default.nix
 │   └── nixos
 │       ├── programs
 │       │   ├── dconf.nix
@@ -116,16 +124,18 @@ unaffected.
 ├── patches
 │   └── qt6ct-shenanigans.patch
 ├── systems
-│   └── Apollo
+│   ├── Apollo
+│   │   ├── default.nix
+│   │   ├── hardware-configuration.nix
+│   │   ├── modules.nix
+│   │   └── networking.nix
+│   └── Mac
 │       ├── default.nix
-│       ├── hardware-configuration.nix
-│       ├── modules.nix
-│       └── networking.nix
+│       └── modules.nix
 ├── .tack
 │   ├── default.nix
 │   ├── pins.lock.json
 │   └── pins.toml
-├── flake.lock
 └── flake.nix
 ```
 
@@ -156,6 +166,7 @@ Modules are toggled through a single option namespace, declared in
 `modules/nixos/options.nix` for the Linux-only ones:
 
 ```nix
+# example
 myModules = {
   desktop = "niri";
   system.overlays.enable = true;
