@@ -1,11 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # overlay Packages
-    noctalia
-    sddm-astronaut
-    swash
-    qt6ct-kde
-
     # core
     kitty
     ddcutil
@@ -20,34 +14,9 @@
     wl-clip-persist
     kdePackages.kamera
     dconf-editor
-    zenity
 
-    # media
-    obs-studio
-    mpv
-    vesktop
-    easyeffects
-    spotify
-    imv
-
-    # Gaming
-    mangohud
-    heroic
+    # gaming
     osu-lazer-bin
-    prismlauncher
-
-    # web
-    chromium
-
-    # creativity
-    gimp
-
-    # fun
-    cava
-    btop
-    asciiquarium-transparent
-    cbonsai
-    unimatrix
 
     # theming
     pywalfox-native
@@ -59,5 +28,6 @@
     file-roller
     gnome-clocks
     decibels
+    noctalia
   ];
 }

@@ -12,19 +12,6 @@
     ];
 
     services.gnome.gnome-keyring.enable = true;
-    services.displayManager.defaultSession = "niri";
-    services.displayManager.sddm = {
-      enable = true;
-      package = pkgs.kdePackages.sddm;
-      theme = "sddm-astronaut-theme";
-      wayland.enable = true;
-      extraPackages = with pkgs; [
-        kdePackages.qtmultimedia
-        kdePackages.qtsvg
-        kdePackages.qtvirtualkeyboard
-        kdePackages.qtbase
-      ];
-    };
 
     xdg.portal = {
       enable = true;

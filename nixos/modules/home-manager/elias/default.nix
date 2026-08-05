@@ -1,7 +1,3 @@
 {importTree, ...}: {
-  imports =
-    [
-      ../common-programs
-    ]
-    ++ importTree ./.;
+  imports = importTree ./.;
 }

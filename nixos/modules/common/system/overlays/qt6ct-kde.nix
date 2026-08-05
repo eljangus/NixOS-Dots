@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   self,
   ...
@@ -19,5 +20,6 @@
         });
       })
     ];
+    environment.systemPackages = [pkgs.qt6ct-kde];
   };
 }

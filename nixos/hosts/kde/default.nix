@@ -6,7 +6,10 @@
   imports =
     [
       (self + "/systems/Apollo")
-      (self + "/users/kdelias")
+      (import (self + "/lib/mk-user.nix") {
+        name = "kdelias";
+        host = "kde";
+      })
     ]
     ++ importTree ./.;
 }

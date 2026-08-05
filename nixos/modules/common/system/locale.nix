@@ -3,8 +3,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.myModules.system.time.enable {
-    time.timeZone = "Europe/Berlin";
+  config = lib.mkIf config.myModules.system.locale.enable {
     i18n = {
       defaultLocale = "de_DE.UTF-8";
       extraLocaleSettings = {

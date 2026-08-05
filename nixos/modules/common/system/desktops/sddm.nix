@@ -3,11 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
-  config = lib.mkIf (config.myModules.desktop == "hyprland") {
-    programs.hyprland.enable = true;
+}: let
+  desktop = config.myModules.desktop;
+  sddmSessions = [
+    "niri"
+    "hyprland"
+  ];
+in {
+  config = lib.mkIf (lib.elem desktop sddmSessions) {
+    services.displayManager.defaultSession = desktop;
 
-    services.displayManager.defaultSession = "hyprland";
     services.displayManager.sddm = {
       enable = true;
       package = pkgs.kdePackages.sddm;
@@ -21,12 +26,6 @@
       ];
     };
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-        xdg-desktop-portal-gtk
-      ];
-    };
+    environment.systemPackages = [pkgs.sddm-astronaut];
   };
 }

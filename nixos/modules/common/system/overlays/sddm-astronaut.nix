@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: {
@@ -11,5 +12,6 @@
         };
       })
     ];
+    environment.systemPackages = [pkgs.sddm-astronaut];
   };
 }
