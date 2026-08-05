@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
-    "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
-    "lastModified": 1785531816
+    "rev": "a9bcd0057073751a54ce5fd4b0dc63a391b6f349",
+    "narHash": "sha256-nuRhZbDKkfh8S+/M5TvQLVYiRXnJlvGhhybFFZW4jx4=",
+    "lastModified": 1785936982
   },
   "nixpkgs": {
     "type": "tarball",
@@ -17,9 +17,9 @@
     "type": "github",
     "owner": "notashelf",
     "repo": "nvf",
-    "rev": "118286cd362be3f31700e55ae21ef71d169d06ea",
-    "narHash": "sha256-MWrMx8gFp6A/ueWDdT8mNM06G9Wh6GdFZlBBLdw/MQk=",
-    "lastModified": 1785805913
+    "rev": "64cbd0ffea1a76dc0248528985e1c8ee711fae99",
+    "narHash": "sha256-E7WXL/pYNph1ChKv4BixI9Pev6osdJL43322uZqLw5w=",
+    "lastModified": 1785857293
   },
   "swash": {
     "type": "github",
