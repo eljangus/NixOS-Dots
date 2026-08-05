@@ -1,5 +1,17 @@
 # ❄️ nixos
 
+<div align="center">
+
+**NixOS · Niri · Noctalia** — three desktops, one flake, zero regrets.
+
+![nixos](https://img.shields.io/badge/NixOS-5277C3?logo=nixos&logoColor=fff)
+![niri](https://img.shields.io/badge/niri-1D1D1D?logo=hyprland&logoColor=fff)
+![plasma](https://img.shields.io/badge/Plasma%206-0078D7?logo=linux&logoColor=fff)
+![gnome](https://img.shields.io/badge/GNOME-4A86CF?logo=gnome&logoColor=fff)
+![mit](https://img.shields.io/badge/license-MIT-blue)
+
+</div>
+
 My NixOS configuration. One machine, three systems, one module tree — with a
 nix-darwin branch growing on the side.
 
@@ -16,7 +28,19 @@ and live [here](https://github.com/eljangus/dotfiles).
 
 </div>
 
-## Hosts
+## ✨ Highlights
+
+- **One flake, three desktops** — Niri, Plasma 6 and GNOME all build the same
+  machine, `Apollo`; pick one with a single flag.
+- **A platform split that's structural** — shared modules physically avoid
+  NixOS-only options, so the same tree also evaluates as nix-darwin.
+- **Pinned by [tack](https://github.com/manic-systems/tack)** — `.tack/pins.toml`
+  is the source of truth, `nix flake update` does nothing.
+- **Opt-in everything** — overlays (`glaze`, `swash`, `qt6ct-kde`,
+  `sddm-astronaut`), gamescope, gpu-screen-recorder and friends stay off until a
+  host switches them on.
+
+## 🖥️ Hosts
 
 All three build the same machine, `Apollo`, with a different desktop and user:
 
@@ -35,7 +59,7 @@ nh os switch .#gnome
 `darwinConfigurations.mac` exists in the flake but integrating nix-darwin is
 still a WIP.
 
-## Layout
+## 🗂️ Layout
 
 ```
 .
@@ -139,7 +163,7 @@ still a WIP.
 └── flake.nix
 ```
 
-## Conventions
+## 🧠 Conventions
 
 ### The platform split is structural
 
@@ -197,14 +221,27 @@ Pinned with [tack](https://github.com/manic-systems/tack), so `.tack/pins.toml`
 is the source of truth and `nix flake update` does nothing. `tack update`
 refreshes the lock.
 
-## Using it
+## 🚀 Using it
 
-Tailored to my hardware. You'd need to replace
-`systems/Apollo/hardware-configuration.nix`, review
-`systems/Apollo/modules.nix`, set your own name and email in
-`modules/home-manager/common-programs/git.nix`, and place hashed password files
-at `/etc/nixos/secrets/<user>.txt` before the first switch.
+Tailored to my hardware. To get going, a quick try on a matching box:
 
-## License
+```bash
+# switch desktop of choice
+nh os switch .#wc     # Niri      (user: elias)
+nh os switch .#kde    # Plasma 6  (user: kdelias)
+nh os switch .#gnome  # GNOME     (user: gelias)
+```
+
+<details>
+<summary>First-time setup checklist</summary>
+
+- Replace `systems/Apollo/hardware-configuration.nix` with your own.
+- Review `systems/Apollo/modules.nix` for hardware-specific modules.
+- Set your name and email in `modules/home-manager/common-programs/git.nix`.
+- Place hashed password files at `/etc/nixos/secrets/<user>.txt`.
+
+</details>
+
+## 📄 License
 
 [MIT](LICENSE). Do what you like.
