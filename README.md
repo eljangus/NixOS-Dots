@@ -1,48 +1,28 @@
-<div align="center">
+# nixos
 
-# ❄️ NixOS · Niri · Noctalia
+My NixOS configuration. One machine, three systems, one module tree.
 
-**My personal NNN-stack dotfiles** — a declarative, reproducible Wayland desktop
-built on [NixOS](https://nixos.org), [Niri](https://github.com/YaLTeR/niri), and [Noctalia Shell](https://noctalia.dev).
+Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
+imperatively and live in [NixOS-Dots](https://github.com/eljangus/dotfiles).
 
-![Desktop Screenshot 1](./misc/images/screenshots/1.png)
-![Desktop Screenshot 2](./misc/images/screenshots/2.png)
+## Hosts
 
-</div>
+All three build the same machine, `Apollo`, with a different desktop and user:
 
----
+| Host    | User      | Desktop  |
+| ------- | --------- | -------- |
+| `wc`    | `elias`   | Niri     |
+| `kde`   | `kdelias` | Plasma 6 |
+| `gnome` | `gelias`  | GNOME    |
 
-## ✨ Overview
+```bash
+nh os switch .#wc
+```
 
-This repository is my daily-driver NixOS configuration, managed using a flake.
-One `nixos-rebuild` gets the whole system — window manager, shell,
-theming, and applications — into a known, reproducible state.
-
-| Component        | Role                                                       |
-|------------------|------------------------------------------------------------|
-| **NixOS**        | Declarative OS, atomic upgrades, rollbacks                 |
-| **Niri**         | Scrollable-tiling Wayland compositor                       |
-| **Noctalia**     | OpenGL-based bar, launcher, notifications & lockscreen     |
-
----
-
-## 🖥️ Features
-
-- 🧩 Fully declarative system + (partly) user configuration via flakes and home-manager
-- 🌀 Scrollable tiling with Niri — no floating chaos, no master/stack layout
-- 🌙 Cohesive theme tying bar, launcher, notifications, and lockscreen together via Noctalia
-- 🎨 Consistent theming across GTK/Qt app
-- 📦 Modular structure — hosts, users, and shared modules kept separate
-- 🔁 Reproducible: clone it on new hardware and boot the same desktop
-
----
-
-## 📁 Structure
+## Layout
 
 ```
 .
-├── flake.lock
-├── flake.nix
 ├── hosts
 │   ├── gnome
 │   │   ├── default.nix
@@ -57,140 +37,102 @@ theming, and applications — into a known, reproducible state.
 │       ├── modules.nix
 │       └── pkgs.nix
 ├── lib
-│   └── import-tree.nix
+│   ├── import-tree.nix
+│   └── mk-user.nix
 ├── modules
-│   ├── home-manager
-│   │   ├── common-programs
-│   │   │   ├── default.nix
+│   ├── common
+│   │   ├── programs
+│   │   │   ├── common-pkgs.nix
+│   │   │   ├── dconf.nix
+│   │   │   ├── desktop-pkgs.nix
+│   │   │   ├── firefox.nix
 │   │   │   ├── fish.nix
-│   │   │   └── starship.nix
-│   │   ├── elias
-│   │   │   ├── default.nix
-│   │   │   ├── home.nix
-│   │   │   ├── programs
-│   │   │   │   └── fish.nix
-│   │   │   └── xdg.nix
-│   │   ├── gelias
-│   │   │   ├── default.nix
-│   │   │   ├── home.nix
-│   │   │   └── programs
-│   │   │       └── fish.nix
-│   │   └── kdelias
-│   │       ├── default.nix
-│   │       ├── home.nix
-│   │       └── programs
-│   │           └── fish.nix
-│   └── nixos
-│       ├── default.nix
-│       ├── options.nix
-│       ├── programs
-│       │   ├── common-pkgs.nix
-│       │   ├── dconf.nix
-│       │   ├── firefox.nix
+│   │   │   ├── gamescope.nix
+│   │   │   ├── git.nix
+│   │   │   ├── gpu-screen-recorder.nix
+│   │   │   ├── nh.nix
+│   │   │   ├── nvf.nix
+│   │   │   ├── steam.nix
+│   │   │   └── tack.nix
+│   │   ├── system
+│   │   │   ├── desktops
+│   │   │   │   ├── gnome.nix
+│   │   │   │   ├── hyprland.nix
+│   │   │   │   ├── niri.nix
+│   │   │   │   ├── plasma6.nix
+│   │   │   │   └── sddm.nix
+│   │   │   ├── overlays
+│   │   │   │   ├── glaze.nix
+│   │   │   │   ├── qt6ct-kde.nix
+│   │   │   │   ├── sddm-astronaut.nix
+│   │   │   │   └── swash.nix
+│   │   │   ├── amdgpu.nix
+│   │   │   ├── boot.nix
+│   │   │   ├── environment.nix
+│   │   │   ├── fonts.nix
+│   │   │   ├── hardware.nix
+│   │   │   ├── locale.nix
+│   │   │   ├── nix.nix
+│   │   │   ├── openssh.nix
+│   │   │   ├── polkit.nix
+│   │   │   ├── services.nix
+│   │   │   ├── time.nix
+│   │   │   └── xkb.nix
+│   │   ├── default.nix
+│   │   └── options.nix
+│   └── home-manager
+│       ├── common-programs
+│       │   ├── default.nix
 │       │   ├── fish.nix
-│       │   ├── gamescope.nix
-│       │   ├── git.nix
-│       │   ├── gpu-screen-recorder.nix
-│       │   ├── nh.nix
-│       │   ├── nvf.nix
-│       │   ├── steam.nix
-│       │   └── tack.nix
-│       └── system
-│           ├── amdgpu.nix
-│           ├── boot.nix
-│           ├── desktops
-│           │   ├── gnome.nix
-│           │   ├── hyprland.nix
-│           │   ├── niri.nix
-│           │   └── plasma6.nix
-│           ├── environment.nix
-│           ├── fonts.nix
-│           ├── hardware.nix
-│           ├── nix.nix
-│           ├── noctalia-cachix.nix
-│           ├── overlays
-│           │   ├── glaze.nix
-│           │   ├── noctalia.nix
-│           │   ├── qt6ct-kde.nix
-│           │   ├── sddm-astronaut.nix
-│           │   └── swash.nix
-│           ├── polkit.nix
-│           ├── services.nix
-│           ├── time.nix
-│           ├── users
-│           └── xkb.nix
+│       │   └── starship.nix
+│       └── elias
+│           ├── default.nix
+│           └── xdg.nix
 ├── patches
 │   └── qt6ct-shenanigans.patch
 ├── systems
 │   └── Apollo
 │       ├── default.nix
 │       ├── hardware-configuration.nix
+│       ├── modules.nix
 │       └── networking.nix
 ├── .tack
 │   ├── default.nix
 │   ├── pins.lock.json
 │   └── pins.toml
-└── users
-    ├── elias
-    │   ├── default.nix
-    │   ├── home.nix
-    │   └── user.nix
-    ├── gelias
-    │   ├── default.nix
-    │   ├── home.nix
-    │   └── user.nix
-    └── kdelias
-        ├── default.nix
-        ├── home.nix
-        └── user.nix
+├── flake.lock
+└── flake.nix
 ```
 
----
+## Conventions
 
-## 🚀 Installation
+Modules are toggled through a single option namespace declared in
+`modules/common/options.nix`:
 
-> ⚠️ This config is tailored to my hardware. You'll need to edit hardware-specific
-> options before using it as-is, furthermore you will need to generated the hashed passwords tied to specific users into /etc/nixos.
-
-```bash
-# Clone the repo
-git clone git@github.com:eljangus/NixOS-Dots.git
-cd NixOS-Dots
-
-# Review and edit hardware-configuration.nix and host settings for your machine
-
-# Rebuild
-sudo nixos-rebuild switch --flake .#<hostname>
+```nix
+myModules = {
+  desktop = "niri";
+  system.overlays.enable = true;
+  programs.gpu-screen-recorder.enable = true;
+};
 ```
 
----
+Every module is one `lib.mkIf` guarded on its own option, with nothing outside
+the guard. `lib/import-tree.nix` imports each directory recursively, skipping
+`default.nix` and any file prefixed with `_`, so adding a module is just adding
+a file. Users are generated by `lib/mk-user.nix`, which produces both the system
+account and the home-manager config from a name and a host.
 
-## ⌨️ Important Keybindings for Niri and Hyprland
+Inputs are pinned with [tack](https://github.com/manic-systems/tack), so
+`.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
 
-| Keybind         | Action                   |
-|-----------------|--------------------------|
-| `Mod + Q`       | Open terminal            |
-| `Mod + R`       | App launcher (Noctalia)  |
-| `Mod + C`       | Close window             |
-| `Mod + Scroll`  | Navigate workspaces      |
+## Using it
 
----
+Tailored to my hardware. You'd need to replace
+`systems/Apollo/hardware-configuration.nix`, review
+`systems/Apollo/modules.nix`, and place hashed password files at
+`/etc/nixos/secrets/<user>.txt` before the first switch.
 
-## 🙏 Credits
+## License
 
-- [NixOS](https://nixos.org) — the declarative OS that makes this possible
-- [Niri](https://github.com/YaLTeR/niri) — scrollable-tiling Wayland compositor
-- [Noctalia Shell](https://noctalia.dev) — the desktop shell tying it all together
-- [Noctalia Discord](https://discord.noctalia.dev/) - the people in the discord are super helpful and friendly and have inspired a me a lot in the creation of this setup
-- Everyone in the NNN-stack community whose configs inspired parts of this one
-
----
-
-## 📄 License
-
-[MIT](LICENSE) — use it, copy it, break it. No warranty.
-
-Images in `misc/images/` are **not** covered — they are the property of their
-respective artists and are included here only as personal assets (avatars,
-wallpapers, etc.). Do not redistribute them.
-
+[MIT](LICENSE). Do what you like.
