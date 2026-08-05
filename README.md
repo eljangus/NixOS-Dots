@@ -1,4 +1,4 @@
-# nixos
+# ❄️ nixos
 
 My NixOS configuration. One machine, three systems, one module tree.
 
