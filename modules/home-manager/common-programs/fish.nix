@@ -3,6 +3,7 @@
     fish = {
       enable = true;
       functions = {
+        fish_greeting = "";
         ps5 = ''
           set battery_paths /sys/class/power_supply/ps-controller-battery-*
           if not set -q battery_paths[1]
@@ -24,9 +25,6 @@
           echo "🎮 PS5 Controller: [$bar] $capacity% ($battery_status)"
         '';
       };
-      shellInit = ''
-        set -U fish_greeting ""
-      '';
       shellAliases = {
         ncg = "nh clean all";
         lg = "lazygit";
