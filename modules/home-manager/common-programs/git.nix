@@ -1,13 +1,13 @@
 {...}: {
   programs.git = {
     enable = true;
-    
 
     settings = {
       user = {
         name = "Elias Schlosser";
-        email = "eljangus@example.com";
+        email = "eljangus@gmail.com";
       };
-    init.defaultBranch = "main";
+      init.defaultBranch = "main";
+    };
   };
 }
