@@ -13,9 +13,9 @@
       eza
       fastfetch
       lazygit
-      alejandra
       opencode
       opencode-claude-auth
+      nixfmt
 
       # texteditor
       vscodium

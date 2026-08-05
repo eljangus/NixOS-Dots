@@ -1,10 +1,20 @@
 # ❄️ nixos
 
-My NixOS configuration. One machine, three systems, one module tree —
-with a nix-darwin branch growing on the side.
+My NixOS configuration. One machine, three systems, one module tree — with a
+nix-darwin branch growing on the side.
 
-Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
-imperatively and live [here](https://github.com/eljangus/dotfiles).
+Application dotfiles (niri, noctalia, fastfetch, kitty) are managed imperatively
+and live [here](https://github.com/eljangus/dotfiles).
+
+<div align="center">
+
+## ❄️ NixOS · Niri · Noctalia
+
+**My main NNN-stack configuration** - using `wc` as the host.
+
+![ss1](./assets/screenshots/1.png) !(ss2)(./assets/screenshots/2.png)
+
+</div>
 
 ## Hosts
 
@@ -124,13 +134,13 @@ unaffected.
 ### The platform split is structural
 
 `modules/common` is imported by both `nixosSystem` and `darwinSystem`;
-`modules/nixos` and `modules/darwin` only by their own. This is not a
-stylistic choice, `lib.mkIf` does not protect against options that do not
-exist. The module system pushes the condition down to the leaves *before*
-checking option paths, so a disabled `mkIf false { boot.loader… = …; }` still
-registers `boot` as a defined attribute and nix-darwin will reject it. A module
-touching a NixOS-only option therefore has to be physically absent from the
-Darwin evaluation, not merely switched off.
+`modules/nixos` and `modules/darwin` only by their own. This is not a stylistic
+choice, `lib.mkIf` does not protect against options that do not exist. The
+module system pushes the condition down to the leaves _before_ checking option
+paths, so a disabled `mkIf false { boot.loader… = …; }` still registers `boot`
+as a defined attribute and nix-darwin will reject it. A module touching a
+NixOS-only option therefore has to be physically absent from the Darwin
+evaluation, not merely switched off.
 
 Rule of thumb for where a new module goes: if every option path it writes to
 exists in both NixOS and nix-darwin **and** every package it pulls in builds on
