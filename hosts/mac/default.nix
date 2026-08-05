@@ -7,8 +7,9 @@
     [
       (self + "/systems/Mac")
       (import (self + "/lib/mk-user.nix") {
-        name = "melias";
+        name = "elias";
         host = "mac";
+        hmModules = [(self + "/modules/home-manager/mac-elias")];
       })
     ]
     ++ importTree ./.;
