@@ -12,7 +12,7 @@ and live [here](https://github.com/eljangus/dotfiles).
 
 **My main NNN-stack configuration** - using `wc` as the host.
 
-![ss1](./assets/screenshots/1.png) !(ss2)(./assets/screenshots/2.png)
+![ss1](./assets/screenshots/1.png) ![ss2](./assets/screenshots/2.png)
 
 </div>
 
