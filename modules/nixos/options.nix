@@ -17,7 +17,7 @@ in {
   options.myModules = {
     programs = {
       dconf.enable = lib.mkEnableOption "dconf";
-      desktop-pkgs.enable = lib.mkEnableOption "common desktop applications";
+      desktop-pkgs.enable = lib.mkEnableOption "enable desktop packages";
       firefox.enable = lib.mkEnableOption "Firefox";
       gamescope.enable = lib.mkEnableOption "Gamescope";
       gpu-screen-recorder.enable = lib.mkEnableOption "GPU Screen Recorder";
