@@ -6,3 +6,4 @@ community-templates
 plugins
 flake.lock
 nix.conf
+.DS_Store
