@@ -13,6 +13,7 @@ in {
   options.myModules = {
     programs = {
       desktop-pkgs.enable = lib.mkEnableOption "enable desktop packages";
+      omniwm.enable = lib.mkEnableOption "enable omniwm";
     };
 
     system = {
