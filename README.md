@@ -57,103 +57,116 @@ nh darwin switch .#mac # macos
 
 ```
 .
-├── assets
-│   └── screenshots
-│       ├── 1.png
-│       └── 2.png
-├── hosts
-│   ├── gnome
-│   │   ├── default.nix
-│   │   ├── modules.nix
-│   │   └── pkgs.nix
-│   ├── kde
-│   │   ├── default.nix
-│   │   ├── modules.nix
-│   │   └── pkgs.nix
-│   ├── mac
-│   │   └── default.nix
-│   └── wc
-│       ├── default.nix
-│       ├── modules.nix
-│       └── pkgs.nix
-├── lib
-│   ├── import-tree.nix
-│   └── mk-user.nix
-├── modules
-│   ├── common
-│   │   ├── programs
-│   │   │   ├── common-pkgs.nix
-│   │   │   └── fish.nix
-│   │   ├── system
-│   │   │   ├── fonts.nix
-│   │   │   ├── nix.nix
-│   │   │   └── time.nix
-│   │   ├── default.nix
-│   │   └── options.nix
-│   ├── darwin
-│   │   └── default.nix
-│   ├── home-manager
-│   │   ├── common-programs
-│   │   │   ├── default.nix
-│   │   │   ├── fish.nix
-│   │   │   ├── git.nix
-│   │   │   ├── man.nix
-│   │   │   ├── nh-darwin.nix
-│   │   │   ├── nvf.nix
-│   │   │   └── starship.nix
-│   │   ├── elias
-│   │   │   ├── default.nix
-│   │   │   └── xdg.nix
-│   │   └── melias
-│   │       └── default.nix
-│   └── nixos
-│       ├── programs
-│       │   ├── dconf.nix
-│       │   ├── desktop-pkgs.nix
-│       │   ├── firefox.nix
-│       │   ├── gamescope.nix
-│       │   ├── gpu-screen-recorder.nix
-│       │   ├── nh.nix
-│       │   ├── steam.nix
-│       │   └── tack.nix
-│       ├── system
-│       │   ├── desktops
-│       │   │   ├── gnome.nix
-│       │   │   ├── hyprland.nix
-│       │   │   ├── niri.nix
-│       │   │   ├── plasma6.nix
-│       │   │   └── sddm.nix
-│       │   ├── overlays
-│       │   │   ├── glaze.nix
-│       │   │   ├── qt6ct-kde.nix
-│       │   │   ├── sddm-astronaut.nix
-│       │   │   └── swash.nix
-│       │   ├── amdgpu.nix
-│       │   ├── boot.nix
-│       │   ├── environment.nix
-│       │   ├── hardware.nix
-│       │   ├── locale.nix
-│       │   ├── openssh.nix
-│       │   ├── polkit.nix
-│       │   ├── services.nix
-│       │   └── xkb.nix
-│       ├── default.nix
-│       └── options.nix
-├── patches
-│   └── qt6ct-shenanigans.patch
-├── systems
-│   ├── Apollo
-│   │   ├── default.nix
-│   │   ├── hardware-configuration.nix
-│   │   ├── modules.nix
-│   │   └── networking.nix
-│   └── Mac
-│       ├── default.nix
-│       └── modules.nix
 ├── .tack
-│   ├── default.nix
-│   ├── pins.lock.json
-│   └── pins.toml
+│   ├── default.nix
+│   ├── pins.lock.json
+│   └── pins.toml
+├── assets
+│   └── screenshots
+│       ├── 1.png
+│       ├── 2.png
+│       └── 3.png
+├── hosts
+│   ├── gnome
+│   │   ├── default.nix
+│   │   ├── modules.nix
+│   │   └── pkgs.nix
+│   ├── kde
+│   │   ├── default.nix
+│   │   ├── modules.nix
+│   │   └── pkgs.nix
+│   ├── mac
+│   │   ├── default.nix
+│   │   ├── modules.nix
+│   │   └── pkgs.nix
+│   └── wc
+│       ├── default.nix
+│       ├── modules.nix
+│       └── pkgs.nix
+├── lib
+│   ├── import-tree.nix
+│   └── mk-user.nix
+├── modules
+│   ├── common
+│   │   ├── programs
+│   │   │   ├── common-pkgs.nix
+│   │   │   └── fish.nix
+│   │   ├── system
+│   │   │   ├── fonts.nix
+│   │   │   └── nix.nix
+│   │   ├── default.nix
+│   │   └── options.nix
+│   ├── darwin
+│   │   ├── programs
+│   │   │   ├── desktop-pkgs.nix
+│   │   │   └── omniwm.nix
+│   │   ├── system
+│   │   │   ├── homebrew.nix
+│   │   │   └── touchid.nix
+│   │   ├── default.nix
+│   │   └── options.nix
+│   ├── home-manager
+│   │   ├── common-programs
+│   │   │   ├── default.nix
+│   │   │   ├── fish.nix
+│   │   │   ├── git.nix
+│   │   │   ├── nvf.nix
+│   │   │   └── starship.nix
+│   │   ├── darwin-programs
+│   │   │   ├── default.nix
+│   │   │   ├── man.nix
+│   │   │   └── nh.nix
+│   │   ├── elias
+│   │   │   ├── default.nix
+│   │   │   └── xdg.nix
+│   │   └── mac-elias
+│   │       ├── default.nix
+│   │       └── home.nix
+│   └── nixos
+│       ├── programs
+│       │   ├── dconf.nix
+│       │   ├── desktop-pkgs.nix
+│       │   ├── firefox.nix
+│       │   ├── gamescope.nix
+│       │   ├── gpu-screen-recorder.nix
+│       │   ├── nh.nix
+│       │   ├── steam.nix
+│       │   └── tack.nix
+│       ├── system
+│       │   ├── desktops
+│       │   │   ├── gnome.nix
+│       │   │   ├── hyprland.nix
+│       │   │   ├── niri.nix
+│       │   │   ├── plasma6.nix
+│       │   │   └── sddm.nix
+│       │   ├── overlays
+│       │   │   ├── glaze.nix
+│       │   │   ├── qt6ct-kde.nix
+│       │   │   ├── sddm-astronaut.nix
+│       │   │   └── swash.nix
+│       │   ├── amdgpu.nix
+│       │   ├── boot.nix
+│       │   ├── environment.nix
+│       │   ├── hardware.nix
+│       │   ├── locale.nix
+│       │   ├── openssh.nix
+│       │   ├── polkit.nix
+│       │   ├── services.nix
+│       │   ├── time.nix
+│       │   └── xkb.nix
+│       ├── default.nix
+│       └── options.nix
+├── patches
+│   └── qt6ct-shenanigans.patch
+├── systems
+│   ├── Apollo
+│   │   ├── default.nix
+│   │   ├── hardware-configuration.nix
+│   │   ├── modules.nix
+│   │   └── networking.nix
+│   └── Mac
+│       ├── default.nix
+│       └── modules.nix
 └── flake.nix
 ```
 
