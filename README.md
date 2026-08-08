@@ -4,9 +4,9 @@
 
 **My personal NixOS/Nix-Darwin setup with support for multiple hosts.**
 
-> ## Note
-> Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
-> imperatively and live [**here**](https://github.com/eljangus/dotfiles).
+### Note
+Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
+imperatively and live [**here**](https://github.com/eljangus/dotfiles).
 
 </div>
 <div align="center">
