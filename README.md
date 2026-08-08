@@ -2,21 +2,9 @@
 
 # ❄️ nixos
 
-**One machine. Three desktops. One module tree.**
-*…with a nix-darwin branch growing on the side.*
+**My personal NixOS/Nix-Darwin setup with support for multiple hosts.**
 
 </div>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/NixOS-Unstable-8aadf4?style=for-the-badge&logo=nixos&logoColor=24273a" />&nbsp;
-  <img src="https://img.shields.io/badge/Home_Manager-Master-c6a0f6?style=for-the-badge&logo=nixos&logoColor=24273a" />&nbsp;
-  <img src="https://img.shields.io/badge/Flakes-Enabled-d690e0?style=for-the-badge&logo=nixos&logoColor=24273a" />
-  <br/>
-  <img src="https://img.shields.io/badge/Niri-WM-f5a97f?style=for-the-badge&logoColor=24273a" />&nbsp;
-  <img src="https://img.shields.io/badge/Noctalia-Shell-7dc4e4?style=for-the-badge&logoColor=24273a" />&nbsp;
-  <img src="https://img.shields.io/badge/nix--darwin-WIP-a6da95?style=for-the-badge&logoColor=24273a" />&nbsp;
-  <img src="https://img.shields.io/badge/Inputs-tack-eed49f?style=for-the-badge&logoColor=24273a" />&nbsp;
-</p>
 
 > [!NOTE]
 > Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
@@ -26,7 +14,7 @@
 
 ## ❄️ NixOS · Niri · Noctalia
 
-**The NNN stack** — running on `wc`.
+**The NNN stack** — running on `wc` and my main setup.
 
 ![ss1](./assets/screenshots/1.png) ![ss2](./assets/screenshots/2.png)
 
@@ -36,27 +24,34 @@
 
 ## 🖥️ Hosts
 
-All three build the same machine, **`Apollo`**, with a different desktop and
+3 build the same machine, **`Apollo`**, with a different desktop and
 user bolted on top:
 
 <div align="center">
 
-| Host    | User      | Desktop     | Vibe                          |
-| :-----: | :-------: | :---------: | :---------------------------- |
-| `wc`    | `elias`   | Niri        | 🌊 the daily driver           |
-| `kde`   | `kdelias` | Plasma 6    | 🧩 when I want every knob      |
-| `gnome` | `gelias`  | GNOME       | 🪟 when I want none of them    |
+| Host    | User      | Desktop     | Purpose                                |
+| :-----: | :-------: | :---------: | :------------------------------------: |
+| `wc`    | `elias`   | Niri        | Daily driver                           |
+| `kde`   | `kdelias` | Plasma 6    | For when I want a customizable desktop |
+| `gnome` | `gelias`  | GNOME       | For when I want a good desktop OOTB    | 
+</div>
+<div align="center">
+
+And 1 builds on my MacBook Pro, **`Mac`**, with MacOS running OmniWM:
+
+| Host    | User      | Desktop     | Purpose                                |
+| :-----: | :-------: | :---------: | :------------------------------------: |
+| `mac`   | `elias`   | OmniWM      | Productivity device for University     |
 
 </div>
 
 ```bash
 nh os switch .#wc      # niri
-nh os switch .#kde     # plasma 6
+nh os switch .#kde     # plasma 
 nh os switch .#gnome   # gnome
+:-------------------------------:
+nh darwin switch .#mac # macos
 ```
-
-`darwinConfigurations.mac` exists in the flake, but integrating nix-darwin is
-still very much a 🚧 **WIP**.
 
 ---
 
@@ -171,13 +166,13 @@ still very much a 🚧 **WIP**.
 
 **The short version:**
 
-| Directory        | What lives there                                            |
-| :--------------- | :---------------------------------------------------------- |
-| `hosts/`         | Per-desktop entry points — which modules, which packages      |
+| Directory        | What lives there                                              |
+| :--------------: | :-----------------------------------------------------------: |
+| `hosts/`         | Per-desktop entry points, which modules, which packages       |
 | `systems/`       | Per-machine hardware, networking, machine-wide toggles        |
 | `modules/`       | The actual configuration, split by platform                   |
-| `lib/`           | `import-tree` and `mk-user`, the two bits of glue             |
-| `.tack/`         | Input pins — the real lockfile                                |
+| `lib/`           | `import-tree` and `mk-user`, two helpful libraries            |
+| `.tack/`         | Input pins, the real lockfile replacing flake.lock            | 
 
 ---
 
@@ -188,26 +183,12 @@ still very much a 🚧 **WIP**.
 `modules/common` is imported by both `nixosSystem` and `darwinSystem`;
 `modules/nixos` and `modules/darwin` only by their own.
 
-> [!IMPORTANT]
-> This is not a stylistic choice. `lib.mkIf` does not protect against options
-> that do not exist. The module system pushes the condition down to the leaves
-> _before_ checking option paths, so a disabled `mkIf false { boot.loader… = …; }`
-> still registers `boot` as a defined attribute — and nix-darwin will reject it.
-> A module touching a NixOS-only option therefore has to be **physically absent**
-> from the Darwin evaluation, not merely switched off.
-
-**Rule of thumb for a new module:** if every option path it writes to exists in
-both NixOS and nix-darwin **and** every package it pulls in builds on both, it
-belongs in `common`. Otherwise `nixos` (or `darwin`).
-
-Cross-platform user-level things — git, nvf, starship — live in
-`modules/home-manager` instead, which sidesteps the question entirely.
-
 ### Options
 
 Modules are toggled through a single option namespace, declared in
-`modules/common/options.nix` for the shared modules and
-`modules/nixos/options.nix` for the Linux-only ones:
+`modules/common/options.nix` for the shared modules,
+`modules/nixos/options.nix` for the Linux-only ones and
+`modules/darwin/options.nix` for the Darwin-only ones:
 
 ```nix
 # example
@@ -217,11 +198,9 @@ myModules = {
   programs.gpu-screen-recorder.enable = true;
 };
 ```
-
-Every module is one `lib.mkIf` guarded on its own option, with nothing outside
-the guard. Most default to on; `gamescope`, `gpu-screen-recorder`, `openrgb`,
-`polkit`, `udev` and the overlays are opt-in and get switched on per host in
-`hosts/*/modules.nix` or `systems/Apollo/modules.nix`.
+Every modules is a lib.mkIf statement, therefore to use a module importing
+it is not enough, it would usually also have to be enabled, for options see
+the respective options.nix file.
 
 ### Adding a module
 
@@ -231,53 +210,48 @@ and any file prefixed with `_`. So a new module is:
 1. a new file, and
 2. its option declaration in the matching `options.nix`.
 
-That's it. No import list to update.
+That's it .
 
 ### Users
 
 `lib/mk-user.nix` produces both the system account and the home-manager config
-from a name and a host. Darwin differences — home under `/Users`, no
-`isNormalUser`, `nh darwin` instead of `nh os` — are handled inside it.
+from a name and a host. 
 
 ### Inputs
 
 Pinned with [**tack**](https://github.com/manic-systems/tack), so
 `.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
-`tack update` refreshes the lock.
+`tack update` refreshes the lock/inputs.
 
 ---
 
 ## 🧪 Using it
 
 > [!WARNING]
-> This is tailored to my hardware. Copying it wholesale will not boot your
-> machine.
+> This is tailored to my hardware. Simply copying it won't be enough.
 
 Before the first switch you'd need to:
 
-- [ ] Replace `systems/Apollo/hardware-configuration.nix`
-- [ ] Review `systems/Apollo/modules.nix`
-- [ ] Set your own name and email in
+- Replace `systems/Apollo/hardware-configuration.nix`
+- Review `systems/Apollo/modules.nix` and/or `systems/Mac/modules.nix`
+- Set your own name and email in
       `modules/home-manager/common-programs/git.nix`
-- [ ] Place hashed password files at `/etc/nixos/secrets/<user>.txt`
+- Place hashed password files at `/etc/nixos/secrets/<user>.txt`
 
 ---
 
 ## 💜 Credits
 
 Big thanks to the people in the **#nixos** channel of the
-[**Noctalia Discord**](https://github.com/noctalia-dev/noctalia-shell) — for the
-inspiration, the shared configs, the "why is `mkIf` doing that" debugging
-sessions, and generally for making the rabbit hole a much more pleasant place to
-fall down. A lot of what's in this repo started as something someone posted
-there.
+[**Noctalia Discord**](https://github.com/noctalia-dev/noctalia-shell)
+some honorable mentions:
+- [*onoruu*](https://onoruu.neocities.org/)
+- [*Stella*](https://github.com/iStellanova/stellyrland)
+- [*Stalkingwolf*](https://github.com/Stalkingwolf23-glitch/nixos-dotfiles)
+- [*Aria*](https://codeberg.org/princearia/nixos)
 
 ---
 
 ## 📄 License
 
-[MIT](LICENSE). Do what you like.
-
-<div align="center">
-<sub>built with ❄️ and far too many rebuilds</sub>
-</div>
+[MIT](LICENSE).
