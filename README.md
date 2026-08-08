@@ -12,7 +12,7 @@ imperatively and live [**here**](https://github.com/eljangus/dotfiles).
 
 ## ❄️ NixOS · Niri · Noctalia
 
-**The NNN stack** — running on `wc` and my main setup.
+**The NNN stack**, running on `wc` and my main setup.
 
 ![ss1](./assets/screenshots/1.png) ![ss2](./assets/screenshots/2.png)
 
@@ -25,15 +25,11 @@ imperatively and live [**here**](https://github.com/eljangus/dotfiles).
 3 build the same machine, **`Apollo`**, with a different desktop and
 user bolted on top:
 
-<div align="center">
-
 | Host    | User      | Desktop     | Purpose                                |
 | :-----: | :-------: | :---------: | :------------------------------------: |
 | `wc`    | `elias`   | Niri        | Daily driver                           |
 | `kde`   | `kdelias` | Plasma 6    | For when I want a customizable desktop |
 | `gnome` | `gelias`  | GNOME       | For when I want a good desktop OOTB    | 
-</div>
-<div align="center">
 
 And 1 builds on my MacBook Pro, **`Mac`**, with MacOS running OmniWM:
 
@@ -41,7 +37,6 @@ And 1 builds on my MacBook Pro, **`Mac`**, with MacOS running OmniWM:
 | :-----: | :-------: | :---------: | :------------------------------------: |
 | `mac`   | `elias`   | OmniWM      | Productivity device for University     |
 
-</div>
 
 ```bash
 nh os switch .#wc      # niri
@@ -176,7 +171,7 @@ nh darwin switch .#mac # macos
 
 ## 📐 Conventions
 
-### The platform split is structural
+### The platforms are split 
 
 `modules/common` is imported by both `nixosSystem` and `darwinSystem`;
 `modules/nixos` and `modules/darwin` only by their own.
@@ -197,8 +192,8 @@ myModules = {
 };
 ```
 Every modules is a lib.mkIf statement, therefore to use a module importing
-it is not enough, it would usually also have to be enabled, for options see
-the respective options.nix file.
+it is not enough, it would also have to be enabled. for options seethe
+respective options.nix file.
 
 ### Adding a module
 
@@ -232,8 +227,7 @@ Before the first switch you'd need to:
 
 - Replace `systems/Apollo/hardware-configuration.nix`
 - Review `systems/Apollo/modules.nix` and/or `systems/Mac/modules.nix`
-- Set your own name and email in
-      `modules/home-manager/common-programs/git.nix`
+- Set your own name and email in `modules/home-manager/common-programs/git.nix`
 - Place hashed password files at `/etc/nixos/secrets/<user>.txt`
 
 ---
