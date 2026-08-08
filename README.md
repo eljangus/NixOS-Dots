@@ -1,5 +1,3 @@
-<div align="center">
-
 # ❄️ nixos
 
 **My personal NixOS/Nix-Darwin setup with support for multiple hosts.**
@@ -7,7 +5,6 @@
 Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
 imperatively and live [**here**](https://github.com/eljangus/dotfiles).
 
-</div>
 <div align="center">
 
 ## ❄️ NixOS · Niri · Noctalia
@@ -16,6 +13,11 @@ imperatively and live [**here**](https://github.com/eljangus/dotfiles).
 
 ![ss1](./assets/screenshots/1.png) ![ss2](./assets/screenshots/2.png)
 
+## 🍏 Nix-Darwin 
+
+**MacOS running OmniWM and Nix-Darwin, my university and productivity setup.**
+
+![ss3](./assets/screenshots/3.png)
 </div>
 
 ---
@@ -178,7 +180,7 @@ nh darwin switch .#mac # macos
 
 ### Options
 
-Modules are toggled through a single option namespace, declared in
+Modules are toggled through a single option namespace, declared in:
 `modules/common/options.nix` for the shared modules,
 `modules/nixos/options.nix` for the Linux-only ones and
 `modules/darwin/options.nix` for the Darwin-only ones:
@@ -191,14 +193,11 @@ myModules = {
   programs.gpu-screen-recorder.enable = true;
 };
 ```
-Every modules is a lib.mkIf statement, therefore to use a module importing
-it is not enough, it would also have to be enabled. for options seethe
-respective options.nix file.
+Every modules is a lib.mkIf statement, therefore to use a module importing it is not enough, it would also have to be enabled. for options see the respective options.nix file.
 
 ### Adding a module
 
-`lib/import-tree.nix` imports each directory recursively, skipping `default.nix`
-and any file prefixed with `_`. So a new module is:
+`lib/import-tree.nix` imports each directory recursively, skipping `default.nix` and any file prefixed with `_`. So a new module is:
 
 1. a new file, and
 2. its option declaration in the matching `options.nix`.
@@ -207,13 +206,11 @@ That's it .
 
 ### Users
 
-`lib/mk-user.nix` produces both the system account and the home-manager config
-from a name and a host. 
+`lib/mk-user.nix` produces both the system account and the home-manager config from a name and a host. 
 
 ### Inputs
 
-Pinned with [**tack**](https://github.com/manic-systems/tack), so
-`.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
+Pinned with [**tack**](https://github.com/manic-systems/tack), so `.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
 `tack update` refreshes the lock/inputs.
 
 ---
@@ -241,6 +238,7 @@ some honorable mentions:
 - [*Stella*](https://github.com/iStellanova/stellyrland)
 - [*Stalkingwolf*](https://github.com/Stalkingwolf23-glitch/nixos-dotfiles)
 - [*Aria*](https://codeberg.org/princearia/nixos)
+- [*sam*](https://github.com/samiser/nix-configs)
 
 ---
 
