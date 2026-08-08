@@ -157,7 +157,7 @@ nh darwin switch .#mac # macos
 
 </details>
 
-**The short version:**
+**short:**
 
 | Directory        | What lives there                                              |
 | :--------------: | :-----------------------------------------------------------: |
