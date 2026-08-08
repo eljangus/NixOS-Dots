@@ -33,7 +33,7 @@
         cff3 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/Schlosser/config.jsonc";
         cff4 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/kitty/config.jsonc";
         cff5 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/frieren/config.jsonc";
-        cff6 = "reset && python3 ~/.config/fastfetch/other-configs/bunnyfetch/bunnyfetch.py";
+        cff6 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/bunnyfetch/config.jsonc";
         ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
         ls = "eza -la --icons";
       };

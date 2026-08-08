@@ -18,14 +18,13 @@ in {
 
     system = {
       homebrew.enable = lib.mkEnableOption "enable homebrew";
+      touchid.enable = lib.mkEnableOption "enable touchid";
       overlays = {
         enable = lib.mkEnableOption "all overlays (master switch)";
       };
     };
   };
 
-  # opt-in, set per host: gamescope, gpu-screen-recorder,
-  # openrgb, polkit, udev, overlays
   config.myModules = {
     programs = {
       desktop-pkgs = enabled;
@@ -34,6 +33,7 @@ in {
     system =
       {
         homebrew = enabled;
+        touchid = enabled;
       }
       // {
         overlays = lib.genAttrs overlayNames (_: {
